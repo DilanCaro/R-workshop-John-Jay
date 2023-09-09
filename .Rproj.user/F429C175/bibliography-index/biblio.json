@@ -81,7 +81,7 @@
                     ]
                 ]
             },
-            "note": "R package version 1.42",
+            "note": "R package version 1.43",
             "title": "Knitr: A general-purpose package for dynamic report generation in r",
             "title-short": "Knitr",
             "type": "book"
@@ -96,6 +96,10 @@
                 {
                     "family": "Xie",
                     "given": "Yihui"
+                },
+                {
+                    "family": "Dervieux",
+                    "given": "Christophe"
                 },
                 {
                     "family": "McPherson",
@@ -138,7 +142,7 @@
                     ]
                 ]
             },
-            "note": "R package version 2.20",
+            "note": "R package version 2.24",
             "title": "Rmarkdown: Dynamic documents for r",
             "title-short": "Rmarkdown",
             "type": "book"
@@ -226,6 +230,7 @@
             "type": "chapter"
         },
         {
+            "ISBN": "9781138359338",
             "URL": "https://bookdown.org/yihui/rmarkdown",
             "author": [
                 {
@@ -249,7 +254,6 @@
                     ]
                 ]
             },
-            "note": "ISBN 9781138359338",
             "publisher": "Chapman; Hall/CRC",
             "publisher-place": "Boca Raton, Florida",
             "title": "R markdown: The definitive guide",
@@ -257,6 +261,7 @@
             "type": "book"
         },
         {
+            "ISBN": "9780367563837",
             "URL": "https://bookdown.org/yihui/rmarkdown-cookbook",
             "author": [
                 {
@@ -280,7 +285,6 @@
                     ]
                 ]
             },
-            "note": "ISBN 9780367563837",
             "publisher": "Chapman; Hall/CRC",
             "publisher-place": "Boca Raton, Florida",
             "title": "R markdown cookbook",

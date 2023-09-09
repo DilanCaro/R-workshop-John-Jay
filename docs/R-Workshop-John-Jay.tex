@@ -147,12 +147,14 @@
 \tableofcontents
 }
 \hypertarget{about}{%
-\chapter{About}\label{about}}
+\chapter*{About}\label{about}}
+\addcontentsline{toc}{chapter}{About}
 
 This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation \(a^2 + b^2 = c^2\).
 
 \hypertarget{usage}{%
-\section{Usage}\label{usage}}
+\section*{Usage}\label{usage}}
+\addcontentsline{toc}{section}{Usage}
 
 Each \textbf{bookdown} chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter \emph{must} start with a first-level heading: \texttt{\#\ A\ good\ chapter}, and can contain one (and only one) first-level heading.
 
@@ -161,7 +163,8 @@ Use second-level and higher headings within chapters like: \texttt{\#\#\ A\ shor
 The \texttt{index.Rmd} file is required, and is also your first book chapter. It will be the homepage when you render the book.
 
 \hypertarget{render-book}{%
-\section{Render book}\label{render-book}}
+\section*{Render book}\label{render-book}}
+\addcontentsline{toc}{section}{Render book}
 
 You can render the HTML version of this example book without changing anything:
 
@@ -184,7 +187,8 @@ Or build the book from the R console:
 To render this example to PDF as a \texttt{bookdown::pdf\_book}, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
 
 \hypertarget{preview-book}{%
-\section{Preview book}\label{preview-book}}
+\section*{Preview book}\label{preview-book}}
+\addcontentsline{toc}{section}{Preview book}
 
 As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in ``Preview book'', or from the R console:
 
@@ -195,12 +199,14 @@ As you work, you may start a local server to live preview this HTML book. This p
 \end{Shaded}
 
 \hypertarget{hello-bookdown}{%
-\chapter{Hello bookdown}\label{hello-bookdown}}
+\chapter*{Hello bookdown}\label{hello-bookdown}}
+\addcontentsline{toc}{chapter}{Hello bookdown}
 
 All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
 
 \hypertarget{a-section}{%
-\section{A section}\label{a-section}}
+\section*{A section}\label{a-section}}
+\addcontentsline{toc}{section}{A section}
 
 All chapter sections start with a second-level (\texttt{\#\#}) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
 

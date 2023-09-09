@@ -10,4 +10,5 @@ All chapter sections start with a second-level (`##`) or higher heading followed
 
 Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
 
-<img src="images/pic.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{images/pic} 

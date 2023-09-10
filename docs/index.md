@@ -1,11 +1,11 @@
 --- 
 title: "R Workshop"
 author: "Dilan Morales Caro"
-date: "2023-09-09"
+date: "2023-09-10"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-url: your book url like https://dilancaro.github.io/R-workshop-John-Jay/
+url: https://dilancaro.github.io/R-workshop-John-Jay/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is an R workshop for John Jay students.

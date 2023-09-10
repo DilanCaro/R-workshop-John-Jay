@@ -6,6 +6,10 @@ cross
 chapters-and-sub-chapters
 captioned-figures-and-tables
 parts
+data-structures
+vectors-creating-indexing-and-operations
+data-frames-creating-and-exploring-data-frames
+importing-and-exporting-data-csv-files
 footnotes-and-citations
 footnotes
 citations

@@ -1,17 +1,3 @@
 eq:binom
 thm:tri
-data-structures
-vectors-creating-indexing-and-operations
-data-frames-creating-and-exploring-data-frames
-importing-and-exporting-data-csv-files
-footnotes-and-citations
-footnotes
-citations
-blocks
-equations
-theorems-and-proofs
 callout-blocks
-sharing-your-book
-publishing
-pages
-metadata-for-sharing

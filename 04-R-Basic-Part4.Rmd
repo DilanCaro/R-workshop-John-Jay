@@ -1,10 +1,10 @@
-# Footnotes and citations 
+# Part IV: Data Manipulation (30 minutes) {-}
 
-## Footnotes
+## Subsetting and filtering data {-}
 
 Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
 
-## Citations
+## Adding, removing, and renaming columns {-}
 
 Reference items in your bibliography file(s) using `@key`.
 
@@ -16,3 +16,5 @@ The `bs4_book` theme makes footnotes appear inline when you click on them. In th
 
 
 The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
+
+## Basic data summary and exploration {-}

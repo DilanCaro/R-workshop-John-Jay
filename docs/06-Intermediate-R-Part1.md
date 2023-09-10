@@ -1,6 +1,6 @@
-# Blocks
+# Intermediate R {-}
 
-## Equations
+# Part I: Functions and Control Structures (30 minutes) {-}
 
 Here is an equation.
 
@@ -12,7 +12,7 @@ Here is an equation.
 You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
 
 
-## Theorems and proofs
+## Writing and using functions {-}
 
 Labeled theorems can be referenced in text using `\@ref(thm:tri)`, for example, check out this smart theorem \@ref(thm:tri).
 
@@ -22,6 +22,7 @@ and $a$ and $b$ denote the lengths of the **other** two sides, we have
 $$a^2 + b^2 = c^2$$
 :::
 
+## If statements and loops (for and while) {-}
 Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
 
 ## Callout blocks
@@ -32,8 +33,15 @@ The `bs4_book` theme also includes special callout blocks, like this `.rmdnote`.
 ::: {.rmdnote}
 You can use **markdown** inside a block.
 
-```{r collapse=TRUE}
+
+```r
 head(beaver1, n = 5)
+#>   day time  temp activ
+#> 1 346  840 36.33     0
+#> 2 346  850 36.34     0
+#> 3 346  900 36.35     0
+#> 4 346  910 36.42     0
+#> 5 346  920 36.55     0
 ```
 
 :::

@@ -1,8 +1,10 @@
-# Hello bookdown {-}
+# Welcome {-}
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+In this website, you will have resources, examples and practice to master R. 
 
-## A section {-}
+
+
+## What is R? {-}
 
 All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
 

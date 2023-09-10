@@ -13,42 +13,98 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# About {-}
+# Welcome {-}
+<center>
+```{r, echo=FALSE,out.width="40%",out.height="20%",fig.show='hold'}
+par(mar = c(4, 4, .1, .1))
+knitr::include_graphics(c("images/OSRC.jpg","images/JohnJay.png"))
+``` 
+</center>
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+Are you ready to embark on an exciting journey into the world of data analysis and statistical exploration? Imagine having the power to unlock the hidden insights within vast datasets, create stunning visualizations, and make data-driven decisions that can shape the future. Welcome to the world of R programming! R is not just a language; it's your key to uncovering the stories data has to tell. Whether you're a budding data scientist, a curious researcher, or someone who simply loves solving puzzles, R offers you a thrilling adventure where you'll learn to command data with precision and creativity. Get ready to be amazed by the endless possibilities of R and join a global community of data enthusiasts who are reshaping the world, one analysis at a time.
 
-## Usage {-}
+In this website, you will have resources, examples and practice to master R.
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+## Objectives {-}
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+**Timeline**: Jan 24, Jan 28, Jan 31 {-}
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+## Session 1: R Basics (2 hours) {-}
 
-## Render book {-}
+### Part 1: Introduction to R (30 minutes) {-}
+1. What is R and why use it?
+1. Installing R and RStudio
+1. Basic RStudio layout and functionality
 
-You can render the HTML version of this example book without changing anything:
+### Part 2: R Fundamentals (30 minutes) {-}
+1. R as a calculator
+1. Variables and data types (numeric, character)
+1. Basic arithmetic operations
 
-1. Find the **Build** pane in the RStudio IDE, and
+### Part 3: Data Structures (30 minutes) {-}
+1. Vectors: Creating, indexing, and operations
+1. Data frames: Creating and exploring data frames
+1. Importing and exporting data (CSV files)
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+### Part 4: Data Manipulation (30 minutes) {-}
+1. Subsetting and filtering data
+1. Adding, removing, and renaming columns
+1. Basic data summary and exploration
 
-Or build the book from the R console:
+### Part 5: Basic Data Visualization (10 minutes) {-}
+1. Creating simple plots using plot()
 
-```{r, eval=FALSE}
-bookdown::render_book()
-```
+## Session 2: Intermediate R (2 hours) {-}
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+### Part 1: Functions and Control Structures (30 minutes) {-}
 
-## Preview book {-}
+1. Writing and using functions
+1. If statements and loops (for and while)
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+### Part 2: Data Cleaning and Transformation (30 minutes) {-}
+1. Handling missing data
+1. Reshaping data using dplyr functions (filter, arrange, mutate, summarize)
 
-```{r eval=FALSE}
-bookdown::serve_book()
-```
+### Part 3: Advanced Data Visualization (30 minutes) {-}
 
+1. Creating customized plots with ggplot2
+1. Adding titles, labels, and themes to plots
+
+### Part 4: Statistical Analysis (30 minutes) {-}
+
+1. Introduction to hypothesis testing and statistical tests
+1. Performing t-tests and chi-squared tests
+
+### Part 5: Working with Dates and Times (20 minutes) {-}
+
+1. Handling date and time data in R
+1. Common date and time functions
+
+## Session 3: Advanced R (2 hours) {-}
+
+### Part 1: Advanced Data Manipulation with dplyr (30 minutes) {-}
+
+1. Grouping and summarizing data
+1. Joining and merging datasets
+
+### Part 2: Text Data Processing (30 minutes) {-}
+
+1. Manipulating and analyzing text data using regular expressions
+1. Text mining basics
+
+### Part 3: Building Predictive Models (30 minutes) {-}
+
+1. Introduction to machine learning in R
+1. Creating predictive models with caret
+
+### Part 4: Interactive Dashboards with Shiny (30 minutes) {-}
+
+1. Introduction to Shiny for building web-based data dashboards
+1. Creating a simple Shiny app
+
+### Part 5: Version Control and Collaboration (10 minutes) {-}
+
+1. Using Git and GitHub for version control and collaboration in R projects
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

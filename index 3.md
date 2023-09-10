@@ -14,9 +14,8 @@ csl: chicago-fullnote-bibliography.csl
 ---
 
 # Welcome {-}
-<center>
-<img src="images/OSRC.jpg" width="40%" height="20%" /><img src="images/JohnJay.png" width="40%" height="20%" />
-</center>
+
+<img src="images/OSRC.jpg" width="40%" height="10%" style="display: block; margin: auto;" /><img src="images/JohnJay.png" width="40%" height="10%" style="display: block; margin: auto;" />
 
 Are you ready to embark on an exciting journey into the world of data analysis and statistical exploration? Imagine having the power to unlock the hidden insights within vast datasets, create stunning visualizations, and make data-driven decisions that can shape the future. Welcome to the world of R programming! R is not just a language; it's your key to uncovering the stories data has to tell. Whether you're a budding data scientist, a curious researcher, or someone who simply loves solving puzzles, R offers you a thrilling adventure where you'll learn to command data with precision and creativity. Get ready to be amazed by the endless possibilities of R and join a global community of data enthusiasts who are reshaping the world, one analysis at a time.
 

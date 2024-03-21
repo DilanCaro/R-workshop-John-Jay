@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>(Optional) Part V: Working with Dates and Times (20 minutes) | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
+<meta name="description" content='Handling date and time data in R R provides the Date class for dates and the POSIXct and POSIXlt classes for times. # Converting a string to a Date object date_example &lt;- as.Date("2021-01-01")...'>
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="(Optional) Part V: Working with Dates and Times (20 minutes) | R Workshop">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/optional-part-v-working-with-dates-and-times-20-minutes.html">
+<meta property="og:description" content='Handling date and time data in R R provides the Date class for dates and the POSIXct and POSIXlt classes for times. # Converting a string to a Date object date_example &lt;- as.Date("2021-01-01")...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(Optional) Part V: Working with Dates and Times (20 minutes) | R Workshop">
+<meta name="twitter:description" content='Handling date and time data in R R provides the Date class for dates and the POSIXct and POSIXlt classes for times. # Converting a string to a Date object date_example &lt;- as.Date("2021-01-01")...'>
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Workshop</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="" href="data-structures.html">Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
+<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></li>
+<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="part-iii-advanced-data-visualization-30-minutes.html">Part III: Advanced Data Visualization (30 minutes)</a></li>
+<li><a class="" href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></li>
+<li><a class="active" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="optional-part-v-working-with-dates-and-times-20-minutes" class="section level1 unnumbered">
+<h1>(Optional) Part V: Working with Dates and Times (20 minutes)<a class="anchor" aria-label="anchor" href="#optional-part-v-working-with-dates-and-times-20-minutes"><i class="fas fa-link"></i></a>
+</h1>
+<div id="handling-date-and-time-data-in-r" class="section level2 unnumbered">
+<h2>Handling date and time data in R<a class="anchor" aria-label="anchor" href="#handling-date-and-time-data-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>R provides the Date class for dates and the POSIXct and POSIXlt classes for times.</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Converting a string to a Date object</span></span>
+<span><span class="va">date_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-01-01"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">date_example</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2021-01-01"</span></span>
+<span></span>
+<span><span class="co"># Converting a string to a POSIXct datetime object</span></span>
+<span><span class="va">datetime_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="st">"2021-01-01 10:00:00"</span>, tz <span class="op">=</span> <span class="st">"GMT"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">datetime_example</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2021-01-01 10:00:00 GMT"</span></span></code></pre></div>
+</div>
+<div id="common-date-and-time-functions" class="section level2 unnumbered">
+<h2>Common date and time functions<a class="anchor" aria-label="anchor" href="#common-date-and-time-functions"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Extracting parts of a date</span></span>
+<span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date_example</span>, <span class="st">"%Y"</span><span class="op">)</span></span>
+<span><span class="va">month</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date_example</span>, <span class="st">"%m"</span><span class="op">)</span></span>
+<span><span class="va">day</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date_example</span>, <span class="st">"%d"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Year:"</span>, <span class="va">year</span>, <span class="st">"- Month:"</span>, <span class="va">month</span>, <span class="st">"- Day:"</span>, <span class="va">day</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Year: 2021 - Month: 01 - Day: 01"</span></span>
+<span></span>
+<span><span class="co"># Working with time intervals</span></span>
+<span><span class="va">start_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="st">"2021-01-01 08:00:00"</span>, tz <span class="op">=</span> <span class="st">"GMT"</span><span class="op">)</span></span>
+<span><span class="va">end_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="st">"2021-01-01 10:00:00"</span>, tz <span class="op">=</span> <span class="st">"GMT"</span><span class="op">)</span></span>
+<span><span class="va">time_diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/difftime.html">difftime</a></span><span class="op">(</span><span class="va">end_time</span>, <span class="va">start_time</span>, units <span class="op">=</span> <span class="st">"hours"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Difference in hours:"</span>, <span class="va">time_diff</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Difference in hours: 2"</span></span>
+<span></span>
+<span><span class="co"># Loading a dataset with date and time data for exercises</span></span>
+<span><span class="co"># Using the 'airquality' dataset from the 'datasets' package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="va">airquality</span><span class="op">$</span><span class="va">Date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">airquality</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1973</span>, <span class="va">Month</span>, <span class="va">Day</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day       Date</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1 1973-05-01</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2 1973-05-02</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3 1973-05-03</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4 1973-05-04</span></span>
+<span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5 1973-05-05</span></span>
+<span><span class="co">#&gt; 6    28      NA 14.9   66     5   6 1973-05-06</span></span></code></pre></div>
+<p>Exercises:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">airquality</span><span class="op">$</span><span class="va">Date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">airquality</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">1973</span>, <span class="va">Month</span>, <span class="va">Day</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day       Date</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1 1973-05-01</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2 1973-05-02</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3 1973-05-03</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4 1973-05-04</span></span>
+<span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5 1973-05-05</span></span>
+<span><span class="co">#&gt; 6    28      NA 14.9   66     5   6 1973-05-06</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Convert the ‘Date’ column in the ‘airquality’ dataset to a week day and create a new column ‘WeekDay’.</li>
+</ol>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airquality</span><span class="op">$</span><span class="va">WeekDay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/weekday.POSIXt.html">weekdays</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day       Date   WeekDay</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1 1973-05-01   Tuesday</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2 1973-05-02 Wednesday</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3 1973-05-03  Thursday</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4 1973-05-04    Friday</span></span>
+<span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5 1973-05-05  Saturday</span></span>
+<span><span class="co">#&gt; 6    28      NA 14.9   66     5   6 1973-05-06    Sunday</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Calculate the number of days between the first and last measurements in the ‘airquality’ dataset.</li>
+</ol>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">date_diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/difftime.html">difftime</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span>, units <span class="op">=</span> <span class="st">"days"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Days between first and last measurement:"</span>, <span class="va">date_diff</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Days between first and last measurement: 152"</span></span></code></pre></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></div>
+<div class="next"><a href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#optional-part-v-working-with-dates-and-times-20-minutes">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="nav-link" href="#handling-date-and-time-data-in-r">Handling date and time data in R</a></li>
+<li><a class="nav-link" href="#common-date-and-time-functions">Common date and time functions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/10-Intermediate-R-Part5.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/10-Intermediate-R-Part5.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-01-18.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

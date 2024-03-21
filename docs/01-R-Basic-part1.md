@@ -1,5 +1,9 @@
 # R Basics {-}
 
+<center>
+<img src="images/RStudio-Logo.png" width="40%" height="20%" /><img src="images/R_logo.png" width="40%" height="20%" />
+</center>
+
 In our first session, we will lay the foundation for your R journey. We'll start with an introduction to R, delving into why it's a popular choice among data enthusiasts. You'll learn how to install R and RStudio, a user-friendly integrated development environment (IDE). We'll explore the basic layout and functionality of RStudio, setting the stage for your coding adventures.
 
 We'll dive into R's fundamentals, treating it as your trusty calculator. You'll discover the various data types, from numeric to character, and grasp essential arithmetic operations. Moving forward, we'll explore R's data structures, including vectors for data storage and data frames for structured datasets. You'll also become adept at importing and exporting data using common formats like CSV files.
@@ -12,23 +16,88 @@ We won't stop there. The next part of our session is all about data manipulation
 
 R is a programming language and open-source software environment that is widely used for statistical computing, data analysis, and graphics. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the early 1990s and is now maintained by the R Development Core Team. R is particularly popular among statisticians, data scientists, and researchers for its extensive statistical and graphical capabilities.
 
+In an brief sentence: `R` is a dialect of S.
+
+#### What is `S` ? {-}
+
+The S language, developed by John Chambers and others at Bell Telephone Laboratories, began in 1976 as an internal statistical analysis tool, originally based on Fortran libraries. It evolved significantly over time: in 1988, it was rewritten in C, leading to a system more akin to its present form (Version 3). 
+
+The statistical analysis capabilities of S were detailed in the 1988 book "Statistical Models in S" (the white book) by Chambers and Hastie. The most current version, Version 4, released in 1998 and documented in Chambers' "Programming with Data" (the green book), remains in use. The ownership of S has changed hands several times: Bell Labs licensed it to StatSci (later Insightful Corp.) in 1993, Insightful then bought it from Lucent in 2004, and after a series of acquisitions, TIBCO Software Inc. has owned and exclusively developed S since 2008. Insightful had added features, including GUIs, and marketed it as S-PLUS. Despite these changes, the core S language has remained largely unchanged since 1998, the year it earned the prestigious ACM Software System Award.
+
 #### Key features and characteristics of R : {.unnumbered}
 
-1.  Data Analysis and Statistics: R provides a wide range of statistical techniques and libraries for data analysis, hypothesis testing, regression analysis, clustering, and more. It's known for its flexibility in handling data and conducting statistical experiments.
+1.  **Data Analysis and Statistics:** `R` provides a wide range of statistical techniques and libraries for data analysis, hypothesis testing, regression analysis, clustering, and more. It's known for its flexibility in handling data and conducting statistical experiments.
 
-2.  Data Visualization: R offers powerful tools for creating a variety of high-quality data visualizations, including scatterplots, bar charts, histograms, and heatmaps. The ggplot2 package, in particular, is a popular choice for creating customized graphics.
+2.  **Data Visualization:** `R` offers powerful tools for creating a variety of high-quality data visualizations, including scatterplots, bar charts, histograms, and heatmaps. The ggplot2 package, in particular, is a popular choice for creating customized graphics.
 
-3.  Open Source: R is open-source software, which means that it is freely available for anyone to use, modify, and distribute. This has led to a vibrant community of users and developers who contribute packages and extensions to enhance its functionality.
+3.  **Open Source:** `R` is open-source software, which means that it is freely available for anyone to use, modify, and distribute. This has led to a vibrant community of users and developers who contribute packages and extensions to enhance its functionality.
 
-4.  Package System: R has a rich ecosystem of packages (libraries) that extend its core functionality. These packages cover a wide range of domains, from machine learning and time series analysis to bioinformatics and geospatial data analysis. Users can easily install and use these packages to tailor R to their specific needs.
+4.  **Package System:** `R` has a rich ecosystem of packages (libraries) that extend its core functionality. These packages cover a wide range of domains, from machine learning and time series analysis to bioinformatics and geospatial data analysis. Users can easily install and use these packages to tailor R to their specific needs.
 
-5.  Cross-Platform: R runs on various operating systems, including Windows, macOS, and Linux, making it accessible to a wide range of users.
+5.  **Cross-Platform:** `R` runs on various operating systems, including Windows, macOS, and Linux, making it accessible to a wide range of users.
 
-6.  Command-Line Interface: R primarily uses a command-line interface, although there are graphical user interfaces (GUIs) available, such as RStudio, which provide a more user-friendly environment for coding and data analysis.
+6.  **Command-Line Interface:** `R` primarily uses a command-line interface, although there are graphical user interfaces (GUIs) available, such as RStudio, which provide a more user-friendly environment for coding and data analysis.
 
-7.  Community Support: R has a large and active community of users and developers who provide support, share code and tutorials, and contribute to the ongoing development of the language.
+7.  **Community Support:** `R` has a large and active community of users and developers who provide support, share code and tutorials, and contribute to the ongoing development of the language.
 
-R is a versatile tool used in various fields, including academia, industry, finance, healthcare, and more, for tasks such as statistical analysis, data visualization, and predictive modeling. Its popularity continues to grow as data-driven decision-making becomes increasingly important in many domains.
+`R` is a versatile tool used in various fields, including academia, industry, finance, healthcare, and more, for tasks such as statistical analysis, data visualization, and predictive modeling. Its popularity continues to grow as data-driven decision-making becomes increasingly important in many domains.
 
 ### Installing R and Rstudio {-}
+
+Find the installation guide in the below pdf file.
+<embed src="./images/R studio and R installation.pdf" width="600px" height="460px" type="application/pdf" />
+
+Alternatively , you can look at these videos .
+
+1. [Installation of R on windows by Roger Peng](https://www.youtube.com/watch?v=Ohnk9hcxf9M)
+1. [Installation of R on Mac by Roger Peng](https://www.youtube.com/watch?v=uxuuWXU-7UQ&feature=youtu.be&themeRefresh=1&theme=dark)
+1. [How to install Rstudio on Mac](https://www.youtube.com/watch?v=n8kP7c_QbLA)
+1. [How to install Rstudio on Windows](https://www.youtube.com/watch?v=YrEe2TLr3MI)
 ### Basic RStudio layout and functionality {-}
+<center>
+<div class="figure">
+<img src="images/rstudio_layout.png" alt="From: http://www.sthda.com/english/wiki/r-basics-quick-and-easy " width="80%" />
+<p class="caption">(\#fig:unnamed-chunk-3)From: http://www.sthda.com/english/wiki/r-basics-quick-and-easy </p>
+</div>
+</center>
+
+1. **Code Editor/ R script:** Here you can write either R code , or Rmarkdown. That is we can include instructions for our computer to execute. 
+
+1. **R console :** Here you see the output of the code you run , if you write code here, it will automatically be run after `enter` and cannot be traced back, that is why the R Script is useful for reusable code.
+
+1. **Workspace and history: ** This space display the variables created , in use, the history , building , git and more. To check if your data has been loaded correctly you can check here to see it loaded. 
+
+1. **Plots and files: ** It will display the graphs and plots created, you can switch back and forth , export, save and more. Also, you can select packages, get help on `R` functions and more. 
+
+#### What are packages? {-}
+
+The power of R lies in the packages. Since `R` is open source, many people create packages i.e, R scripts that contain functions for specific problems , may it be standard deviation , statistics, machine learning and more.
+
+- To install a package, simply type
+
+`install.packages("package name")`
+
+- Install a package from Bioconductor: `biocLite()`
+- Install a package from GitHub: `devtools::install_github()`
+- View the list of installed packages: `installed.packages()`
+- Folder containing installed packages: `.libPaths()`
+
+- To load a package 
+
+`library(package name)`
+
+- View loaded packages 
+
+`search()`
+
+- to Unload an R package:
+
+` detach(package name, unload = TRUE)`
+
+- Remove installed packages:
+
+`remove.packages()`
+
+- Update installed packages:
+
+`update.packages()`

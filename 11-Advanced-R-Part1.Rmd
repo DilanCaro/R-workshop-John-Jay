@@ -1,0 +1,40 @@
+
+# Part I: Advanced Data Manipulation with dplyr (30 minutes) {-}
+## Grouping and summarizing data {-}
+
+```{r}
+# Loading the dplyr package
+library(dplyr)
+
+# Using the 'mtcars' dataset
+data(mtcars)
+
+# Example: Grouping by 'cyl' (number of cylinders) and calculating mean mpg (miles per gallon)
+grouped_data <- mtcars %>%
+  group_by(cyl) %>%
+  summarize(mean_mpg = mean(mpg))
+print(grouped_data)
+```
+*Exercise*: 
+
+1. Group the 'mtcars' dataset by 'gear' and calculate the average horsepower ('hp') for each gear group.
+
+
+## Joining and merging datasets {-}
+
+```{r}
+# Creating a sample dataset to join with 'mtcars'
+car_names <- data.frame(model = rownames(mtcars), car_type = rep(c("Type A", "Type B", "Type C"), length.out = nrow(mtcars)))
+
+# Converting row names of 'mtcars' to a column
+mtcars$model <- rownames(mtcars)
+
+# Example: Joining 'mtcars' and 'car_names'
+joined_data <- left_join(mtcars, car_names, by = "model")
+print(head(joined_data))
+
+```
+
+*Exercise:*
+
+2. Create a new dataframe with a subset of columns from 'iris' and merge it with the original 'iris' dataset based on a common column.

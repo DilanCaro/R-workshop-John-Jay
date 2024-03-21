@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Part III: Building Predictive Models (30 minutes) | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
+<meta name="description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Part III: Building Predictive Models (30 minutes) | R Workshop">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-iii-building-predictive-models-30-minutes.html">
+<meta property="og:description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Part III: Building Predictive Models (30 minutes) | R Workshop">
+<meta name="twitter:description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Workshop</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="" href="data-structures.html">Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
+<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></li>
+<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="part-iii-advanced-data-visualization-30-minutes.html">Part III: Advanced Data Visualization (30 minutes)</a></li>
+<li><a class="" href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="active" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="part-iii-building-predictive-models-30-minutes" class="section level1 unnumbered">
+<h1>Part III: Building Predictive Models (30 minutes)<a class="anchor" aria-label="anchor" href="#part-iii-building-predictive-models-30-minutes"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction-to-machine-learning-in-r" class="section level2 unnumbered">
+<h2>Introduction to machine learning in R<a class="anchor" aria-label="anchor" href="#introduction-to-machine-learning-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>Brief overview of machine learning:</em> Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It encompasses a variety of techniques for classification, regression, clustering, and more.</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
+<span><span class="co">#install.packages("caret")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: ggplot2</span></span>
+<span><span class="co">#&gt; Loading required package: lattice</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Example: Splitting a dataset into training and testing sets</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span> <span class="co"># Setting seed for reproducibility</span></span>
+<span><span class="va">trainingIndex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/createDataPartition.html">createDataPartition</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span>, p <span class="op">=</span> <span class="fl">0.8</span>, list <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">trainingData</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">trainingIndex</span>, <span class="op">]</span></span>
+<span><span class="va">testingData</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="op">-</span><span class="va">trainingIndex</span>, <span class="op">]</span></span></code></pre></div>
+<p><em>Exercise</em>:</p>
+<ol style="list-style-type: decimal">
+<li>Load a different dataset and partition it into training and testing sets.</li>
+</ol>
+</div>
+<div id="creating-predictive-models-with-caret" class="section level2 unnumbered">
+<h2>Creating predictive models with caret<a class="anchor" aria-label="anchor" href="#creating-predictive-models-with-caret"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Example: Building a predictive model for the iris dataset</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">Species</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">trainingData</span>, method <span class="op">=</span> <span class="st">"rpart"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="co">#&gt; CART </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; 120 samples</span></span>
+<span><span class="co">#&gt;   4 predictor</span></span>
+<span><span class="co">#&gt;   3 classes: 'setosa', 'versicolor', 'virginica' </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; No pre-processing</span></span>
+<span><span class="co">#&gt; Resampling: Bootstrapped (25 reps) </span></span>
+<span><span class="co">#&gt; Summary of sample sizes: 120, 120, 120, 120, 120, 120, ... </span></span>
+<span><span class="co">#&gt; Resampling results across tuning parameters:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   cp    Accuracy   Kappa    </span></span>
+<span><span class="co">#&gt;   0.00  0.9398492  0.9086993</span></span>
+<span><span class="co">#&gt;   0.45  0.7426390  0.6253355</span></span>
+<span><span class="co">#&gt;   0.50  0.5557896  0.3665192</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Accuracy was used to select the optimal model using</span></span>
+<span><span class="co">#&gt;  the largest value.</span></span>
+<span><span class="co">#&gt; The final value used for the model was cp = 0.</span></span>
+<span></span>
+<span><span class="co"># Predicting using the model</span></span>
+<span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">testingData</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">predictions</span>, <span class="va">testingData</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Confusion Matrix and Statistics</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;             Reference</span></span>
+<span><span class="co">#&gt; Prediction   setosa versicolor virginica</span></span>
+<span><span class="co">#&gt;   setosa         10          0         0</span></span>
+<span><span class="co">#&gt;   versicolor      0         10         2</span></span>
+<span><span class="co">#&gt;   virginica       0          0         8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall Statistics</span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;                Accuracy : 0.9333          </span></span>
+<span><span class="co">#&gt;                  95% CI : (0.7793, 0.9918)</span></span>
+<span><span class="co">#&gt;     No Information Rate : 0.3333          </span></span>
+<span><span class="co">#&gt;     P-Value [Acc &gt; NIR] : 8.747e-12       </span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;                   Kappa : 0.9             </span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;  Mcnemar's Test P-Value : NA              </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Statistics by Class:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;                      Class: setosa Class: versicolor</span></span>
+<span><span class="co">#&gt; Sensitivity                 1.0000            1.0000</span></span>
+<span><span class="co">#&gt; Specificity                 1.0000            0.9000</span></span>
+<span><span class="co">#&gt; Pos Pred Value              1.0000            0.8333</span></span>
+<span><span class="co">#&gt; Neg Pred Value              1.0000            1.0000</span></span>
+<span><span class="co">#&gt; Prevalence                  0.3333            0.3333</span></span>
+<span><span class="co">#&gt; Detection Rate              0.3333            0.3333</span></span>
+<span><span class="co">#&gt; Detection Prevalence        0.3333            0.4000</span></span>
+<span><span class="co">#&gt; Balanced Accuracy           1.0000            0.9500</span></span>
+<span><span class="co">#&gt;                      Class: virginica</span></span>
+<span><span class="co">#&gt; Sensitivity                    0.8000</span></span>
+<span><span class="co">#&gt; Specificity                    1.0000</span></span>
+<span><span class="co">#&gt; Pos Pred Value                 1.0000</span></span>
+<span><span class="co">#&gt; Neg Pred Value                 0.9091</span></span>
+<span><span class="co">#&gt; Prevalence                     0.3333</span></span>
+<span><span class="co">#&gt; Detection Rate                 0.2667</span></span>
+<span><span class="co">#&gt; Detection Prevalence           0.2667</span></span>
+<span><span class="co">#&gt; Balanced Accuracy              0.9000</span></span></code></pre></div>
+<p><em>Exercise</em>:
+2. Build a predictive model for another dataset and evaluate its performance.</p>
+<pre><code>
+
+&lt;!--chapter:end:13-Advanced-R-Part3.Rmd--&gt;
+
+# Part IV: Interactive Dashboards with Shiny (30 minutes) {-}
+## Introduction to Shiny for building web-based data dashboards {-}
+
+Shiny is an R package that makes it easy to build interactive web applications (apps) straight from R. It allows you to turn analyses into interactive web applications without requiring HTML, CSS, or JavaScript knowledge.
+
+
+```r
+# Load the Shiny package
+#install.packages("shiny")
+library(shiny)</code></pre>
+<p>The basic structure of a Shiny app involves two main parts:</p>
+<ol style="list-style-type: decimal">
+<li>A user interface (UI) script, which controls the layout and appearance of the app.</li>
+<li>A server script, which contains the instructions to build and rebuild the app based on user input.</li>
+</ol>
+</div>
+<div id="creating-a-simple-shiny-app" class="section level2 unnumbered">
+<h2>Creating a simple Shiny app<a class="anchor" aria-label="anchor" href="#creating-a-simple-shiny-app"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>UI Component:</em> The UI has a sliderInput for selecting the mpg range and a tableOutput to display the filtered data.</p>
+<p><em>Server Logic:</em> The reactive function creates a reactive subset of mtcars based on the selected mpg range. The renderTable function then renders this filtered data as a table in the main panel.</p>
+<p><em>Running the App:</em> As with any Shiny app, shinyApp(ui = ui, server = server) runs the app.</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Example: A simple Shiny app for displaying a plot</span></span>
+<span></span>
+<span><span class="co"># Define UI</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
+<span>  <span class="fu">titlePanel</span><span class="op">(</span><span class="st">"Simple Shiny App"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">sidebarLayout</span><span class="op">(</span></span>
+<span>    <span class="fu">sidebarPanel</span><span class="op">(</span></span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span><span class="st">"num"</span>, <span class="st">"Number of bins:"</span>, </span>
+<span>                  min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">50</span>, value <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu">mainPanel</span><span class="op">(</span></span>
+<span>       <span class="fu">plotOutput</span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define server logic</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu">renderPlot</span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">faithful</span><span class="op">$</span><span class="va">eruptions</span></span>
+<span>    <span class="va">bins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">num</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="va">bins</span>, col <span class="op">=</span> <span class="st">'darkgray'</span>, border <span class="op">=</span> <span class="st">'white'</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Run the application </span></span>
+<span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Define UI</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
+<span>  <span class="fu">titlePanel</span><span class="op">(</span><span class="st">"Data Filtering App"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">sidebarLayout</span><span class="op">(</span></span>
+<span>    <span class="fu">sidebarPanel</span><span class="op">(</span></span>
+<span>      <span class="fu">sliderInput</span><span class="op">(</span><span class="st">"mpgRange"</span>, <span class="st">"Miles per Gallon (mpg):"</span>,</span>
+<span>                  min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>, max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>,</span>
+<span>                  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu">mainPanel</span><span class="op">(</span></span>
+<span>      <span class="fu">tableOutput</span><span class="op">(</span><span class="st">"filteredData"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define server logic</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">filteredData</span> <span class="op">&lt;-</span> <span class="fu">reactive</span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">mtcars</span><span class="op">[</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">&gt;=</span> <span class="va">input</span><span class="op">$</span><span class="va">mpgRange</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&amp;</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">&lt;=</span> <span class="va">input</span><span class="op">$</span><span class="va">mpgRange</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="op">]</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">filteredData</span> <span class="op">&lt;-</span> <span class="fu">renderTable</span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu">filteredData</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Run the application </span></span>
+<span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><em>Exercise</em>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modify the example Shiny app to include a dataset of your choice and create a different type of plot.</p></li>
+<li><p>Add additional input options, like checkboxes or dropdown menus, to manipulate the plot.</p></li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></div>
+<div class="next"><a href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#part-iii-building-predictive-models-30-minutes">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="nav-link" href="#introduction-to-machine-learning-in-r">Introduction to machine learning in R</a></li>
+<li><a class="nav-link" href="#creating-predictive-models-with-caret">Creating predictive models with caret</a></li>
+<li><a class="nav-link" href="#creating-a-simple-shiny-app">Creating a simple Shiny app</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/14-Advanced-R-Part4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/14-Advanced-R-Part4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-01-18.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

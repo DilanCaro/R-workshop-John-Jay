@@ -1,3 +1,1 @@
-eq:binom
-thm:tri
-callout-blocks
+fig:unnamed-chunk-3

@@ -1,7 +1,7 @@
 --- 
 title: "R Workshop"
 author: "Dilan Morales Caro"
-date: "2023-09-10"
+date: "2024-01-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -24,7 +24,7 @@ In this website, you will have resources, examples and practice to master R.
 
 ## Objectives {-}
 
-**Timeline**: Jan 24, Jan 28, Jan 31 {-}
+**Timeline**: Jan 24, Jan 28, Jan 31 
 
 ## Session 1: R Basics (2 hours) {-}
 
@@ -72,7 +72,7 @@ In this website, you will have resources, examples and practice to master R.
 1. Introduction to hypothesis testing and statistical tests
 1. Performing t-tests and chi-squared tests
 
-### Part 5: Working with Dates and Times (20 minutes) {-}
+### (Optional) Part 5: Working with Dates and Times (20 minutes) {-}
 
 1. Handling date and time data in R
 1. Common date and time functions

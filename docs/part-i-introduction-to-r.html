@@ -7,7 +7,7 @@
 <title>Part I: Introduction to R | R Workshop</title>
 <meta name="author" content="Dilan Morales Caro">
 <meta name="description" content="What is R ? R is a programming language and open-source software environment that is widely used for statistical computing, data analysis, and graphics. It was created by Ross Ihaka and Robert...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Part I: Introduction to R | R Workshop">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-i-introduction-to-r.html">
@@ -17,32 +17,12 @@
 <meta name="twitter:description" content="What is R ? R is a programming language and open-source software environment that is widely used for statistical computing, data analysis, and graphics. It was created by Ross Ihaka and Robert...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -77,6 +57,12 @@
 <li><a class="" href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></li>
 <li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
 <li><a class="" href="part-iii-advanced-data-visualization-30-minutes.html">Part III: Advanced Data Visualization (30 minutes)</a></li>
+<li><a class="" href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -92,29 +78,89 @@
 <h3>What is <code>R</code> ?<a class="anchor" aria-label="anchor" href="#what-is-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>R is a programming language and open-source software environment that is widely used for statistical computing, data analysis, and graphics. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the early 1990s and is now maintained by the R Development Core Team. R is particularly popular among statisticians, data scientists, and researchers for its extensive statistical and graphical capabilities.</p>
+<p>In an brief sentence: <code>R</code> is a dialect of S.</p>
+<div id="what-is-s" class="section level4 unnumbered">
+<h4>What is <code>S</code> ?<a class="anchor" aria-label="anchor" href="#what-is-s"><i class="fas fa-link"></i></a>
+</h4>
+<p>The S language, developed by John Chambers and others at Bell Telephone Laboratories, began in 1976 as an internal statistical analysis tool, originally based on Fortran libraries. It evolved significantly over time: in 1988, it was rewritten in C, leading to a system more akin to its present form (Version 3).</p>
+<p>The statistical analysis capabilities of S were detailed in the 1988 book “Statistical Models in S” (the white book) by Chambers and Hastie. The most current version, Version 4, released in 1998 and documented in Chambers’ “Programming with Data” (the green book), remains in use. The ownership of S has changed hands several times: Bell Labs licensed it to StatSci (later Insightful Corp.) in 1993, Insightful then bought it from Lucent in 2004, and after a series of acquisitions, TIBCO Software Inc. has owned and exclusively developed S since 2008. Insightful had added features, including GUIs, and marketed it as S-PLUS. Despite these changes, the core S language has remained largely unchanged since 1998, the year it earned the prestigious ACM Software System Award.</p>
+</div>
 <div id="key-features-and-characteristics-of-r" class="section level4 unnumbered">
 <h4>Key features and characteristics of R :<a class="anchor" aria-label="anchor" href="#key-features-and-characteristics-of-r"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li><p>Data Analysis and Statistics: R provides a wide range of statistical techniques and libraries for data analysis, hypothesis testing, regression analysis, clustering, and more. It’s known for its flexibility in handling data and conducting statistical experiments.</p></li>
-<li><p>Data Visualization: R offers powerful tools for creating a variety of high-quality data visualizations, including scatterplots, bar charts, histograms, and heatmaps. The ggplot2 package, in particular, is a popular choice for creating customized graphics.</p></li>
-<li><p>Open Source: R is open-source software, which means that it is freely available for anyone to use, modify, and distribute. This has led to a vibrant community of users and developers who contribute packages and extensions to enhance its functionality.</p></li>
-<li><p>Package System: R has a rich ecosystem of packages (libraries) that extend its core functionality. These packages cover a wide range of domains, from machine learning and time series analysis to bioinformatics and geospatial data analysis. Users can easily install and use these packages to tailor R to their specific needs.</p></li>
-<li><p>Cross-Platform: R runs on various operating systems, including Windows, macOS, and Linux, making it accessible to a wide range of users.</p></li>
-<li><p>Command-Line Interface: R primarily uses a command-line interface, although there are graphical user interfaces (GUIs) available, such as RStudio, which provide a more user-friendly environment for coding and data analysis.</p></li>
-<li><p>Community Support: R has a large and active community of users and developers who provide support, share code and tutorials, and contribute to the ongoing development of the language.</p></li>
+<li><p><strong>Data Analysis and Statistics:</strong> <code>R</code> provides a wide range of statistical techniques and libraries for data analysis, hypothesis testing, regression analysis, clustering, and more. It’s known for its flexibility in handling data and conducting statistical experiments.</p></li>
+<li><p><strong>Data Visualization:</strong> <code>R</code> offers powerful tools for creating a variety of high-quality data visualizations, including scatterplots, bar charts, histograms, and heatmaps. The ggplot2 package, in particular, is a popular choice for creating customized graphics.</p></li>
+<li><p><strong>Open Source:</strong> <code>R</code> is open-source software, which means that it is freely available for anyone to use, modify, and distribute. This has led to a vibrant community of users and developers who contribute packages and extensions to enhance its functionality.</p></li>
+<li><p><strong>Package System:</strong> <code>R</code> has a rich ecosystem of packages (libraries) that extend its core functionality. These packages cover a wide range of domains, from machine learning and time series analysis to bioinformatics and geospatial data analysis. Users can easily install and use these packages to tailor R to their specific needs.</p></li>
+<li><p><strong>Cross-Platform:</strong> <code>R</code> runs on various operating systems, including Windows, macOS, and Linux, making it accessible to a wide range of users.</p></li>
+<li><p><strong>Command-Line Interface:</strong> <code>R</code> primarily uses a command-line interface, although there are graphical user interfaces (GUIs) available, such as RStudio, which provide a more user-friendly environment for coding and data analysis.</p></li>
+<li><p><strong>Community Support:</strong> <code>R</code> has a large and active community of users and developers who provide support, share code and tutorials, and contribute to the ongoing development of the language.</p></li>
 </ol>
-<p>R is a versatile tool used in various fields, including academia, industry, finance, healthcare, and more, for tasks such as statistical analysis, data visualization, and predictive modeling. Its popularity continues to grow as data-driven decision-making becomes increasingly important in many domains.</p>
+<p><code>R</code> is a versatile tool used in various fields, including academia, industry, finance, healthcare, and more, for tasks such as statistical analysis, data visualization, and predictive modeling. Its popularity continues to grow as data-driven decision-making becomes increasingly important in many domains.</p>
 </div>
 </div>
 <div id="installing-r-and-rstudio" class="section level3 unnumbered">
 <h3>Installing R and Rstudio<a class="anchor" aria-label="anchor" href="#installing-r-and-rstudio"><i class="fas fa-link"></i></a>
 </h3>
+<p>Find the installation guide in the below pdf file.
+<embed src="./images/R%20studio%20and%20R%20installation.pdf" width="600px" height="460px" type="application/pdf"></embed></p>
+<p>Alternatively , you can look at these videos .</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://www.youtube.com/watch?v=Ohnk9hcxf9M">Installation of R on windows by Roger Peng</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=uxuuWXU-7UQ&amp;feature=youtu.be&amp;themeRefresh=1&amp;theme=dark">Installation of R on Mac by Roger Peng</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=n8kP7c_QbLA">How to install Rstudio on Mac</a></p></li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=YrEe2TLr3MI">How to install Rstudio on Windows</a>
+### Basic RStudio layout and functionality {-}</p>
+<center>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/rstudio_layout.png" alt="From: http://www.sthda.com/english/wiki/r-basics-quick-and-easy " width="80%"><p class="caption">
+Figure 1: From: <a href="http://www.sthda.com/english/wiki/r-basics-quick-and-easy" class="uri">http://www.sthda.com/english/wiki/r-basics-quick-and-easy</a>
+</p>
 </div>
-<div id="basic-rstudio-layout-and-functionality" class="section level3 unnumbered">
-<h3>Basic RStudio layout and functionality<a class="anchor" aria-label="anchor" href="#basic-rstudio-layout-and-functionality"><i class="fas fa-link"></i></a>
-</h3>
+</center>
+</li>
+<li><p><strong>Code Editor/ R script:</strong> Here you can write either R code , or Rmarkdown. That is we can include instructions for our computer to execute.</p></li>
+<li><p><strong>R console :</strong> Here you see the output of the code you run , if you write code here, it will automatically be run after <code>enter</code> and cannot be traced back, that is why the R Script is useful for reusable code.</p></li>
+<li><p><strong>Workspace and history: </strong> This space display the variables created , in use, the history , building , git and more. To check if your data has been loaded correctly you can check here to see it loaded.</p></li>
+<li><p><strong>Plots and files: </strong> It will display the graphs and plots created, you can switch back and forth , export, save and more. Also, you can select packages, get help on <code>R</code> functions and more.</p></li>
+</ol>
+<div id="what-are-packages" class="section level4 unnumbered">
+<h4>What are packages?<a class="anchor" aria-label="anchor" href="#what-are-packages"><i class="fas fa-link"></i></a>
+</h4>
+<p>The power of R lies in the packages. Since <code>R</code> is open source, many people create packages i.e, R scripts that contain functions for specific problems , may it be standard deviation , statistics, machine learning and more.</p>
+<ul>
+<li>To install a package, simply type</li>
+</ul>
+<p><code>install.packages("package name")</code></p>
+<ul>
+<li><p>Install a package from Bioconductor: <code>biocLite()</code></p></li>
+<li><p>Install a package from GitHub: <code>devtools::install_github()</code></p></li>
+<li><p>View the list of installed packages: <code><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages()</a></code></p></li>
+<li><p>Folder containing installed packages: <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code></p></li>
+<li><p>To load a package</p></li>
+</ul>
+<p><code>library(package name)</code></p>
+<ul>
+<li>View loaded packages</li>
+</ul>
+<p><code><a href="https://rdrr.io/r/base/search.html">search()</a></code></p>
+<ul>
+<li>to Unload an R package:</li>
+</ul>
+<p><code>detach(package name, unload = TRUE)</code></p>
+<ul>
+<li>Remove installed packages:</li>
+</ul>
+<p><code><a href="https://rdrr.io/r/utils/remove.packages.html">remove.packages()</a></code></p>
+<ul>
+<li>Update installed packages:</li>
+</ul>
+<p><code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code></p>
 
+</div>
 </div>
 </div>
   <div class="chapter-nav">
@@ -126,7 +172,6 @@
 <a class="nav-link" href="#part-i-introduction-to-r">Part I: Introduction to R</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#what-is-r">What is R ?</a></li>
 <li><a class="nav-link" href="#installing-r-and-rstudio">Installing R and Rstudio</a></li>
-<li><a class="nav-link" href="#basic-rstudio-layout-and-functionality">Basic RStudio layout and functionality</a></li>
 </ul>
 </li></ul>
 
@@ -145,7 +190,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2023-09-10.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-01-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

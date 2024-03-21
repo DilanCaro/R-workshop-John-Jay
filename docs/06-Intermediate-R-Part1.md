@@ -2,53 +2,53 @@
 
 # Part I: Functions and Control Structures (30 minutes) {-}
 
-Here is an equation.
-
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
-\end{equation} 
-
-You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
-
-
 ## Writing and using functions {-}
-
-Labeled theorems can be referenced in text using `\@ref(thm:tri)`, for example, check out this smart theorem \@ref(thm:tri).
-
-::: {.theorem #tri}
-For a right triangle, if $c$ denotes the *length* of the hypotenuse
-and $a$ and $b$ denote the lengths of the **other** two sides, we have
-$$a^2 + b^2 = c^2$$
-:::
-
-## If statements and loops (for and while) {-}
-Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
-
-## Callout blocks
-
-
-The `bs4_book` theme also includes special callout blocks, like this `.rmdnote`.
-
-::: {.rmdnote}
-You can use **markdown** inside a block.
 
 
 ```r
-head(beaver1, n = 5)
-#>   day time  temp activ
-#> 1 346  840 36.33     0
-#> 2 346  850 36.34     0
-#> 3 346  900 36.35     0
-#> 4 346  910 36.42     0
-#> 5 346  920 36.55     0
+# Example: A simple function to calculate the square of a number
+square_function <- function(x) {
+  return(x^2)
+}
+
+# Using the function
+result <- square_function(4)
+print(result)
+#> [1] 16
 ```
 
-:::
-
-It is up to the user to define the appearance of these blocks for LaTeX output. 
-
-You may also use: `.rmdcaution`, `.rmdimportant`, `.rmdtip`, or `.rmdwarning` as the block name.
+## If statements and loops (for and while) {-}
 
 
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+```r
+# Example: Using if statement
+number <- 5
+if (number > 0) {
+  print("Positive number")
+} else {
+  print("Non-positive number")
+}
+#> [1] "Positive number"
+
+# Example: For loop to calculate the factorial of a number
+factorial_function <- function(n) {
+  result <- 1
+  for (i in 1:n) {
+    result <- result * i
+  }
+  return(result)
+}
+
+factorial_of_5 <- factorial_function(5)
+print(factorial_of_5)
+#> [1] 120
+
+# Example: While loop to find the first square number greater than 100
+number <- 1
+while (number^2 <= 100) {
+  number <- number + 1
+}
+print(paste("First square number greater than 100 is:", number^2))
+#> [1] "First square number greater than 100 is: 121"
+```
+

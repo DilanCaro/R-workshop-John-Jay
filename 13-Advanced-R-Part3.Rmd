@@ -1,0 +1,45 @@
+# Part III: Building Predictive Models (30 minutes){-}
+## Introduction to machine learning in R {-}
+
+*Brief overview of machine learning:* Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It encompasses a variety of techniques for classification, regression, clustering, and more.
+
+```{r}
+# Load necessary libraries
+#install.packages("caret")
+library(caret)
+
+
+# Example: Splitting a dataset into training and testing sets
+data(iris)
+set.seed(123) # Setting seed for reproducibility
+trainingIndex <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+trainingData <- iris[trainingIndex, ]
+testingData <- iris[-trainingIndex, ]
+
+
+```
+
+*Exercise*:
+
+1. Load a different dataset and partition it into training and testing sets.
+
+## Creating predictive models with caret {-}
+
+```{r}
+
+# Example: Building a predictive model for the iris dataset
+model <- train(Species ~ ., data = trainingData, method = "rpart")
+print(model)
+
+# Predicting using the model
+predictions <- predict(model, testingData)
+confusionMatrix(predictions, testingData$Species)
+
+```
+
+*Exercise*:
+2. Build a predictive model for another dataset and evaluate its performance.
+
+
+```
+

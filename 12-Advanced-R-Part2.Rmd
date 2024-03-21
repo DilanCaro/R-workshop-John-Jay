@@ -1,0 +1,41 @@
+# Part II: Text Data Processing (30 minutes) {-}
+## Manipulating and analyzing text data using regular expressions {-}
+
+```{r}
+# --- Part II: Text Data Processing (30 minutes) ---
+
+# Load necessary libraries
+library(stringr)
+
+## Manipulating and analyzing text data using regular expressions
+
+# Example: Extracting email addresses from a string
+text <- "Contact us at support@example.com or feedback@example.net"
+emails <- str_extract_all(text, "[[:alnum:]_.]+@[[:alnum:]]+\\.[[:alpha:]]{2,}")
+print(emails)
+
+```
+
+*Exercise*:
+
+1. Write a regular expression to find all the words starting with 'b' in a given text.
+
+## Text mining basics {-}
+
+```{r}
+
+# Load the 'tm' package for text mining
+library(tm)
+
+# Example: Basic text mining with a simple corpus
+docs <- Corpus(VectorSource(c("Text mining is awesome", "R is a versatile tool for text analysis")))
+dtm <- DocumentTermMatrix(docs)
+inspect(dtm)
+
+```
+
+*Exercise*:
+
+2. Create a corpus from your own text data and compute its term frequency-inverse document frequency (tf-idf) matrix.
+
+

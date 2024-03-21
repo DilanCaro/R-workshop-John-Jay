@@ -1,5 +1,251 @@
 # Part II: R Fundamentals {-}
+
+Before starting, here are some Official manuals and books we will be learning from :
+
+1. https://cran.r-project.org/doc/manuals/r-release/R-intro.html
+1. https://cran.r-project.org/doc/manuals/r-release/R-data.html
+1. https://cran.r-project.org/doc/manuals/r-release/R-exts.html
+1. https://cran.r-project.org/doc/manuals/r-release/R-lang.html
+1. [R programming for Data Science by Roger D. Peng.](https://bookdown.org/rdpeng/rprogdatascience/)
+1. [R for Data Science](https://r4ds.had.co.nz/)
+
 ### R as a calculator {-}
-### Variables and data types (numeric,character) {-}
+
+The best way to get used to R is to use it as a calculator.
+
+You can start by using the R console and doing simple operations. 
 ### Basic arithmetic operations {-}
+
+- Addition
+```{r}
+3+5
+```
+- Subtraction
+```{r}
+143-12
+```
+- Multiplication
+```{r}
+4*5
+```
+- Division
+```{r}
+180/23
+```
+- Exponientiation
+```{r}
+4^2
+```
+#### Arithmetic Functions {-}
+
+this functions may be useful to replace your calculator
+
+- Absolute value 
+```{r}
+abs(-23)
+```
+- Square root
+```{r}
+sqrt(16)
+```
+- Remainder 
+```{r}
+7 %% 3
+```
+
+- Logarithms and exponentials 
+i.e, 
+
+$$\log_a b = c,\quad ln_e b=a , \quad  e^{a}=b$$
+```{r}
+log2(4)
+log10(1000)
+log(4)
+exp(8)
+2.71828^8
+```
+
+
+### Variables and data types (numeric,character) {-}
+
+#### Assigment Operators {-}
+ in `R`, to create a variable , you can use the assigment symbol `<-`, or `=` however, the later is not commonly used in `R`. 
+ 
+ To assign the value of 7 to x , we will do 
+ 
+```{r}
+x <- 7
+print(x)
+```
+ 
+We can now perform operations on these variables
+```{r}
+3*x+3 # 3*7+3 = 21+3 =24
+```
+
+**Remark:** R is case sensitive so, `x` is different from `X`
+
+calling `print(X)` will output error
+```{r, error=TRUE}
+print(X)
+```
+
+R has five basic or "atomic classes of objects:
+
+- character
+- numeric (real numbers) 
+- integer
+- complex
+- logical (True/False)
+
+Use `typeof()` function to find out what the data type of a variable is .
+**Character Data type ** 
+A character stores character values or strings 
+```{r}
+char <- "This is a character data type"
+char
+typeof(char)
+```
+
+**Numeric Data type ** 
+This is for numerical values .
+
+```{r}
+num <- 3
+print(num)
+num_2 <- -2.35
+num_2
+typeof(num_2)
+```
+
+**Integer Data type ** 
+For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function . 
+
+```{r}
+int <- as.integer(3.6332)
+int
+typeof(int)
+int2 <- as.integer(7)
+int2
+typeof(int2)
+```
+
+We can also create a integer by adding an L after it 
+
+```{r}
+int3 <- 8L
+int3
+```
+Remark: It does not work with decimals 
+```{r, error=TRUE}
+int4 <- 3.4546L
+int4
+```
+**Complex Data type ** 
+Complex data types are stored as `x+yi` , i.e, with the imaginary component
+```{r}
+compl <- 13+7i
+compl
+typeof(compl)
+complex(real = 23, imaginary = 7)
+```
+
+
+**Complex Data type ** 
+This stores boolean values of `TRUE` and `FALSE`
+
+```{r}
+my_bool <- TRUE
+my_bool
+
+typeof(my_bool)
+
+my_boolean <- F
+my_boolean
+typeof(my_boolean)
+
+```
+
+#### Converting Data types {-}
+
+**Convert into Numeric**
+
+We can convert values as numeric. Using `as.numeric()` to change the type but keeping the values as they are. 
+When converting 
+
+- complex: removes the `imaginary` part
+- logical: `TRUE` becomes `1` , `FALSE` becomes `0`
+- character: to its numerical values, but if it has letters then to `NA`
+
+We can use `is.numeric()` to check if a variable is numeric 
+
+```{r}
+# Complex
+is.numeric(compl)
+number <- as.numeric(compl)
+number
+is.numeric(number)
+
+#Logical 
+is.numeric(my_bool)
+number2 <- as.numeric(my_bool)
+number2
+is.numeric(number2)
+
+# Character
+char
+is.numeric(char)
+number3 <- as.numeric(char)
+number3
+is.numeric(number3)
+
+my_char <- "2023"
+is.numeric(my_char)
+number4 <- as.numeric(my_char)
+number4
+is.numeric(number4)
+
+```
+
+**Convert into integer**
+
+```{r}
+inte1<-as.integer("234")
+inte1
+typeof(inte1)
+
+inte2<-as.integer(23+6i)
+inte2
+typeof(inte2)
+
+inte3<-as.integer(F)
+inte3
+typeof(inte3)
+```
+
+** Converting into Logical **
+
+Return `FALSE` for `0` , `TRUE` otherwise
+```{r}
+print(as.logical(0))
+typeof(as.logical(0))
+
+print(as.logical(-324))
+typeof(as.logical(-324))
+```
+
+#### Assigment Operators {-}
+
+### Getting help {-}
+
+You can use the Plots and files pane (bottom left pane) to click on Help and then search for whichever function you need help with. 
+
+You can also use the `?` before each function. 
+
+```{r}
+?mean
+```
+This will open the information about the function on the plots and files pane.
+
+
 

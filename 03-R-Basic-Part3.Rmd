@@ -1,3 +1,4 @@
+
 # Data Structures {-}
 
 ## Vectors: Creating, indexing, and operations {-}
@@ -16,13 +17,81 @@ print(v2)
 
 ```
 
+You can give names to the columns of the vector 
+```{r}
+my_vector <- c("Katrien Antonio", "teacher")
+names(my_vector) <- c("Name", "Profession")
+my_vector
+```
+
 **Exercise**:
 
 1. Create a vector of your favorite numbers.
 2. Access the third element in your vector.
 3. Create a new vector that is the square of each element in the original vector.
 
+## Matrices {-}
+
+Matrices are vectors with a dimension attribute. The dimension attribute is itself an integer vector of length 2 (number of rows, number of columns)
+
+Matrices are constructed column-wise, so entries can be thought of starting in the “upper left” corner and running down the columns.
+
+```{r}
+m <- matrix(1:6, nrow = 2, ncol = 3) 
+m
+```
+
+Another example
+```{r}
+my_matrix <- matrix(1:12, 3, 4, byrow = TRUE)
+my_matrix
+```
+
+Matrices can be created by column-binding or row-binding with the `cbind()` and `rbind()` functions.
+
+```{r}
+x <- 1:3
+y <- 10:12
+cbind(x, y)
+rbind(x, y)
+```
+
+## Lists {-}
+
+Lists are a special type of vector that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well. Lists, in combination with the various “apply” functions discussed later, make for a powerful combination.
+
+Lists can be explicitly created using the list() function, which takes an arbitrary number of arguments.
+
+```{r}
+x <- list(1, "a", TRUE, 1 + 4i) 
+x
+```
+
+## Factors {-}
+
+Factors are used to represent categorical data and can be unordered or ordered. One can think of a factor as an integer vector where each integer has a label. Factors are important in statistical modeling and are treated specially by modelling functions like `lm()` and `glm()`.
+
+Using factors with labels is better than using integers because factors are self-describing. Having a variable that has values “Male” and “Female” is better than a variable that has values 1 and 2.
+
+Factor objects can be created with the factor() function.
+
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no")) 
+x
+```
+
+Level are put in alphabetical order, but you can also define the levels. 
+
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no"),levels = c("yes", "no"))
+x
+```
+
 ## Data frames: Creating and exploring data frames {-}
+
+Data frames are used to store tabular data in R.
+
+Data frames are represented as a special type of list where every element of the list has to have the same length. Each element of the list can be thought of as a column and the length of each element of the list is the number of rows.
 
 ```{r}
 # Creating a data frame
@@ -45,6 +114,33 @@ Exercise:
 1. Create a data frame with at least three columns and four rows.
 1. Print the number of rows and columns of your data frame.
 1. Display summary statistics of your data frame.
+
+Exercise:
+
+Inspect a built-in data frame
+```{r}
+mtcars
+str(mtcars)
+head(mtcars)
+```
+
+Extract a variable from a data frame and ask a summary 
+```{r}
+summary(mtcars$cyl) # use $ to extract variable from a data frame
+```
+
+Now inspect a tibble
+
+```{r}
+library(ggplot2)
+diamonds
+str(diamonds)  # built-in in library ggplot2
+head(diamonds)
+```
+
+
+Can you list some differences?
+
 
 ## Importing and exporting data (CSV files) {-}
 

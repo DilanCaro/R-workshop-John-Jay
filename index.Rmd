@@ -11,6 +11,7 @@ description: |
   This is an R workshop for John Jay students.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
+
 ---
 
 # Welcome {-}
@@ -104,6 +105,7 @@ In this website, you will have resources, examples and practice to master R.
 ### Part 5: Version Control and Collaboration (10 minutes) {-}
 
 1. Using Git and GitHub for version control and collaboration in R projects
+
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

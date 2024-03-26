@@ -1,7 +1,7 @@
 --- 
 title: "R Workshop"
 author: "Dilan Morales Caro"
-date: "2024-01-18"
+date: "2024-03-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -11,6 +11,7 @@ description: |
   This is an R workshop for John Jay students.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
+
 ---
 
 # Welcome {-}
@@ -24,7 +25,6 @@ In this website, you will have resources, examples and practice to master R.
 
 ## Objectives {-}
 
-**Timeline**: Jan 24, Jan 28, Jan 31 
 
 ## Session 1: R Basics (2 hours) {-}
 
@@ -102,5 +102,6 @@ In this website, you will have resources, examples and practice to master R.
 ### Part 5: Version Control and Collaboration (10 minutes) {-}
 
 1. Using Git and GitHub for version control and collaboration in R projects
+
 
 

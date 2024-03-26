@@ -14,6 +14,7 @@ Before starting, here are some Official manuals and books we will be learning fr
 The best way to get used to R is to use it as a calculator.
 
 You can start by using the R console and doing simple operations. 
+
 ### Basic arithmetic operations {-}
 
 - Addition
@@ -46,6 +47,7 @@ You can start by using the R console and doing simple operations.
 4^2
 #> [1] 16
 ```
+
 #### Arithmetic Functions {-}
 
 this functions may be useful to replace your calculator
@@ -62,7 +64,7 @@ abs(-23)
 sqrt(16)
 #> [1] 4
 ```
-- Remainder 
+- Remainder/modulo 
 
 ```r
 7 %% 3
@@ -118,13 +120,29 @@ print(X)
 #> Error in eval(expr, envir, enclos): object 'X' not found
 ```
 
-R has five basic or "atomic classes of objects:
+#### Data types {-}
+
+R has five basic or "atomic" classes of objects:
 
 - character
 - numeric (real numbers) 
 - integer
 - complex
 - logical (True/False)
+
+#### Exercise {-}
+
+
+```r
+my_numeric <- 42.5
+John_jay <- "university"
+my_logical <- TRUE
+my_date <- as.Date("05/29/2018", "%m/%d/%Y")
+typeof(my_date)
+#> [1] "double"
+class(my_date)
+#> [1] "Date"
+```
 
 Use `typeof()` function to find out what the data type of a variable is .
 **Character Data type ** 
@@ -151,9 +169,11 @@ num_2
 #> [1] -2.35
 typeof(num_2)
 #> [1] "double"
+class(num_2)
+#> [1] "numeric"
 ```
 
-**Integer Data type ** 
+**Integer Data type** 
 For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function . 
 
 
@@ -167,6 +187,8 @@ int2 <- as.integer(7)
 int2
 #> [1] 7
 typeof(int2)
+#> [1] "integer"
+class(int2)
 #> [1] "integer"
 ```
 
@@ -185,7 +207,8 @@ int4 <- 3.4546L
 int4
 #> [1] 3.4546
 ```
-**Complex Data type ** 
+
+**Complex Data type** 
 Complex data types are stored as `x+yi` , i.e, with the imaginary component
 
 ```r
@@ -199,7 +222,7 @@ complex(real = 23, imaginary = 7)
 ```
 
 
-**Complex Data type ** 
+**Boolean Data type ** 
 This stores boolean values of `TRUE` and `FALSE`
 
 
@@ -298,7 +321,7 @@ typeof(inte3)
 #> [1] "integer"
 ```
 
-** Converting into Logical **
+**Converting into Logical**
 
 Return `FALSE` for `0` , `TRUE` otherwise
 
@@ -314,7 +337,7 @@ typeof(as.logical(-324))
 #> [1] "logical"
 ```
 
-#### Assigment Operators {-}
+
 
 ### Getting help {-}
 

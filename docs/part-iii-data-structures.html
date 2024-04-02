@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Part III: Data Structures | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
+<meta name="description" content="Vectors: Creating, indexing, and operations # Creating a vector v &lt;- c(1, 2, 3, 4, 5) print(v) #&gt; [1] 1 2 3 4 5 # Indexing a vector print(v[2]) # Access the second element #&gt; [1] 2 # Vector...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Part III: Data Structures | R Workshop">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-iii-data-structures.html">
+<meta property="og:description" content="Vectors: Creating, indexing, and operations # Creating a vector v &lt;- c(1, 2, 3, 4, 5) print(v) #&gt; [1] 1 2 3 4 5 # Indexing a vector print(v[2]) # Access the second element #&gt; [1] 2 # Vector...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Part III: Data Structures | R Workshop">
+<meta name="twitter:description" content="Vectors: Creating, indexing, and operations # Creating a vector v &lt;- c(1, 2, 3, 4, 5) print(v) #&gt; [1] 1 2 3 4 5 # Indexing a vector print(v[2]) # Access the second element #&gt; [1] 2 # Vector...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Workshop</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="workshop-1.html">Workshop 1</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="active" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
+<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
+<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="part-iii-data-structures" class="section level1 unnumbered">
+<h1>Part III: Data Structures<a class="anchor" aria-label="anchor" href="#part-iii-data-structures"><i class="fas fa-link"></i></a>
+</h1>
+<div id="vectors-creating-indexing-and-operations" class="section level2 unnumbered">
+<h2>Vectors: Creating, indexing, and operations<a class="anchor" aria-label="anchor" href="#vectors-creating-indexing-and-operations"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Creating a vector</span></span>
+<span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1 2 3 4 5</span></span>
+<span></span>
+<span><span class="co"># Indexing a vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">v</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>  <span class="co"># Access the second element</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span></span>
+<span><span class="co"># Vector operations</span></span>
+<span><span class="va">v2</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op">*</span> <span class="fl">2</span>  <span class="co"># Multiply each element by 2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">v2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  2  4  6  8 10</span></span></code></pre></div>
+<p>You can give names to the columns of the vector</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Katrien Antonio"</span>, <span class="st">"teacher"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Profession"</span><span class="op">)</span></span>
+<span><span class="va">my_vector</span></span>
+<span><span class="co">#&gt;              Name        Profession </span></span>
+<span><span class="co">#&gt; "Katrien Antonio"         "teacher"</span></span></code></pre></div>
+<div id="exercise-6" class="section level3" number="0.1.1">
+<h3>
+<span class="header-section-number">0.1.1</span> Exercise :<a class="anchor" aria-label="anchor" href="#exercise-6"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Create a vector of your favorite numbers.</li>
+<li>Access the third element in your vector.</li>
+<li>Create a new vector that is the square of each element in the original vector.</li>
+</ol>
+</div>
+</div>
+<div id="matrices" class="section level2 unnumbered">
+<h2>Matrices<a class="anchor" aria-label="anchor" href="#matrices"><i class="fas fa-link"></i></a>
+</h2>
+<p>Matrices are vectors with a dimension attribute. The dimension attribute is itself an integer vector of length 2 (number of rows, number of columns)</p>
+<p>Matrices are constructed column-wise, so entries can be thought of starting in the “upper left” corner and running down the columns.</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> </span>
+<span><span class="va">m</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span><span class="co">#&gt; [1,]    1    3    5</span></span>
+<span><span class="co">#&gt; [2,]    2    4    6</span></span></code></pre></div>
+<p>Another example</p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">3</span>, <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">my_matrix</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span><span class="co">#&gt; [2,]    5    6    7    8</span></span>
+<span><span class="co">#&gt; [3,]    9   10   11   12</span></span></code></pre></div>
+<p>Matrices can be created by column-binding or row-binding with the <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> and <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> functions.</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">:</span><span class="fl">12</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      x  y</span></span>
+<span><span class="co">#&gt; [1,] 1 10</span></span>
+<span><span class="co">#&gt; [2,] 2 11</span></span>
+<span><span class="co">#&gt; [3,] 3 12</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   [,1] [,2] [,3]</span></span>
+<span><span class="co">#&gt; x    1    2    3</span></span>
+<span><span class="co">#&gt; y   10   11   12</span></span></code></pre></div>
+</div>
+<div id="lists" class="section level2 unnumbered">
+<h2>Lists<a class="anchor" aria-label="anchor" href="#lists"><i class="fas fa-link"></i></a>
+</h2>
+<p>Lists are a special type of vector that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well. Lists, in combination with the various “apply” functions discussed later, make for a powerful combination.</p>
+<p>Lists can be explicitly created using the list() function, which takes an arbitrary number of arguments.</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"a"</span>, <span class="cn">TRUE</span>, <span class="fl">1</span> <span class="op">+</span> <span class="fl">4i</span><span class="op">)</span> </span>
+<span><span class="va">x</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[2]]</span></span>
+<span><span class="co">#&gt; [1] "a"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[3]]</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[4]]</span></span>
+<span><span class="co">#&gt; [1] 1+4i</span></span></code></pre></div>
+<div id="example" class="section level3 unnumbered">
+<h3>Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>one <span class="op">=</span> <span class="fl">1</span>, two <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, five <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span>, length<span class="op">=</span><span class="fl">5</span><span class="op">)</span>,</span>
+<span>          six <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Katrien"</span>, <span class="st">"Jan"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "one"  "two"  "five" "six"</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; List of 4</span></span>
+<span><span class="co">#&gt;  $ one : num 1</span></span>
+<span><span class="co">#&gt;  $ two : num [1:2] 1 2</span></span>
+<span><span class="co">#&gt;  $ five: num [1:5] 1 1.75 2.5 3.25 4</span></span>
+<span><span class="co">#&gt;  $ six : chr [1:2] "Katrien" "Jan"</span></span></code></pre></div>
+</div>
+</div>
+<div id="factors" class="section level2 unnumbered">
+<h2>Factors<a class="anchor" aria-label="anchor" href="#factors"><i class="fas fa-link"></i></a>
+</h2>
+<p>Factors are used to represent categorical data and can be unordered or ordered. One can think of a factor as an integer vector where each integer has a label. Factors are important in statistical modeling and are treated specially by modelling functions like <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> and <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code>.</p>
+<p>Using factors with labels is better than using integers because factors are self-describing. Having a variable that has values “Male” and “Female” is better than a variable that has values 1 and 2.</p>
+<p>Factor objects can be created with the factor() function.</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"no"</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">x</span></span>
+<span><span class="co">#&gt; [1] yes yes no  yes no </span></span>
+<span><span class="co">#&gt; Levels: no yes</span></span></code></pre></div>
+<p>Level are put in alphabetical order, but you can also define the levels.</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>, <span class="st">"yes"</span>, <span class="st">"no"</span><span class="op">)</span>,levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">x</span></span>
+<span><span class="co">#&gt; [1] yes yes no  yes no </span></span>
+<span><span class="co">#&gt; Levels: yes no</span></span></code></pre></div>
+</div>
+<div id="data-frames-creating-and-exploring-data-frames" class="section level2 unnumbered">
+<h2>Data frames: Creating and exploring data frames<a class="anchor" aria-label="anchor" href="#data-frames-creating-and-exploring-data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data frames are used to store tabular data in R.</p>
+<p>Data frames are represented as a special type of list where every element of the list has to have the same length. Each element of the list can be thought of as a column and the length of each element of the list is the number of rows.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Creating a data frame</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span>,</span>
+<span>  Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">35</span><span class="op">)</span>,</span>
+<span>  Salary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50000</span>, <span class="fl">60000</span>, <span class="fl">70000</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      Name Age Salary</span></span>
+<span><span class="co">#&gt; 1   Alice  25  50000</span></span>
+<span><span class="co">#&gt; 2     Bob  30  60000</span></span>
+<span><span class="co">#&gt; 3 Charlie  35  70000</span></span>
+<span></span>
+<span><span class="co"># Exploring data frames</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Dimensions of the data frame</span></span>
+<span><span class="co">#&gt; [1] 3 3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Column names</span></span>
+<span><span class="co">#&gt; [1] "Name"   "Age"    "Salary"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Summary statistics</span></span>
+<span><span class="co">#&gt;      Name                Age           Salary     </span></span>
+<span><span class="co">#&gt;  Length:3           Min.   :25.0   Min.   :50000  </span></span>
+<span><span class="co">#&gt;  Class :character   1st Qu.:27.5   1st Qu.:55000  </span></span>
+<span><span class="co">#&gt;  Mode  :character   Median :30.0   Median :60000  </span></span>
+<span><span class="co">#&gt;                     Mean   :30.0   Mean   :60000  </span></span>
+<span><span class="co">#&gt;                     3rd Qu.:32.5   3rd Qu.:65000  </span></span>
+<span><span class="co">#&gt;                     Max.   :35.0   Max.   :70000</span></span></code></pre></div>
+</div>
+<div id="exercise-3-1" class="section level2 unnumbered">
+<h2>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-1"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Create a data frame with at least three columns and four rows.</li>
+<li>Print the number of rows and columns of your data frame.</li>
+<li>Display summary statistics of your data frame.</li>
+</ol>
+</div>
+<div id="part-2-1" class="section level2 unnumbered">
+<h2>Part 2<a class="anchor" aria-label="anchor" href="#part-2-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Inspect a built-in data frame</p>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mtcars</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code></pre></div>
+<p>Get summary from a variable in a dataframe</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span> <span class="co"># use $ to extract variable from a data frame</span></span></code></pre></div>
+<p>Now inspect a tibble</p>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="va">diamonds</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span>  <span class="co"># built-in in library ggplot2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">depth</span><span class="op">)</span></span></code></pre></div>
+<p>Can you list some differences?</p>
+<div id="exercise-4-1" class="section level3 unnumbered">
+<h3>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Create a vector <code>fav_music</code> with the names of your favorite artists.</li>
+<li>Create a vector <code>num_records</code> with the number of records you have in
+your collection of each of those artists.</li>
+<li>Create a vector <code>num_concerts</code> with the number of times you attended a concert of these artists.</li>
+<li>Put everything together in a data frame, assign the name <code>my_music</code> to this data frame and change the labels of the information stored in the columns to <code>artist</code>, <code>records</code> and <code>concerts.</code>
+</li>
+<li>Extract the variable <code>num_records</code> from the data frame <code>my_music.</code>
+</li>
+<li>Calculate the total number of records in your collection (for the defined
+set of artists).</li>
+<li>Check the structure of the data frame, ask for a <code>summary.</code>
+</li>
+</ol>
+</div>
+</div>
+<div id="importing-and-exporting-data-csv-files" class="section level2 unnumbered">
+<h2>Importing and exporting data (CSV files)<a class="anchor" aria-label="anchor" href="#importing-and-exporting-data-csv-files"><i class="fas fa-link"></i></a>
+</h2>
+<p>Exporting data to CSV</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"my_data.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>Importing data from CSV</p>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_imported</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"my_data.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">df_imported</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      Name Age Salary</span></span>
+<span><span class="co">#&gt; 1   Alice  25  50000</span></span>
+<span><span class="co">#&gt; 2     Bob  30  60000</span></span>
+<span><span class="co">#&gt; 3 Charlie  35  70000</span></span></code></pre></div>
+<p>Previously, we exported the data and then imported it . Some of you may think, then what is the purpose if we already had the dataframe. The prior was just an example, in reality , you would not have the dataframe loaded in R . You would only have a csv or a data file that a coworker has shared with you or the data engineer has procured for you.</p>
+<p>First, we need to obtain the data that we need. For that, please head over to</p>
+<p><a href="https://tinyurl.com/JJAY-R-workshop" class="uri">https://tinyurl.com/JJAY-R-workshop</a></p>
+<p>alternatively,</p>
+<p><a href="https://drive.google.com/drive/folders/18W5f2AvKT7IVKnJ73McCzQOOqMdP0CwM?usp=sharing" class="uri">https://drive.google.com/drive/folders/18W5f2AvKT7IVKnJ73McCzQOOqMdP0CwM?usp=sharing</a></p>
+<center>
+<img src="images/data.png" width="40%" height="20%">
+</center>
+<p>Download the data, for that, click on the arrow of the folder, and choose download. Find where it is located in your computer, obtain the <code>Path</code></p>
+<center>
+<img src="images/Downloading.png" width="40%" height="20%">
+</center>
+<p>Some useful instructions regarding path names: get your working directory</p>
+<ul>
+<li>Get working directory</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay"</span></span></code></pre></div>
+<ul>
+<li>specify a path name, with forward slash or double back slash</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>use a relative path</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">"./John Jay Workshop Data"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="importing-a-.txt-file" class="section level2 unnumbered">
+<h2>Importing a .txt file<a class="anchor" aria-label="anchor" href="#importing-a-.txt-file"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> is one great way to import data.</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">path.hotdogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"hotdogs.txt"</span><span class="op">)</span></span>
+<span><span class="va">path.hotdogs</span>    <span class="co"># inspect path name</span></span>
+<span><span class="co">#&gt; [1] "./John Jay Workshop Data/hotdogs.txt"</span></span>
+<span><span class="va">hotdogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="va">path.hotdogs</span>, header <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                      col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"type"</span>, <span class="st">"calories"</span>, <span class="st">"sodium"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">hotdogs</span><span class="op">)</span>    <span class="co"># inspect data imported</span></span>
+<span><span class="co">#&gt; 'data.frame':    54 obs. of  3 variables:</span></span>
+<span><span class="co">#&gt;  $ type    : chr  "Beef" "Beef" "Beef" "Beef" ...</span></span>
+<span><span class="co">#&gt;  $ calories: int  186 181 176 149 184 190 158 139 175 148 ...</span></span>
+<span><span class="co">#&gt;  $ sodium  : int  495 477 425 322 482 587 370 322 479 375 ...</span></span></code></pre></div>
+<p>Or like this</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">hotdogs2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="va">path.hotdogs</span>, header <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                       col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"type"</span>, <span class="st">"calories"</span>, <span class="st">"sodium"</span><span class="op">)</span>,</span>
+<span>                       colClasses <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"factor"</span>, <span class="st">"NULL"</span>, <span class="st">"numeric"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">hotdogs2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    54 obs. of  2 variables:</span></span>
+<span><span class="co">#&gt;  $ type  : Factor w/ 3 levels "Beef","Meat",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">#&gt;  $ sodium: num  495 477 425 322 482 587 370 322 479 375 ...</span></span></code></pre></div>
+<p>What happened?</p>
+<div id="import-.csv-file" class="section level3 unnumbered">
+<h3>Import .csv file<a class="anchor" aria-label="anchor" href="#import-.csv-file"><i class="fas fa-link"></i></a>
+</h3>
+<p><code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> is another importing function.</p>
+<p>Here is an example:
+- load a data set on swimming pools in Brisbane
+- column names in the first row; a comma to separate values within rows</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">path.pools</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"swimming_pools.csv"</span><span class="op">)</span></span>
+<span><span class="va">pools</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">path.pools</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pools</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    20 obs. of  4 variables:</span></span>
+<span><span class="co">#&gt;  $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...</span></span>
+<span><span class="co">#&gt;  $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...</span></span>
+<span><span class="co">#&gt;  $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...</span></span>
+<span><span class="co">#&gt;  $ Longitude: num  153 153 153 153 153 ...</span></span></code></pre></div>
+</div>
+</div>
+<div id="import-.xlsx-file" class="section level2 unnumbered">
+<h2>Import .xlsx file<a class="anchor" aria-label="anchor" href="#import-.xlsx-file"><i class="fas fa-link"></i></a>
+</h2>
+<p>The package to read excel data into R is <code>readxl</code>:</p>
+<ul>
+<li>No external dependencies, easy to download</li>
+<li>Desgined to work with tabular data</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="va">path.urbanpop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"urbanpop.xlsx"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">excel_sheets</a></span><span class="op">(</span><span class="va">path.urbanpop</span><span class="op">)</span> <span class="co"># list sheet names with excel_sheets()</span></span>
+<span><span class="co">#&gt; [1] "1960-1966" "1967-1974" "1975-2011"</span></span></code></pre></div>
+<p>Specify a worksheet by name or number, e.g.</p>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pop_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="va">path.urbanpop</span>, sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">pop_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="va">path.urbanpop</span>, sheet <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p>inspect and re-combine</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pop_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; tibble [209 × 8] (S3: tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">#&gt;  $ country: chr [1:209] "Afghanistan" "Albania" "Algeria" "American Samoa" ...</span></span>
+<span><span class="co">#&gt;  $ 1960   : num [1:209] 769308 494443 3293999 NA NA ...</span></span>
+<span><span class="co">#&gt;  $ 1961   : num [1:209] 814923 511803 3515148 13660 8724 ...</span></span>
+<span><span class="co">#&gt;  $ 1962   : num [1:209] 858522 529439 3739963 14166 9700 ...</span></span>
+<span><span class="co">#&gt;  $ 1963   : num [1:209] 903914 547377 3973289 14759 10748 ...</span></span>
+<span><span class="co">#&gt;  $ 1964   : num [1:209] 951226 565572 4220987 15396 11866 ...</span></span>
+<span><span class="co">#&gt;  $ 1965   : num [1:209] 1000582 583983 4488176 16045 13053 ...</span></span>
+<span><span class="co">#&gt;  $ 1966   : num [1:209] 1058743 602512 4649105 16693 14217 ...</span></span>
+<span><span class="va">pop_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">pop_1</span>, <span class="va">pop_2</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="import-other-data-formats-1" class="section level2 unnumbered">
+<h2>Import other data formats<a class="anchor" aria-label="anchor" href="#import-other-data-formats-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code>haven</code> package enables R to read and write various data formats used by other statistical packages.</p>
+<p>It supports:</p>
+<ul>
+<li>SAS: <code><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas()</a></code> reads .sas7bdat and .sas7bcat files and <code><a href="https://haven.tidyverse.org/reference/read_xpt.html">read_xpt()</a></code> reads SAS transport files. write_sas() writes .sas7bdat files.</li>
+<li>SPSS: <code><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav()</a></code> reads .sav files and <code><a href="https://haven.tidyverse.org/reference/read_spss.html">read_por()</a></code> reads the older .por files. write_sav() writes .sav files.</li>
+<li>Stata: <code><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta()</a></code> reads .dta files. <code><a href="https://haven.tidyverse.org/reference/read_dta.html">write_dta()</a></code> writes .dta files.</li>
+</ul>
+<div id="exercise-5-1" class="section level3 unnumbered">
+<h3>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Load the following data sets, available in the course material:
+- the Danish fire insurance losses, stored in <code>danish.txt</code>
+- the severity data set, stored in <code>severity.sas7bdat</code>.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></div>
+<div class="next"><a href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#part-iii-data-structures">Part III: Data Structures</a></li>
+<li>
+<a class="nav-link" href="#vectors-creating-indexing-and-operations">Vectors: Creating, indexing, and operations</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-6"><span class="header-section-number">0.1.1</span> Exercise :</a></li></ul>
+</li>
+<li><a class="nav-link" href="#matrices">Matrices</a></li>
+<li>
+<a class="nav-link" href="#lists">Lists</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example">Example</a></li></ul>
+</li>
+<li><a class="nav-link" href="#factors">Factors</a></li>
+<li><a class="nav-link" href="#data-frames-creating-and-exploring-data-frames">Data frames: Creating and exploring data frames</a></li>
+<li><a class="nav-link" href="#exercise-3-1">Exercise 3</a></li>
+<li>
+<a class="nav-link" href="#part-2-1">Part 2</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-4-1">Exercise 4</a></li></ul>
+</li>
+<li><a class="nav-link" href="#importing-and-exporting-data-csv-files">Importing and exporting data (CSV files)</a></li>
+<li>
+<a class="nav-link" href="#importing-a-.txt-file">Importing a .txt file</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#import-.csv-file">Import .csv file</a></li></ul>
+</li>
+<li><a class="nav-link" href="#import-.xlsx-file">Import .xlsx file</a></li>
+<li>
+<a class="nav-link" href="#import-other-data-formats-1">Import other data formats</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-5-1">Exercise 5</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/03-R-Basic-Part3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/03-R-Basic-Part3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

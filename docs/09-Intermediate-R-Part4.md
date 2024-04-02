@@ -35,13 +35,13 @@ print(t_test_result)
 #> 	One Sample t-test
 #> 
 #> data:  sample_data
-#> t = -0.82389, df = 29, p-value = 0.4167
+#> t = -0.11173, df = 29, p-value = 0.9118
 #> alternative hypothesis: true mean is not equal to 0
 #> 95 percent confidence interval:
-#>  -0.5451930  0.2320796
+#>  -0.4102678  0.3677629
 #> sample estimates:
-#>  mean of x 
-#> -0.1565567
+#>   mean of x 
+#> -0.02125242
 
 # Example: Performing a chi-squared test
 # Hypothesis: Two categorical variables are independent.

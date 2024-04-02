@@ -1,4 +1,6 @@
 fig:unnamed-chunk-3
-workshop-1
 section
 exercise-3
+exercise-6
+why-use-dyplr
+exploratory-data-analysis

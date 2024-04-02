@@ -1,6 +1,10 @@
 # Intermediate R {-}
 
-# Part I: Functions and Control Structures (30 minutes) {-}
+In this session , we will learn about function and control structures such as writing functions , if statements, and loops.
+
+We will also explore Data Cleaning and Transformations such as handling missing data , reshaping data using the dplyr functions. 
+
+# Part I: Functions and Control Structures {-}
 
 ## Writing and using functions {-}
 

@@ -53,6 +53,7 @@ Alternatively , you can look at these videos .
 1. [Installation of R on Mac by Roger Peng](https://www.youtube.com/watch?v=uxuuWXU-7UQ&feature=youtu.be&themeRefresh=1&theme=dark)
 1. [How to install Rstudio on Mac](https://www.youtube.com/watch?v=n8kP7c_QbLA)
 1. [How to install Rstudio on Windows](https://www.youtube.com/watch?v=YrEe2TLr3MI)
+
 ### Basic RStudio layout and functionality {-}
 <center>
 <div class="figure">

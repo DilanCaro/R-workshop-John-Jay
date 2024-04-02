@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Intermediate R | R Workshop</title>
 <meta name="author" content="Dilan Morales Caro">
-<meta name="description" content="This is an R workshop for John Jay students.">
+<meta name="description" content="In this session , we will learn about function and control structures such as writing functions , if statements, and loops. We will also explore Data Cleaning and Transformations such as handling...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Intermediate R | R Workshop">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/intermediate-r.html">
-<meta property="og:description" content="This is an R workshop for John Jay students.">
+<meta property="og:description" content="In this session , we will learn about function and control structures such as writing functions , if statements, and loops. We will also explore Data Cleaning and Transformations such as handling...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intermediate R | R Workshop">
-<meta name="twitter:description" content="This is an R workshop for John Jay students.">
+<meta name="twitter:description" content="In this session , we will learn about function and control structures such as writing functions , if statements, and loops. We will also explore Data Cleaning and Transformations such as handling...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -47,18 +47,18 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="workshop-1.html"><span class="header-section-number">1</span> Workshop 1</a></li>
+<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="r-basics.html">R Basics</a></li>
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
-<li><a class="" href="data-structures.html">Data Structures</a></li>
+<li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
 <li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
 <li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
 <li><a class="active" href="intermediate-r.html">Intermediate R</a></li>
-<li><a class="" href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
 <li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
-<li><a class="" href="part-iii-advanced-data-visualization-30-minutes.html">Part III: Advanced Data Visualization (30 minutes)</a></li>
-<li><a class="" href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
@@ -75,10 +75,12 @@
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="intermediate-r" class="section level1 unnumbered">
 <h1>Intermediate R<a class="anchor" aria-label="anchor" href="#intermediate-r"><i class="fas fa-link"></i></a>
 </h1>
+<p>In this session , we will learn about function and control structures such as writing functions , if statements, and loops.</p>
+<p>We will also explore Data Cleaning and Transformations such as handling missing data , reshaping data using the dplyr functions.</p>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></div>
-<div class="next"><a href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></div>
+<div class="next"><a href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li><a class="nav-link" href="#intermediate-r">Intermediate R</a></li></ul>
@@ -98,7 +100,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-03-26.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

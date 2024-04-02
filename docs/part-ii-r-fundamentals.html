@@ -47,18 +47,18 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="workshop-1.html"><span class="header-section-number">1</span> Workshop 1</a></li>
+<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="r-basics.html">R Basics</a></li>
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="active" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
-<li><a class="" href="data-structures.html">Data Structures</a></li>
+<li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
 <li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
 <li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
-<li><a class="" href="part-i-functions-and-control-structures-30-minutes.html">Part I: Functions and Control Structures (30 minutes)</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
 <li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
-<li><a class="" href="part-iii-advanced-data-visualization-30-minutes.html">Part III: Advanced Data Visualization (30 minutes)</a></li>
-<li><a class="" href="part-iv-statistical-analysis-30-minutes.html">Part IV: Statistical Analysis (30 minutes)</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
@@ -83,6 +83,9 @@
 <li><a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html" class="uri">https://cran.r-project.org/doc/manuals/r-release/R-lang.html</a></li>
 <li><a href="https://bookdown.org/rdpeng/rprogdatascience/">R programming for Data Science by Roger D. Peng.</a></li>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
+<li><a href="https://katrienantonio.github.io/intro-R-book/">Intro R book</a></li>
+<li><a href="https://unl-statistics.github.io/R-workshops/">R workshop</a></li>
+<li><a href="https://intro2r.com/">Intro to R</a></li>
 </ol>
 <div id="r-as-a-calculator" class="section level3 unnumbered">
 <h3>R as a calculator<a class="anchor" aria-label="anchor" href="#r-as-a-calculator"><i class="fas fa-link"></i></a>
@@ -96,31 +99,31 @@
 <ul>
 <li>Addition</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span><span class="op">+</span><span class="fl">5</span></span>
 <span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 <ul>
 <li>Subtraction</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">143</span><span class="op">-</span><span class="fl">12</span></span>
 <span><span class="co">#&gt; [1] 131</span></span></code></pre></div>
 <ul>
 <li>Multiplication</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">4</span><span class="op">*</span><span class="fl">5</span></span>
 <span><span class="co">#&gt; [1] 20</span></span></code></pre></div>
 <ul>
 <li>Division</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">180</span><span class="op">/</span><span class="fl">23</span></span>
 <span><span class="co">#&gt; [1] 7.826087</span></span></code></pre></div>
 <ul>
 <li>Exponientiation</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">4</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="co">#&gt; [1] 16</span></span></code></pre></div>
 <div id="arithmetic-functions" class="section level4 unnumbered">
@@ -130,19 +133,19 @@
 <ul>
 <li>Absolute value</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="op">-</span><span class="fl">23</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 23</span></span></code></pre></div>
 <ul>
 <li>Square root</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">16</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 4</span></span></code></pre></div>
 <ul>
 <li>Remainder/modulo</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">7</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">3</span></span>
 <span><span class="co">#&gt; [1] 1</span></span></code></pre></div>
 <ul>
@@ -150,7 +153,7 @@
 i.e,</li>
 </ul>
 <p><span class="math display">\[\log_a b = c,\quad ln_e b=a , \quad  e^{a}=b\]</span></p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
@@ -171,17 +174,17 @@ i.e,</li>
 </h4>
 <p>in <code>R</code>, to create a variable , you can use the assigment symbol <code>&lt;-</code>, or <code>=</code> however, the later is not commonly used in <code>R</code>.</p>
 <p>To assign the value of 7 to x , we will do</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">7</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 7</span></span></code></pre></div>
 <p>We can now perform operations on these variables</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span><span class="op">*</span><span class="va">x</span><span class="op">+</span><span class="fl">3</span> <span class="co"># 3*7+3 = 21+3 =24</span></span>
 <span><span class="co">#&gt; [1] 24</span></span></code></pre></div>
 <p><strong>Remark:</strong> R is case sensitive so, <code>x</code> is different from <code>X</code></p>
 <p>calling <code>print(X)</code> will output error</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error in eval(expr, envir, enclos): object 'X' not found</span></span></code></pre></div>
 </div>
@@ -200,7 +203,7 @@ i.e,</li>
 <div id="exercise" class="section level4 unnumbered">
 <h4>Exercise<a class="anchor" aria-label="anchor" href="#exercise"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_numeric</span> <span class="op">&lt;-</span> <span class="fl">42.5</span></span>
 <span><span class="va">John_jay</span> <span class="op">&lt;-</span> <span class="st">"university"</span></span>
 <span><span class="va">my_logical</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
@@ -212,15 +215,15 @@ i.e,</li>
 <p>Use <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function to find out what the data type of a variable is .
 <strong>Character Data type </strong>
 A character stores character values or strings</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">char</span> <span class="op">&lt;-</span> <span class="st">"This is a character data type"</span></span>
 <span><span class="va">char</span></span>
 <span><span class="co">#&gt; [1] "This is a character data type"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">char</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "character"</span></span></code></pre></div>
-<p><strong>Numeric Data type </strong>
-This is for numerical values .</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<p><strong>Numeric Data type </strong></p>
+<p>This is for numerical values .</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">num</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
@@ -231,9 +234,9 @@ This is for numerical values .</p>
 <span><span class="co">#&gt; [1] "double"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">num_2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "numeric"</span></span></code></pre></div>
-<p><strong>Integer Data type</strong>
-For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function .</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<p><strong>Integer Data type</strong></p>
+<p>For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function .</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">3.6332</span><span class="op">)</span></span>
 <span><span class="va">int</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
@@ -247,18 +250,18 @@ For integers, we must specify it as so, and to do it , we must convert the data 
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">int2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
 <p>We can also create a integer by adding an L after it</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int3</span> <span class="op">&lt;-</span> <span class="fl">8L</span></span>
 <span><span class="va">int3</span></span>
 <span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 <p>Remark: It does not work with decimals</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int4</span> <span class="op">&lt;-</span> <span class="fl">3.4546L</span></span>
 <span><span class="va">int4</span></span>
 <span><span class="co">#&gt; [1] 3.4546</span></span></code></pre></div>
 <p><strong>Complex Data type</strong>
 Complex data types are stored as <code>x+yi</code> , i.e, with the imaginary component</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">compl</span> <span class="op">&lt;-</span> <span class="fl">13</span><span class="op">+</span><span class="fl">7i</span></span>
 <span><span class="va">compl</span></span>
 <span><span class="co">#&gt; [1] 13+7i</span></span>
@@ -268,7 +271,7 @@ Complex data types are stored as <code>x+yi</code> , i.e, with the imaginary com
 <span><span class="co">#&gt; [1] 23+7i</span></span></code></pre></div>
 <p><strong>Boolean Data type </strong>
 This stores boolean values of <code>TRUE</code> and <code>FALSE</code></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_bool</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
 <span><span class="va">my_bool</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
@@ -296,7 +299,7 @@ When converting</p>
 </li>
 </ul>
 <p>We can use <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> to check if a variable is numeric</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Complex</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">compl</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
@@ -337,7 +340,7 @@ When converting</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">number4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p><strong>Convert into integer</strong></p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inte1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="st">"234"</span><span class="op">)</span></span>
 <span><span class="va">inte1</span></span>
 <span><span class="co">#&gt; [1] 234</span></span>
@@ -358,7 +361,7 @@ When converting</p>
 <span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
 <p><strong>Converting into Logical</strong></p>
 <p>Return <code>FALSE</code> for <code>0</code> , <code>TRUE</code> otherwise</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
@@ -375,7 +378,7 @@ When converting</p>
 </h3>
 <p>You can use the Plots and files pane (bottom left pane) to click on Help and then search for whichever function you need help with.</p>
 <p>You can also use the <code>?</code> before each function.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">mean</span></span></code></pre></div>
 <p>This will open the information about the function on the plots and files pane.</p>
 
@@ -383,7 +386,7 @@ When converting</p>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="part-i-introduction-to-r.html">Part I: Introduction to R</a></div>
-<div class="next"><a href="data-structures.html">Data Structures</a></div>
+<div class="next"><a href="part-iii-data-structures.html">Part III: Data Structures</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li>
@@ -410,7 +413,7 @@ When converting</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-03-26.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

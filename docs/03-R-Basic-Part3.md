@@ -1,5 +1,5 @@
 
-# Data Structures {-}
+# Part III: Data Structures {-}
 
 ## Vectors: Creating, indexing, and operations {-}
 
@@ -30,7 +30,7 @@ my_vector
 #> "Katrien Antonio"         "teacher"
 ```
 
-**Exercise**:
+### Exercise :
 
 1. Create a vector of your favorite numbers.
 2. Access the third element in your vector.
@@ -52,6 +52,7 @@ m
 ```
 
 Another example
+
 
 ```r
 my_matrix <- matrix(1:12, 3, 4, byrow = TRUE)
@@ -100,6 +101,26 @@ x
 #> 
 #> [[4]]
 #> [1] 1+4i
+```
+
+### Example {-}
+
+
+```r
+my_list <- list(one = 1, two = c(1, 2), five = seq(1, 4, length=5),
+          six = c("Katrien", "Jan"))
+names(my_list)
+#> [1] "one"  "two"  "five" "six"
+```
+
+
+```r
+str(my_list)
+#> List of 4
+#>  $ one : num 1
+#>  $ two : num [1:2] 1 2
+#>  $ five: num [1:5] 1 1.75 2.5 3.25 4
+#>  $ six : chr [1:2] "Katrien" "Jan"
 ```
 
 ## Factors {-}
@@ -163,120 +184,28 @@ print(summary(df))  # Summary statistics
 #>                     Max.   :35.0   Max.   :70000
 ```
 
-Exercise:
+## Exercise 3 {-}
 
 1. Create a data frame with at least three columns and four rows.
 1. Print the number of rows and columns of your data frame.
 1. Display summary statistics of your data frame.
 
-Exercise:
+## Part 2 {-}
 
 Inspect a built-in data frame
 
+
 ```r
 mtcars
-#>                      mpg cyl  disp  hp drat    wt  qsec vs
-#> Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0
-#> Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0
-#> Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1
-#> Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1
-#> Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0
-#> Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1
-#> Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0
-#> Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1
-#> Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1
-#> Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1
-#> Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1
-#> Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0
-#> Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0
-#> Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0
-#> Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0
-#> Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0
-#> Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0
-#> Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1
-#> Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1
-#> Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1
-#> Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1
-#> Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0
-#> AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0
-#> Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0
-#> Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0
-#> Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1
-#> Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0
-#> Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1
-#> Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0
-#> Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0
-#> Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0
-#> Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1
-#>                     am gear carb
-#> Mazda RX4            1    4    4
-#> Mazda RX4 Wag        1    4    4
-#> Datsun 710           1    4    1
-#> Hornet 4 Drive       0    3    1
-#> Hornet Sportabout    0    3    2
-#> Valiant              0    3    1
-#> Duster 360           0    3    4
-#> Merc 240D            0    4    2
-#> Merc 230             0    4    2
-#> Merc 280             0    4    4
-#> Merc 280C            0    4    4
-#> Merc 450SE           0    3    3
-#> Merc 450SL           0    3    3
-#> Merc 450SLC          0    3    3
-#> Cadillac Fleetwood   0    3    4
-#> Lincoln Continental  0    3    4
-#> Chrysler Imperial    0    3    4
-#> Fiat 128             1    4    1
-#> Honda Civic          1    4    2
-#> Toyota Corolla       1    4    1
-#> Toyota Corona        0    3    1
-#> Dodge Challenger     0    3    2
-#> AMC Javelin          0    3    2
-#> Camaro Z28           0    3    4
-#> Pontiac Firebird     0    3    2
-#> Fiat X1-9            1    4    1
-#> Porsche 914-2        1    5    2
-#> Lotus Europa         1    5    2
-#> Ford Pantera L       1    5    4
-#> Ferrari Dino         1    5    6
-#> Maserati Bora        1    5    8
-#> Volvo 142E           1    4    2
 str(mtcars)
-#> 'data.frame':	32 obs. of  11 variables:
-#>  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
-#>  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
-#>  $ disp: num  160 160 108 258 360 ...
-#>  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
-#>  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
-#>  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
-#>  $ qsec: num  16.5 17 18.6 19.4 17 ...
-#>  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
-#>  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
-#>  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
-#>  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
 head(mtcars)
-#>                    mpg cyl disp  hp drat    wt  qsec vs am
-#> Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1
-#> Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1
-#> Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1
-#> Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0
-#> Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0
-#> Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0
-#>                   gear carb
-#> Mazda RX4            4    4
-#> Mazda RX4 Wag        4    4
-#> Datsun 710           4    1
-#> Hornet 4 Drive       3    1
-#> Hornet Sportabout    3    2
-#> Valiant              3    1
 ```
 
-Extract a variable from a data frame and ask a summary 
+Get summary from a variable in a dataframe
+
 
 ```r
 summary(mtcars$cyl) # use $ to extract variable from a data frame
-#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#>   4.000   4.000   6.000   6.188   8.000   8.000
 ```
 
 Now inspect a tibble
@@ -285,58 +214,39 @@ Now inspect a tibble
 ```r
 library(ggplot2)
 diamonds
-#> # A tibble: 53,940 × 10
-#>    carat cut     color clarity depth table price     x     y
-#>    <dbl> <ord>   <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl>
-#>  1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98
-#>  2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84
-#>  3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07
-#>  4  0.29 Premium I     VS2      62.4    58   334  4.2   4.23
-#>  5  0.31 Good    J     SI2      63.3    58   335  4.34  4.35
-#>  6  0.24 Very G… J     VVS2     62.8    57   336  3.94  3.96
-#>  7  0.24 Very G… I     VVS1     62.3    57   336  3.95  3.98
-#>  8  0.26 Very G… H     SI1      61.9    55   337  4.07  4.11
-#>  9  0.22 Fair    E     VS2      65.1    61   337  3.87  3.78
-#> 10  0.23 Very G… H     VS1      59.4    61   338  4     4.05
-#> # ℹ 53,930 more rows
-#> # ℹ 1 more variable: z <dbl>
 str(diamonds)  # built-in in library ggplot2
-#> tibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)
-#>  $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
-#>  $ cut    : Ord.factor w/ 5 levels "Fair"<"Good"<..: 5 4 2 4 2 3 3 3 1 3 ...
-#>  $ color  : Ord.factor w/ 7 levels "D"<"E"<"F"<"G"<..: 2 2 2 6 7 7 6 5 2 5 ...
-#>  $ clarity: Ord.factor w/ 8 levels "I1"<"SI2"<"SI1"<..: 2 3 5 4 2 6 7 3 4 5 ...
-#>  $ depth  : num [1:53940] 61.5 59.8 56.9 62.4 63.3 62.8 62.3 61.9 65.1 59.4 ...
-#>  $ table  : num [1:53940] 55 61 65 58 58 57 57 55 61 61 ...
-#>  $ price  : int [1:53940] 326 326 327 334 335 336 336 337 337 338 ...
-#>  $ x      : num [1:53940] 3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...
-#>  $ y      : num [1:53940] 3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
-#>  $ z      : num [1:53940] 2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...
 head(diamonds)
-#> # A tibble: 6 × 10
-#>   carat cut      color clarity depth table price     x     y
-#>   <dbl> <ord>    <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl>
-#> 1  0.23 Ideal    E     SI2      61.5    55   326  3.95  3.98
-#> 2  0.21 Premium  E     SI1      59.8    61   326  3.89  3.84
-#> 3  0.23 Good     E     VS1      56.9    65   327  4.05  4.07
-#> 4  0.29 Premium  I     VS2      62.4    58   334  4.2   4.23
-#> 5  0.31 Good     J     SI2      63.3    58   335  4.34  4.35
-#> 6  0.24 Very Go… J     VVS2     62.8    57   336  3.94  3.96
-#> # ℹ 1 more variable: z <dbl>
+summary(diamonds$depth)
 ```
 
-
 Can you list some differences?
+
+### Exercise 4 {-}
+
+1. Create a vector `fav_music` with the names of your favorite artists.
+2. Create a vector `num_records` with the number of records you have in
+your collection of each of those artists.
+3. Create a vector `num_concerts` with the number of times you attended a concert of these artists.
+4. Put everything together in a data frame, assign the name `my_music` to this data frame and change the labels of the information stored in the columns to `artist`, `records` and `concerts.`
+5. Extract the variable `num_records` from the data frame `my_music.`
+6. Calculate the total number of records in your collection (for the defined
+set of artists).
+7. Check the structure of the data frame, ask for a `summary.`
 
 
 ## Importing and exporting data (CSV files) {-}
 
+Exporting data to CSV
+
 
 ```r
-# Exporting data to CSV
 write.csv(df, "my_data.csv", row.names = FALSE)
+```
 
-# Importing data from CSV
+Importing data from CSV
+
+
+```r
 df_imported <- read.csv("my_data.csv")
 print(df_imported)
 #>      Name Age Salary
@@ -344,4 +254,164 @@ print(df_imported)
 #> 2     Bob  30  60000
 #> 3 Charlie  35  70000
 ```
+
+
+Previously, we exported the data and then imported it . Some of you may think, then what is the purpose if we already had the dataframe. The prior was just an example, in reality , you would not have the dataframe loaded in R . You would only have a csv or a data file that a coworker has shared with you or the data engineer has procured for you. 
+
+
+First, we need to obtain the data that we need. For that, please head over to 
+
+https://tinyurl.com/JJAY-R-workshop
+
+alternatively,
+
+https://drive.google.com/drive/folders/18W5f2AvKT7IVKnJ73McCzQOOqMdP0CwM?usp=sharing
+
+<center>
+<img src="images/data.png" width="40%" height="20%" />
+</center>
+
+Download the data, for that, click on the arrow of the folder, and choose download. Find where it is located in your computer, obtain the `Path`
+
+<center>
+<img src="images/Downloading.png" width="40%" height="20%" />
+</center>
+
+Some useful instructions regarding path names: get your working directory
+
+- Get working directory
+
+
+```r
+getwd()
+#> [1] "/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay"
+```
+
+- specify a path name, with forward slash or double back slash
+
+
+```r
+path <- file.path("/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data")
+```
+
+- use a relative path
+
+
+```r
+path <- file.path("./John Jay Workshop Data")
+```
+
+
+## Importing a .txt file {-}
+
+`read.table()` is one great way to import data.
+
+
+```r
+
+path.hotdogs <- file.path(path, "hotdogs.txt")
+path.hotdogs    # inspect path name
+#> [1] "./John Jay Workshop Data/hotdogs.txt"
+hotdogs <- read.table(path.hotdogs, header = FALSE,
+                      col.names = c("type", "calories", "sodium"))
+str(hotdogs)    # inspect data imported
+#> 'data.frame':	54 obs. of  3 variables:
+#>  $ type    : chr  "Beef" "Beef" "Beef" "Beef" ...
+#>  $ calories: int  186 181 176 149 184 190 158 139 175 148 ...
+#>  $ sodium  : int  495 477 425 322 482 587 370 322 479 375 ...
+```
+
+Or like this 
+
+
+```r
+hotdogs2 <- read.table(path.hotdogs, header = FALSE,
+                       col.names = c("type", "calories", "sodium"),
+                       colClasses = c("factor", "NULL", "numeric"))
+str(hotdogs2)
+#> 'data.frame':	54 obs. of  2 variables:
+#>  $ type  : Factor w/ 3 levels "Beef","Meat",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ sodium: num  495 477 425 322 482 587 370 322 479 375 ...
+```
+
+What happened? 
+
+
+
+### Import .csv file {-}
+
+`read.csv()` is another importing function.
+
+Here is an example:
+- load a data set on swimming pools in Brisbane
+- column names in the first row; a comma to separate values within rows
+
+
+```r
+path.pools <- file.path(path, "swimming_pools.csv")
+pools <- read.csv(path.pools)
+str(pools)
+#> 'data.frame':	20 obs. of  4 variables:
+#>  $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
+#>  $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
+#>  $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
+#>  $ Longitude: num  153 153 153 153 153 ...
+```
+
+## Import .xlsx file {-}
+
+The package to read excel data into R is `readxl`:
+
+- No external dependencies, easy to download
+- Desgined to work with tabular data
+
+
+```r
+library(readxl)
+path.urbanpop <- file.path(path, "urbanpop.xlsx")
+excel_sheets(path.urbanpop) # list sheet names with excel_sheets()
+#> [1] "1960-1966" "1967-1974" "1975-2011"
+```
+
+Specify a worksheet by name or number, e.g.
+
+
+```r
+pop_1 <- read_excel(path.urbanpop, sheet = 1)
+pop_2 <- read_excel(path.urbanpop, sheet = 2)
+```
+
+inspect and re-combine
+
+
+```r
+str(pop_1)
+#> tibble [209 × 8] (S3: tbl_df/tbl/data.frame)
+#>  $ country: chr [1:209] "Afghanistan" "Albania" "Algeria" "American Samoa" ...
+#>  $ 1960   : num [1:209] 769308 494443 3293999 NA NA ...
+#>  $ 1961   : num [1:209] 814923 511803 3515148 13660 8724 ...
+#>  $ 1962   : num [1:209] 858522 529439 3739963 14166 9700 ...
+#>  $ 1963   : num [1:209] 903914 547377 3973289 14759 10748 ...
+#>  $ 1964   : num [1:209] 951226 565572 4220987 15396 11866 ...
+#>  $ 1965   : num [1:209] 1000582 583983 4488176 16045 13053 ...
+#>  $ 1966   : num [1:209] 1058743 602512 4649105 16693 14217 ...
+pop_list <- list(pop_1, pop_2)
+```
+
+## Import other data formats {-}
+
+The `haven` package enables R to read and write various data formats used by other statistical packages. 
+
+It supports:
+
+- SAS: `read_sas()` reads .sas7bdat and .sas7bcat files and `read_xpt()` reads SAS transport files. write_sas() writes .sas7bdat files.
+- SPSS: `read_sav()` reads .sav files and `read_por()` reads the older .por files. write_sav() writes .sav files.
+- Stata: `read_dta()` reads .dta files. `write_dta()` writes .dta files.
+
+### Exercise 5 {-}
+
+Load the following data sets, available in the course material: 
+- the Danish fire insurance losses, stored in `danish.txt`
+- the severity data set, stored in `severity.sas7bdat`.
+
 

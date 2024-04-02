@@ -8,6 +8,10 @@ Before starting, here are some Official manuals and books we will be learning fr
 1. https://cran.r-project.org/doc/manuals/r-release/R-lang.html
 1. [R programming for Data Science by Roger D. Peng.](https://bookdown.org/rdpeng/rprogdatascience/)
 1. [R for Data Science](https://r4ds.had.co.nz/)
+1. [Intro R book](https://katrienantonio.github.io/intro-R-book/)
+1. [R workshop](https://unl-statistics.github.io/R-workshops/)
+1. [Intro to R](https://intro2r.com/)
+
 
 ### R as a calculator {-}
 
@@ -19,29 +23,38 @@ You can start by using the R console and doing simple operations.
 
 - Addition
 
+
 ```r
 3+5
 #> [1] 8
 ```
+
 - Subtraction
+
 
 ```r
 143-12
 #> [1] 131
 ```
+
 - Multiplication
+
 
 ```r
 4*5
 #> [1] 20
 ```
+
 - Division
+
 
 ```r
 180/23
 #> [1] 7.826087
 ```
+
 - Exponientiation
+
 
 ```r
 4^2
@@ -54,17 +67,22 @@ this functions may be useful to replace your calculator
 
 - Absolute value 
 
+
 ```r
 abs(-23)
 #> [1] 23
 ```
+
 - Square root
+
 
 ```r
 sqrt(16)
 #> [1] 4
 ```
+
 - Remainder/modulo 
+
 
 ```r
 7 %% 3
@@ -157,6 +175,7 @@ typeof(char)
 ```
 
 **Numeric Data type ** 
+
 This is for numerical values .
 
 
@@ -174,6 +193,7 @@ class(num_2)
 ```
 
 **Integer Data type** 
+
 For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function . 
 
 
@@ -200,7 +220,9 @@ int3 <- 8L
 int3
 #> [1] 8
 ```
+
 Remark: It does not work with decimals 
+
 
 ```r
 int4 <- 3.4546L
@@ -210,6 +232,7 @@ int4
 
 **Complex Data type** 
 Complex data types are stored as `x+yi` , i.e, with the imaginary component
+
 
 ```r
 compl <- 13+7i

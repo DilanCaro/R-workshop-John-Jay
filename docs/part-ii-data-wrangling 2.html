@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Part II: Data Wrangling | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
+<meta name="description" content="Data wrangling, also known as data munging, is the process of transforming and mapping data from one “raw” form into another format with the intent of making it more appropriate and valuable for a...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Part II: Data Wrangling | R Workshop">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-ii-data-wrangling.html">
+<meta property="og:description" content="Data wrangling, also known as data munging, is the process of transforming and mapping data from one “raw” form into another format with the intent of making it more appropriate and valuable for a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Part II: Data Wrangling | R Workshop">
+<meta name="twitter:description" content="Data wrangling, also known as data munging, is the process of transforming and mapping data from one “raw” form into another format with the intent of making it more appropriate and valuable for a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Workshop</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
+<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
+<li><a class="active" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="part-ii-data-wrangling" class="section level1 unnumbered">
+<h1>Part II: Data Wrangling<a class="anchor" aria-label="anchor" href="#part-ii-data-wrangling"><i class="fas fa-link"></i></a>
+</h1>
+<p>Data wrangling, also known as data munging, is the process of transforming and mapping data from one “raw” form into another format with the intent of making it more appropriate and valuable for a variety of downstream purposes, such as analytics.</p>
+<p>In R, data wrangling is often performed using functions from the base R language, as well as a collection of packages known as the tidyverse. The tidyverse is a coherent system of packages for data manipulation, exploration, and visualization that share a common design philosophy.</p>
+<p>The tidyverse approach to data wrangling typically involves:</p>
+<ol style="list-style-type: decimal">
+<li><p>Tidying Data: Transforming datasets into a consistent form that makes it easier to work with. This usually means converting data to a tidy format where each variable forms a column, each observation forms a row, and each type of observational unit forms a table.</p></li>
+<li><p>Transforming Data: Once the data is tidy, a series of functions are used for data manipulation tasks such as selecting specific columns (select()), filtering for certain rows (filter()), creating new columns or modifying existing ones (mutate() or transmute()), summarizing data (summarise()), and reshaping data (pivot_longer() and pivot_wider()).</p></li>
+<li><p>Working with Data Types and Structures: Functions from tidyverse allow for the easy manipulation of data types (like converting character vectors to factors with forcats) and data structures (like tibbles with the tibble package, which are a modern take on data frames).</p></li>
+<li><p>Joining Data: Combining different datasets in a variety of ways (like left_join(), right_join(), inner_join(), full_join(), and anti_join()) based on common keys or identifiers.</p></li>
+<li><p>Handling Strings and Dates: The tidyverse includes packages like stringr for string operations and lubridate for dealing with date-time objects, which are essential in many data wrangling tasks.</p></li>
+<li><p>Functional Programming: The package purrr introduces powerful functional programming tools to iterate over data structures and perform operations repeatedly.</p></li>
+</ol>
+<p>The primary goal of data wrangling is to ensure that the data is in the best possible format for analysis. The tidyverse provides tools that make these tasks straightforward, efficient, and often more intuitive than the base R equivalents. The philosophy of the tidyverse is to write readable and transparent code that can be understood even if you come back to it months or years later.</p>
+<div id="reshaping-data-using-dplyr-functions-filter-arrange-mutate-summarize" class="section level2 unnumbered">
+<h2>Reshaping data using dplyr functions (filter, arrange, mutate, summarize)<a class="anchor" aria-label="anchor" href="#reshaping-data-using-dplyr-functions-filter-arrange-mutate-summarize"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code>dplyr</code> package was developed by Hadley Wickham of RStudio and is an optimized and distilled version of his plyr package. The <code>dplyr</code> package does not provide any “new” functionality to R per se, in the sense that everything dplyr does could already be done with base R, but it greatly simplifies existing functionality in R.</p>
+<p>One important contribution of the <code>dplyr</code> package is that it provides a “grammar” (in particular, verbs) for data manipulation and for operating on data frames. With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar). This is useful because it provides an abstraction for data manipulation that previously did not exist. Another useful contribution is that the <code>dplyr</code> functions are very fast, as many key operations are coded in C++.</p>
+<p>The <code>dplyr</code> grammar</p>
+<p>Some of the key “verbs” provided by the dplyr package are</p>
+<ul>
+<li><p>select: return a subset of the columns of a data frame, using a flexible notation</p></li>
+<li><p>filter: extract a subset of rows from a data frame based on logical conditions</p></li>
+<li><p>arrange: reorder rows of a data frame</p></li>
+<li><p>rename: rename variables in a data frame</p></li>
+<li><p>mutate: add new variables/columns or transform existing variables</p></li>
+<li><p>summarise / summarize: generate summary statistics of different variables in the data frame, possibly within strata</p></li>
+<li><p><code>%&gt;%</code>: the “pipe” operator is used to connect multiple verb actions together into a pipeline.</p></li>
+</ul>
+<p>These all combine naturally with group_by() which allows you to perform any operation “by group”.</p>
+<div id="more-on-the-pipe-operator" class="section level3 unnumbered">
+<h3>More on the pipe operator<a class="anchor" aria-label="anchor" href="#more-on-the-pipe-operator"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>It takes the output of one statement and makes it the input of the next statement.</li>
+<li>When describing it, you can think of it as a “THEN”. A first example:
+<ul>
+<li>take the diamonds data (from the ggplot2 package)</li>
+<li>then subset</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Ideal"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 21,551 × 10</span></span>
+<span><span class="co">#&gt;    carat cut   color clarity depth table price     x     y</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1  0.23 Ideal E     SI2      61.5    55   326  3.95  3.98</span></span>
+<span><span class="co">#&gt;  2  0.23 Ideal J     VS1      62.8    56   340  3.93  3.9 </span></span>
+<span><span class="co">#&gt;  3  0.31 Ideal J     SI2      62.2    54   344  4.35  4.37</span></span>
+<span><span class="co">#&gt;  4  0.3  Ideal I     SI2      62      54   348  4.31  4.34</span></span>
+<span><span class="co">#&gt;  5  0.33 Ideal I     SI2      61.8    55   403  4.49  4.51</span></span>
+<span><span class="co">#&gt;  6  0.33 Ideal I     SI2      61.2    56   403  4.49  4.5 </span></span>
+<span><span class="co">#&gt;  7  0.33 Ideal J     SI1      61.1    56   403  4.49  4.55</span></span>
+<span><span class="co">#&gt;  8  0.23 Ideal G     VS1      61.9    54   404  3.93  3.95</span></span>
+<span><span class="co">#&gt;  9  0.32 Ideal I     SI1      60.9    55   404  4.45  4.48</span></span>
+<span><span class="co">#&gt; 10  0.3  Ideal I     SI2      61      59   405  4.3   4.33</span></span>
+<span><span class="co">#&gt; # ℹ 21,541 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: z &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="filter" class="section level3 unnumbered">
+<h3>Filter()<a class="anchor" aria-label="anchor" href="#filter"><i class="fas fa-link"></i></a>
+</h3>
+<p>Extract rows that meet logical criteria. Here you go:
+- inspect the diamonds data set
+- filter observations with cut equal to Ideal</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span> <span class="op">==</span> <span class="st">"Ideal"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 21,551 × 10</span></span>
+<span><span class="co">#&gt;    carat cut   color clarity depth table price     x     y</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1  0.23 Ideal E     SI2      61.5    55   326  3.95  3.98</span></span>
+<span><span class="co">#&gt;  2  0.23 Ideal J     VS1      62.8    56   340  3.93  3.9 </span></span>
+<span><span class="co">#&gt;  3  0.31 Ideal J     SI2      62.2    54   344  4.35  4.37</span></span>
+<span><span class="co">#&gt;  4  0.3  Ideal I     SI2      62      54   348  4.31  4.34</span></span>
+<span><span class="co">#&gt;  5  0.33 Ideal I     SI2      61.8    55   403  4.49  4.51</span></span>
+<span><span class="co">#&gt;  6  0.33 Ideal I     SI2      61.2    56   403  4.49  4.5 </span></span>
+<span><span class="co">#&gt;  7  0.33 Ideal J     SI1      61.1    56   403  4.49  4.55</span></span>
+<span><span class="co">#&gt;  8  0.23 Ideal G     VS1      61.9    54   404  3.93  3.95</span></span>
+<span><span class="co">#&gt;  9  0.32 Ideal I     SI1      60.9    55   404  4.45  4.48</span></span>
+<span><span class="co">#&gt; 10  0.3  Ideal I     SI2      61      59   405  4.3   4.33</span></span>
+<span><span class="co">#&gt; # ℹ 21,541 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: z &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="overview-of-logical-tests" class="section level3 unnumbered">
+<h3>Overview of logical tests<a class="anchor" aria-label="anchor" href="#overview-of-logical-tests"><i class="fas fa-link"></i></a>
+</h3>
+<center>
+<img src="images/logical_tests.png" width="40%" height="20%">
+</center>
+</div>
+</div>
+<div id="mutate" class="section level2 unnumbered">
+<h2>Mutate()<a class="anchor" aria-label="anchor" href="#mutate"><i class="fas fa-link"></i></a>
+</h2>
+<p>Create new columns. Here you go:
+- inspect the diamonds data set
+- create a new variable price_per_carat</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>, price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 53,940 × 11</span></span>
+<span><span class="co">#&gt;    carat cut     color clarity depth table price     x     y</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98</span></span>
+<span><span class="co">#&gt;  2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84</span></span>
+<span><span class="co">#&gt;  3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07</span></span>
+<span><span class="co">#&gt;  4  0.29 Premium I     VS2      62.4    58   334  4.2   4.23</span></span>
+<span><span class="co">#&gt;  5  0.31 Good    J     SI2      63.3    58   335  4.34  4.35</span></span>
+<span><span class="co">#&gt;  6  0.24 Very G… J     VVS2     62.8    57   336  3.94  3.96</span></span>
+<span><span class="co">#&gt;  7  0.24 Very G… I     VVS1     62.3    57   336  3.95  3.98</span></span>
+<span><span class="co">#&gt;  8  0.26 Very G… H     SI1      61.9    55   337  4.07  4.11</span></span>
+<span><span class="co">#&gt;  9  0.22 Fair    E     VS2      65.1    61   337  3.87  3.78</span></span>
+<span><span class="co">#&gt; 10  0.23 Very G… H     VS1      59.4    61   338  4     4.05</span></span>
+<span><span class="co">#&gt; # ℹ 53,930 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: z &lt;dbl&gt;, price_per_carat &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="multistep-operations" class="section level2 unnumbered">
+<h2>Multistep operations<a class="anchor" aria-label="anchor" href="#multistep-operations"><i class="fas fa-link"></i></a>
+</h2>
+<p>Use the %&gt;% for multistep operations.
+Passes result on left into first argument of function on right. Here you go:</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price_per_carat</span> <span class="op">&gt;</span> <span class="fl">1500</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 52,821 × 11</span></span>
+<span><span class="co">#&gt;    carat cut     color clarity depth table price     x     y</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1  0.21 Premium E     SI1      59.8    61   326  3.89  3.84</span></span>
+<span><span class="co">#&gt;  2  0.22 Fair    E     VS2      65.1    61   337  3.87  3.78</span></span>
+<span><span class="co">#&gt;  3  0.22 Premium F     SI1      60.4    61   342  3.88  3.84</span></span>
+<span><span class="co">#&gt;  4  0.2  Premium E     SI2      60.2    62   345  3.79  3.75</span></span>
+<span><span class="co">#&gt;  5  0.23 Very G… E     VS2      63.8    55   352  3.85  3.92</span></span>
+<span><span class="co">#&gt;  6  0.23 Very G… H     VS1      61      57   353  3.94  3.96</span></span>
+<span><span class="co">#&gt;  7  0.23 Very G… G     VVS2     60.4    58   354  3.97  4.01</span></span>
+<span><span class="co">#&gt;  8  0.23 Very G… D     VS2      60.5    61   357  3.96  3.97</span></span>
+<span><span class="co">#&gt;  9  0.23 Very G… F     VS1      60.9    57   357  3.96  3.99</span></span>
+<span><span class="co">#&gt; 10  0.23 Very G… F     VS1      60      57   402  4     4.03</span></span>
+<span><span class="co">#&gt; # ℹ 52,811 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: z &lt;dbl&gt;, price_per_carat &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="summarize" class="section level2 unnumbered">
+<h2>Summarize()<a class="anchor" aria-label="anchor" href="#summarize"><i class="fas fa-link"></i></a>
+</h2>
+<p>Compute table of summaries. Here you go:</p>
+<ul>
+<li>inspect the diamonds data set</li>
+<li>calculate mean and standard deviation of price</li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>, std_dev <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span><span class="co">#&gt;    mean std_dev</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 3933.   3989.</span></span></code></pre></div>
+</div>
+<div id="group_by" class="section level2 unnumbered">
+<h2>Group_by()<a class="anchor" aria-label="anchor" href="#group_by"><i class="fas fa-link"></i></a>
+</h2>
+<p>Groups cases by common values of one or more columns. Here you go:
+inspect the diamonds data set
+calculate mean and standard deviation of price by level of cut</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cut</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>, carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 3</span></span>
+<span><span class="co">#&gt;   cut       price carat</span></span>
+<span><span class="co">#&gt;   &lt;ord&gt;     &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 Fair      4359. 1.05 </span></span>
+<span><span class="co">#&gt; 2 Good      3929. 0.849</span></span>
+<span><span class="co">#&gt; 3 Very Good 3982. 0.806</span></span>
+<span><span class="co">#&gt; 4 Premium   4584. 0.892</span></span>
+<span><span class="co">#&gt; 5 Ideal     3458. 0.703</span></span></code></pre></div>
+<div id="exercise-1-4" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-4"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Load the data Parade2005.txt.</li>
+<li>Determine the mean earnings in California.</li>
+<li>Determine the number of individuals residing in Idaho.</li>
+<li>Determine the mean and the median earnings of celebrities.</li>
+</ol>
+</div>
+</div>
+<div id="transforming-a-dataframe-into-tibbles" class="section level2 unnumbered">
+<h2>Transforming a dataframe into tibbles<a class="anchor" aria-label="anchor" href="#transforming-a-dataframe-into-tibbles"><i class="fas fa-link"></i></a>
+</h2>
+<p>Transform the mtcars into a tibble and inspect.</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    32 obs. of  11 variables:</span></span>
+<span><span class="co">#&gt;  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...</span></span>
+<span><span class="co">#&gt;  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...</span></span>
+<span><span class="co">#&gt;  $ disp: num  160 160 108 258 360 ...</span></span>
+<span><span class="co">#&gt;  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...</span></span>
+<span><span class="co">#&gt;  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...</span></span>
+<span><span class="co">#&gt;  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...</span></span>
+<span><span class="co">#&gt;  $ qsec: num  16.5 17 18.6 19.4 17 ...</span></span>
+<span><span class="co">#&gt;  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...</span></span>
+<span><span class="co">#&gt;  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">#&gt;  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
+<span><span class="co">#&gt;  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#library(tidyverse)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 32 × 11</span></span>
+<span><span class="co">#&gt;      mpg   cyl  disp    hp  drat    wt  qsec    vs    am</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1  21       6  160    110  3.9   2.62  16.5     0     1</span></span>
+<span><span class="co">#&gt;  2  21       6  160    110  3.9   2.88  17.0     0     1</span></span>
+<span><span class="co">#&gt;  3  22.8     4  108     93  3.85  2.32  18.6     1     1</span></span>
+<span><span class="co">#&gt;  4  21.4     6  258    110  3.08  3.22  19.4     1     0</span></span>
+<span><span class="co">#&gt;  5  18.7     8  360    175  3.15  3.44  17.0     0     0</span></span>
+<span><span class="co">#&gt;  6  18.1     6  225    105  2.76  3.46  20.2     1     0</span></span>
+<span><span class="co">#&gt;  7  14.3     8  360    245  3.21  3.57  15.8     0     0</span></span>
+<span><span class="co">#&gt;  8  24.4     4  147.    62  3.69  3.19  20       1     0</span></span>
+<span><span class="co">#&gt;  9  22.8     4  141.    95  3.92  3.15  22.9     1     0</span></span>
+<span><span class="co">#&gt; 10  19.2     6  168.   123  3.92  3.44  18.3     1     0</span></span>
+<span><span class="co">#&gt; # ℹ 22 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="part-ii-data-cleaning-and-transformation" class="section level2 unnumbered">
+<h2>Part II : Data Cleaning and Transformation<a class="anchor" aria-label="anchor" href="#part-ii-data-cleaning-and-transformation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data cleaning info</p>
+</div>
+<div id="the-policy-data-set" class="section level2 unnumbered">
+<h2>The Policy data set<a class="anchor" aria-label="anchor" href="#the-policy-data-set"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>PolicyData.csv available in the course material</li>
+<li>Data stored in a .csv file.</li>
+<li>Individual records separated by a semicolon.</li>
+</ul>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'./John Jay Workshop Data/PolicyData.csv'</span>, sep <span class="op">=</span> <span class="st">';'</span><span class="op">)</span></span></code></pre></div>
+<div id="exercise-1-5" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use the skills you obtained in the first R workshop.</p>
+<ol style="list-style-type: decimal">
+<li>Inspect the top rows of the data set.</li>
+<li>How many observations does the data set contain?</li>
+<li>Calculate the total exposure (exposition) in each region (type_territoire).</li>
+</ol>
+</div>
+</div>
+<div id="the-gapminder-package" class="section level2 unnumbered">
+<h2>The Gapminder package<a class="anchor" aria-label="anchor" href="#the-gapminder-package"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Describes the evolution of a number of population characteristics (GDP, life expectancy, …) over time.</li>
+</ul>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("gapminder")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span></code></pre></div>
+<div id="exercise-2-3" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use the skills obtained in Part I:</p>
+<ol style="list-style-type: decimal">
+<li>Inspect the top rows of the data.</li>
+<li>Select the data for countries in Asia.</li>
+<li>Which type of variable is <code>country</code>?</li>
+</ol>
+</div>
+</div>
+<div id="revisit-factor" class="section level2 unnumbered">
+<h2>Revisit factor()<a class="anchor" aria-label="anchor" href="#revisit-factor"><i class="fas fa-link"></i></a>
+</h2>
+<div id="what-is-a-factor-variable" class="section level3 unnumbered">
+<h3>What is a factor variable ?<a class="anchor" aria-label="anchor" href="#what-is-a-factor-variable"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Representation for categorical data.</li>
+<li>Predefined list of outcomes (levels).</li>
+<li>Protecting data quality.</li>
+</ul>
+<p>Example , sex a categorical value with two possible outcomes, <code>m</code> and <code>f</code></p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'m'</span>, <span class="st">'f'</span>, <span class="st">'m'</span>, <span class="st">'f'</span><span class="op">)</span>,</span>
+<span>              levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'m'</span>, <span class="st">'f'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">sex</span></span>
+<span><span class="co">#&gt; [1] m f m f</span></span>
+<span><span class="co">#&gt; Levels: m f</span></span></code></pre></div>
+<ul>
+<li><p>The <code>factor</code> command creates a new factor variable. The first input is the categorical variable.</p></li>
+<li><p><code>levels</code> specifies the possible outcomes of the variable.</p></li>
+</ul>
+<p>Assigning an unrecognized level to a factor variable results in a warning</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sex</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'male'</span></span>
+<span><span class="co">#&gt; Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "male"):</span></span>
+<span><span class="co">#&gt; invalid factor level, NA generated</span></span></code></pre></div>
+<p>This protects the quality of the data</p>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sex</span></span>
+<span><span class="co">#&gt; [1] &lt;NA&gt; f    m    f   </span></span>
+<span><span class="co">#&gt; Levels: m f</span></span></code></pre></div>
+<p>The value NA is assigned to the invalid observation.</p>
+</div>
+</div>
+<div id="levels" class="section level2 unnumbered">
+<h2>levels()<a class="anchor" aria-label="anchor" href="#levels"><i class="fas fa-link"></i></a>
+</h2>
+<p>levels print the allowed outcomes for a factor variable</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "m" "f"</span></span></code></pre></div>
+<p>Assigning a vector to levels() renames the allowed outcomes.</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'male'</span>, <span class="st">'female'</span><span class="op">)</span></span>
+<span><span class="va">sex</span></span>
+<span><span class="co">#&gt; [1] &lt;NA&gt;   female male   female</span></span>
+<span><span class="co">#&gt; Levels: male female</span></span></code></pre></div>
+<div id="exercise-4-2" class="section level3 unnumbered">
+<h3>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>The variable country in the gapminder data set is a factor variable.</p>
+<ol style="list-style-type: decimal">
+<li>What are the possible levels for country in the subset asia.</li>
+<li>Is this the result you expected?</li>
+</ol>
+<p>To add a level</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, <span class="st">'x'</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="cut" class="section level2 unnumbered">
+<h2>cut()<a class="anchor" aria-label="anchor" href="#cut"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder</span></span>
+<span><span class="co">#&gt; # A tibble: 1,704 × 6</span></span>
+<span><span class="co">#&gt;    country     continent  year lifeExp      pop gdpPercap</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.</span></span>
+<span><span class="co">#&gt;  2 Afghanistan Asia       1957    30.3  9240934      821.</span></span>
+<span><span class="co">#&gt;  3 Afghanistan Asia       1962    32.0 10267083      853.</span></span>
+<span><span class="co">#&gt;  4 Afghanistan Asia       1967    34.0 11537966      836.</span></span>
+<span><span class="co">#&gt;  5 Afghanistan Asia       1972    36.1 13079460      740.</span></span>
+<span><span class="co">#&gt;  6 Afghanistan Asia       1977    38.4 14880372      786.</span></span>
+<span><span class="co">#&gt;  7 Afghanistan Asia       1982    39.9 12881816      978.</span></span>
+<span><span class="co">#&gt;  8 Afghanistan Asia       1987    40.8 13867957      852.</span></span>
+<span><span class="co">#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.</span></span>
+<span><span class="co">#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.</span></span>
+<span><span class="co">#&gt; # ℹ 1,694 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">5</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">8</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] (0,1e+07]     (0,1e+07]     (1e+07,5e+07] (1e+07,5e+07]</span></span>
+<span><span class="co">#&gt; [5] (1e+07,5e+07] (1e+07,5e+07]</span></span>
+<span><span class="co">#&gt; 4 Levels: (0,1e+07] (1e+07,5e+07] ... (1e+08,Inf]</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop_category</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop</span>,</span>
+<span>                             breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">5</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">8</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>                             labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"&lt;= 10M"</span>, <span class="st">"10M-50M"</span>, <span class="st">"50M-100M"</span>, <span class="st">"&gt; 100M"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder</span></span>
+<span><span class="co">#&gt; # A tibble: 1,704 × 7</span></span>
+<span><span class="co">#&gt;    country     continent  year lifeExp      pop gdpPercap</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.</span></span>
+<span><span class="co">#&gt;  2 Afghanistan Asia       1957    30.3  9240934      821.</span></span>
+<span><span class="co">#&gt;  3 Afghanistan Asia       1962    32.0 10267083      853.</span></span>
+<span><span class="co">#&gt;  4 Afghanistan Asia       1967    34.0 11537966      836.</span></span>
+<span><span class="co">#&gt;  5 Afghanistan Asia       1972    36.1 13079460      740.</span></span>
+<span><span class="co">#&gt;  6 Afghanistan Asia       1977    38.4 14880372      786.</span></span>
+<span><span class="co">#&gt;  7 Afghanistan Asia       1982    39.9 12881816      978.</span></span>
+<span><span class="co">#&gt;  8 Afghanistan Asia       1987    40.8 13867957      852.</span></span>
+<span><span class="co">#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.</span></span>
+<span><span class="co">#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.</span></span>
+<span><span class="co">#&gt; # ℹ 1,694 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: pop_category &lt;fct&gt;</span></span></code></pre></div>
+</div>
+<div id="exercise-5-2" class="section level2 unnumbered">
+<h2>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bin the life expectancy in 2007 in a factor variable.
+1. Select the observations for year 2007.
+2. Bin the life expectancy in four bins of roughly equal size (hint: quantile).
+3. How many observations are there in each bin?</p>
+</div>
+<div id="handling-missing-data" class="section level2 unnumbered">
+<h2>Handling missing data<a class="anchor" aria-label="anchor" href="#handling-missing-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="some-history" class="section level3 unnumbered">
+<h3>Some history<a class="anchor" aria-label="anchor" href="#some-history"><i class="fas fa-link"></i></a>
+</h3>
+<p>The practice of imputing missing values has evolved significantly over the years as statisticians and data scientists have sought to deal with the unavoidable problem of incomplete data. The history of imputation reflects broader trends in statistical methods and computational capabilities, as well as growing awareness of the impacts of different imputation strategies on the integrity of statistical analysis.</p>
+<div id="missing-data-mechanisms" class="section level4 unnumbered">
+<h4>Missing Data Mechanisms<a class="anchor" aria-label="anchor" href="#missing-data-mechanisms"><i class="fas fa-link"></i></a>
+</h4>
+<p>Rubin (1976) classified missing data into 3 categories:
+- Missing Completely at Random (MCAR)
+- Missing at Random (MAR)
+- Not Missing at Random (NMAR), also called Missing Not at Random (MNAR)
+- Aka the most confusing statistical terms ever invented</p>
+</div>
+<div id="early-approaches-and-simple-imputation" class="section level4 unnumbered">
+<h4>Early Approaches and Simple Imputation<a class="anchor" aria-label="anchor" href="#early-approaches-and-simple-imputation"><i class="fas fa-link"></i></a>
+</h4>
+<p>Early approaches to handling missing data were often quite simple, including methods like listwise deletion (removing any record with a missing value) and pairwise deletion (excluding missing values on a case-by-case basis for each analysis). These methods, while straightforward, can lead to biased results and reduced statistical power if the missingness is not completely random.</p>
+<p>Simple imputation techniques, such as filling in missing values with the mean, median, or mode of a variable, were developed as a way to retain as much data as possible. These methods are easy to understand and implement, which contributed to their widespread use, especially in the era before advanced computational methods became widely accessible.</p>
+</div>
+<div id="limitations-of-mean-and-median-imputation" class="section level4 unnumbered">
+<h4>Limitations of Mean and Median Imputation<a class="anchor" aria-label="anchor" href="#limitations-of-mean-and-median-imputation"><i class="fas fa-link"></i></a>
+</h4>
+<p>Imputing missing values with the mean or median is intuitive and can be effective in certain contexts, but these methods have significant limitations:</p>
+<p><strong>Bias in Estimation:</strong> Mean and median imputation do not account for the inherent uncertainty associated with missing data. They can lead to an underestimation of variances and covariances because they artificially reduce the variability of the imputed variable.</p>
+<p><strong>Distortion of Data Distribution:</strong> These methods can distort the original distribution of data, especially if the missingness is not random (Missing Not at Random - MNAR) or if the proportion of missing data is high. This distortion can affect subsequent analyses, such as regression models, by providing misleading results.</p>
+<p><strong>Ignores Relationships Between Variables:</strong> Mean and median imputation treat each variable in isolation, ignoring the potential relationships between variables. This can be particularly problematic in multivariate datasets where variables may be correlated.</p>
+</div>
+<div id="modern-imputation-techniques" class="section level4 unnumbered">
+<h4>Modern Imputation Techniques<a class="anchor" aria-label="anchor" href="#modern-imputation-techniques"><i class="fas fa-link"></i></a>
+</h4>
+<p>As awareness of the limitations of simple imputation methods grew, researchers developed more sophisticated techniques designed to address these shortcomings:</p>
+<p><strong>Multiple Imputation:</strong> Developed in the late 20th century, multiple imputation involves creating several imputed datasets by drawing from a distribution that reflects the uncertainty around the true values of missing data. These datasets are then analyzed separately, and the results are combined to produce estimates that account for the uncertainty due to missingness. This method addresses the issue of underestimating variability and provides more reliable statistical inferences.</p>
+<p><strong>Model-Based Imputation:</strong> Techniques like Expectation-Maximization (EM) algorithms and imputation using random forests or other machine learning models take into account the relationships between variables in a dataset. These methods can more accurately reflect the complex structures in data and produce imputations that preserve statistical relationships.</p>
+<p><strong>Conclusion</strong></p>
+<p>The evolution of imputation methods from simple mean or median filling to sophisticated model-based and multiple imputation techniques reflects a broader shift in statistical practice. This shift is characterized by increased computational power, more complex datasets, and a deeper understanding of the impact of missing data on statistical inference. While mean and median imputation can still be useful in specific, well-considered circumstances, modern techniques offer more robust and principled approaches to handling missing data.</p>
+</div>
+</div>
+</div>
+<div id="missing-values-in-r" class="section level2 unnumbered">
+<h2>Missing Values in R<a class="anchor" aria-label="anchor" href="#missing-values-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Missing values are denoted by NA or NaN for q undefined mathematical operations.</p>
+<ul>
+<li>is.na() is used to test objects if they are NA</li>
+<li>is.nan() is used to test for NaN</li>
+<li>NA values have a class also, so there are integer NA, character NA, etc.</li>
+<li>A NaN value is also NA but the converse is not true</li>
+</ul>
+<div id="difference-between-na-and-nan-in-r" class="section level3" number="0.0.1">
+<h3>
+<span class="header-section-number">0.0.1</span> Difference Between NA and NaN in R<a class="anchor" aria-label="anchor" href="#difference-between-na-and-nan-in-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>In R, <code>NA</code> and <code>NaN</code> represent two different kinds of missing or undefined values, but they are used in distinct contexts:</p>
+<div id="na-not-available" class="section level4" number="0.0.1.1">
+<h4>
+<span class="header-section-number">0.0.1.1</span> NA (Not Available)<a class="anchor" aria-label="anchor" href="#na-not-available"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<code>NA</code> stands for <strong>Not Available</strong>.</li>
+<li>It is used to represent <strong>missing or undefined data</strong>, typically in cases where data is expected but not present.</li>
+<li>
+<code>NA</code> can be used in any logical or statistical operation, but unless handled specifically, operations involving <code>NA</code> will generally result in <code>NA</code>.</li>
+<li>
+<code>NA</code> has a flexible context and can be used with <strong>any data type</strong> in R, such as numeric, character, or logical.</li>
+<li>You can test for <code>NA</code> using the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function.</li>
+</ul>
+</div>
+<div id="nan-not-a-number" class="section level4" number="0.0.1.2">
+<h4>
+<span class="header-section-number">0.0.1.2</span> NaN (Not a Number)<a class="anchor" aria-label="anchor" href="#nan-not-a-number"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<code>NaN</code> stands for <strong>Not a Number</strong>.</li>
+<li>It is a special value used to represent <strong>undefined or unrepresentable numerical results</strong>, such as the result of <code>0/0</code>.</li>
+<li>
+<code>NaN</code> is a specific type of <code>NA</code> but specifically for numeric calculations that result in undefined or indeterminate values.</li>
+<li>Operations that result in <code>NaN</code> are typically those that are mathematically indeterminate or outside the domain of mathematical functions (e.g., square root of a negative number in the realm of real numbers).</li>
+<li>You can test for <code>NaN</code> using the <code><a href="https://rdrr.io/r/base/is.finite.html">is.nan()</a></code> function. Note that <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> also returns <code>TRUE</code> for <code>NaN</code> values, reflecting their status as a kind of missing value, but <code><a href="https://rdrr.io/r/base/is.finite.html">is.nan()</a></code> does not return <code>TRUE</code> for all <code>NA</code> values.</li>
+</ul>
+</div>
+<div id="key-differences" class="section level4 unnumbered">
+<h4>Key Differences<a class="anchor" aria-label="anchor" href="#key-differences"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<strong>Context of Use</strong>: <code>NA</code> is used more broadly for missing data across all data types, while <code>NaN</code> is specific to numerical operations that do not produce a defined, real number.</li>
+<li>
+<strong>Nature of Undefinedness</strong>: <code>NA</code> indicates the absence of data, whereas <code>NaN</code> indicates that a calculation has failed to produce a meaningful result.</li>
+</ul>
+<p>In summary, the use of <code>NA</code> vs. <code>NaN</code> helps distinguish between data that is missing (<code>NA</code>) and numerical operations that result in undefined or unrepresentable values (<code>NaN</code>).</p>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coffee_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">32</span>, <span class="cn">NA</span>, <span class="fl">45</span>, <span class="fl">22</span>, <span class="fl">33</span>, <span class="cn">NA</span>, <span class="fl">28</span><span class="op">)</span>,</span>
+<span>  Gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>  Cups_Per_Day <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">coffee_data</span></span>
+<span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1  25 Female            1</span></span>
+<span><span class="co">#&gt; 2  32   Male            3</span></span>
+<span><span class="co">#&gt; 3  NA   Male            2</span></span>
+<span><span class="co">#&gt; 4  45 Female           NA</span></span>
+<span><span class="co">#&gt; 5  22 Female            2</span></span>
+<span><span class="co">#&gt; 6  33   Male            3</span></span>
+<span><span class="co">#&gt; 7  NA Female            1</span></span>
+<span><span class="co">#&gt; 8  28   &lt;NA&gt;            2</span></span></code></pre></div>
+</div>
+</div>
+<div id="identifying-missing-values" class="section level3 unnumbered">
+<h3>Identifying Missing Values<a class="anchor" aria-label="anchor" href="#identifying-missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function to check for missing values. To count them in a specific column:</p>
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+</div>
+<div id="removing-na-values" class="section level3 unnumbered">
+<h3>Removing NA Values<a class="anchor" aria-label="anchor" href="#removing-na-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>A common task in data analysis is removing missing values (NAs).</p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">bad</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE  TRUE FALSE</span></span></code></pre></div>
+<p>We can remove them by</p>
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="va">bad</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 1 2 4 5</span></span></code></pre></div>
+<p>A faster way ,</p>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 1 2 4 5</span></span></code></pre></div>
+<div id="in-a-data-frame" class="section level4 unnumbered">
+<h4>In a Data frame<a class="anchor" aria-label="anchor" href="#in-a-data-frame"><i class="fas fa-link"></i></a>
+</h4>
+<p>Also, using our coffee example,</p>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coffee_data_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">)</span></span>
+<span><span class="va">coffee_data_clean</span></span>
+<span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1  25 Female            1</span></span>
+<span><span class="co">#&gt; 2  32   Male            3</span></span>
+<span><span class="co">#&gt; 5  22 Female            2</span></span>
+<span><span class="co">#&gt; 6  33   Male            3</span></span></code></pre></div>
+<p>To remove rows with missing values in a specific column:</p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">coffee_data_clean2</span> <span class="op">&lt;-</span> <span class="va">coffee_data</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">coffee_data_clean2</span></span>
+<span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1  25 Female            1</span></span>
+<span><span class="co">#&gt; 2  32   Male            3</span></span>
+<span><span class="co">#&gt; 4  45 Female           NA</span></span>
+<span><span class="co">#&gt; 5  22 Female            2</span></span>
+<span><span class="co">#&gt; 6  33   Male            3</span></span>
+<span><span class="co">#&gt; 8  28   &lt;NA&gt;            2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">coffee_data_clean2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="va">coffee_data_clean2</span></span>
+<span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1  25 Female            1</span></span>
+<span><span class="co">#&gt; 2  32   Male            3</span></span>
+<span><span class="co">#&gt; 3  45 Female           NA</span></span>
+<span><span class="co">#&gt; 4  22 Female            2</span></span>
+<span><span class="co">#&gt; 5  33   Male            3</span></span>
+<span><span class="co">#&gt; 6  28   &lt;NA&gt;            2</span></span></code></pre></div>
+<p>What if there are multiple R objects and you want to take the subset with no missing values in any of those objects?</p>
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="cn">NA</span>, <span class="st">"d"</span>, <span class="cn">NA</span>, <span class="st">"f"</span><span class="op">)</span></span>
+<span><span class="va">good</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span><span class="va">good</span></span>
+<span><span class="co">#&gt; [1]  TRUE  TRUE FALSE  TRUE FALSE  TRUE</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="va">good</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 1 2 4 5</span></span>
+<span><span class="va">y</span><span class="op">[</span><span class="va">good</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] "a" "b" "d" "f"</span></span></code></pre></div>
+<p>You can use complete.cases on data frames too.</p>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
+<span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5</span></span>
+<span><span class="co">#&gt; 6    28      NA 14.9   66     5   6</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">good</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">[</span><span class="va">good</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
+<span><span class="co">#&gt; 7    23     299  8.6   65     5   7</span></span>
+<span><span class="co">#&gt; 8    19      99 13.8   59     5   8</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Ozone</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Ozone</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 32.98788</span></span></code></pre></div>
+</div>
+</div>
+<div id="imputing-missing-values" class="section level3 unnumbered">
+<h3>Imputing Missing Values<a class="anchor" aria-label="anchor" href="#imputing-missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Replacing missing values with a specific value, like the mean or median:</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coffee_data2</span><span class="op">&lt;-</span><span class="va">coffee_data</span></span>
+<span></span>
+<span><span class="va">coffee_data2</span><span class="op">$</span><span class="va">Age</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">coffee_data2</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">coffee_data2</span></span>
+<span><span class="co">#&gt;        Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1 25.00000 Female            1</span></span>
+<span><span class="co">#&gt; 2 32.00000   Male            3</span></span>
+<span><span class="co">#&gt; 3 30.83333   Male            2</span></span>
+<span><span class="co">#&gt; 4 45.00000 Female           NA</span></span>
+<span><span class="co">#&gt; 5 22.00000 Female            2</span></span>
+<span><span class="co">#&gt; 6 33.00000   Male            3</span></span>
+<span><span class="co">#&gt; 7 30.83333 Female            1</span></span>
+<span><span class="co">#&gt; 8 28.00000   &lt;NA&gt;            2</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Assuming 'median' is the mode of the column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 30</span></span>
+<span><span class="va">coffee_data2</span><span class="op">$</span><span class="va">Age</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">coffee_data2</span></span>
+<span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
+<span><span class="co">#&gt; 1  25 Female            1</span></span>
+<span><span class="co">#&gt; 2  32   Male            3</span></span>
+<span><span class="co">#&gt; 3  30   Male            2</span></span>
+<span><span class="co">#&gt; 4  45 Female           NA</span></span>
+<span><span class="co">#&gt; 5  22 Female            2</span></span>
+<span><span class="co">#&gt; 6  33   Male            3</span></span>
+<span><span class="co">#&gt; 7  30 Female            1</span></span>
+<span><span class="co">#&gt; 8  28   &lt;NA&gt;            2</span></span></code></pre></div>
+</div>
+</div>
+<div id="using-packages-for-advanced-imputation" class="section level2 unnumbered">
+<h2>Using Packages for Advanced Imputation<a class="anchor" aria-label="anchor" href="#using-packages-for-advanced-imputation"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("mice")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'mice'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     cbind, rbind</span></span>
+<span><span class="co"># Display the first few rows of the airquality dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
+<span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5</span></span>
+<span><span class="co">#&gt; 6    28      NA 14.9   66     5   6</span></span>
+<span></span>
+<span><span class="co"># Perform multiple imputation</span></span>
+<span><span class="va">imputed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/mice.html">mice</a></span><span class="op">(</span><span class="va">airquality</span>, m<span class="op">=</span><span class="fl">5</span>, method<span class="op">=</span><span class="st">'pmm'</span>, seed <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  iter imp variable</span></span>
+<span><span class="co">#&gt;   1   1  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   1   2  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   1   3  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   1   4  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   1   5  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   2   1  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   2   2  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   2   3  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   2   4  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   2   5  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   3   1  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   3   2  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   3   3  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   3   4  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   3   5  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   4   1  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   4   2  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   4   3  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   4   4  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   4   5  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   5   1  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   5   2  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   5   3  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   5   4  Ozone  Solar.R</span></span>
+<span><span class="co">#&gt;   5   5  Ozone  Solar.R</span></span>
+<span></span>
+<span><span class="co"># Extract the first completed dataset</span></span>
+<span><span class="va">completed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html">complete</a></span><span class="op">(</span><span class="va">imputed_data</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the first few rows of the completed data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">completed_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
+<span><span class="co">#&gt; 1    41     190  7.4   67     5   1</span></span>
+<span><span class="co">#&gt; 2    36     118  8.0   72     5   2</span></span>
+<span><span class="co">#&gt; 3    12     149 12.6   74     5   3</span></span>
+<span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
+<span><span class="co">#&gt; 5    18     150 14.3   56     5   5</span></span>
+<span><span class="co">#&gt; 6    28      48 14.9   66     5   6</span></span></code></pre></div>
+</div>
+<div id="exercise-1-explore-missingness" class="section level2 unnumbered">
+<h2>Exercise 1: Explore Missingness<a class="anchor" aria-label="anchor" href="#exercise-1-explore-missingness"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> ChickWeight</p>
+<p><strong>Task:</strong> Determine if the ChickWeight dataset contains any missing values. Print a message stating whether the dataset has missing values or not.</p>
+<p><em>Hint</em> Use the any() function combined with is.na() applied to the dataset.</p>
+</div>
+<div id="exercise-2-calculate-summary-statistics-before-handling-na" class="section level2 unnumbered">
+<h2>Exercise 2: Calculate Summary Statistics Before Handling NA<a class="anchor" aria-label="anchor" href="#exercise-2-calculate-summary-statistics-before-handling-na"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="va">mean_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></span>
+<span><span class="va">mean_mpg</span></span>
+<span><span class="co">#&gt; [1] 20.09062</span></span>
+<span><span class="va">sd_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></span>
+<span><span class="va">sd_mpg</span></span>
+<span><span class="co">#&gt; [1] 6.026948</span></span></code></pre></div>
+<p><strong>Dataset:</strong> mtcars</p>
+<p><strong>Task:</strong> The mtcars dataset is almost complete but let’s pretend some values are missing in the mpg (miles per gallon) column. First, artificially introduce missing values into the mpg column (e.g., set the first three values of mpg to NA). Then, calculate and print the mean and standard deviation of mpg without removing or imputing the missing values.</p>
+<p><em>Hint:</em> Modify the mtcars$mpg directly to introduce NAs. Use mean() and sd() functions with na.rm = FALSE to calculate statistics without handling NA.</p>
+</div>
+<div id="exercise-3-impute-missing-values-with-column-median" class="section level2 unnumbered">
+<h2>Exercise 3: Impute Missing Values with Column Median<a class="anchor" aria-label="anchor" href="#exercise-3-impute-missing-values-with-column-median"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> mtcars with modified mpg</p>
+<p><strong>Task:</strong> First Calculate the mean and standard deviation handling the missing values.</p>
+<p>Then,Impute the artificially introduced missing values in the mpg column with the column’s median (excluding the missing values). Print the first 6 rows of the modified mtcars dataset.</p>
+<p>Now, calculate the mean and standard deviation with the imputed values.</p>
+<p><em>Hint:</em> First, calculate the median of mpg excluding NAs. Then, use indexing to replace NAs with this median.</p>
+</div>
+<div id="exercise-4-identifying-complete-rows" class="section level2 unnumbered">
+<h2>Exercise 4: Identifying Complete Rows<a class="anchor" aria-label="anchor" href="#exercise-4-identifying-complete-rows"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> airquality</p>
+<p><strong>Task:</strong> Before any analysis, you want to ensure that only complete cases are used. Create a new dataset from airquality that includes only the rows without any missing values. Print the number of rows in the original versus the cleaned dataset.</p>
+<p><em>Hint</em> Use complete.cases() on the dataset and then subset it.</p>
+</div>
+<div id="exercise-5-advanced-imputation-on-a-subset" class="section level2 unnumbered">
+<h2>Exercise 5: Advanced Imputation on a Subset<a class="anchor" aria-label="anchor" href="#exercise-5-advanced-imputation-on-a-subset"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> mtcars</p>
+<p><strong>Task:</strong> Create a subset of mtcars containing only the mpg, hp (horsepower), and wt (weight) columns. Introduce missing values in hp and wt columns (e.g., set first two values of each to NA). Perform multiple imputation using the mice package on this subset with 3 imputations, and extract the third completed dataset. Print the first 6 rows of this completed dataset.</p>
+<p><em>Hint:</em> Subset mtcars first, then modify to add NAs. Use mice() for imputation and complete() to extract the desired imputed dataset.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></div>
+<div class="next"><a href="intermediate-r-ii.html">Intermediate R II</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#part-ii-data-wrangling">Part II: Data Wrangling</a></li>
+<li>
+<a class="nav-link" href="#reshaping-data-using-dplyr-functions-filter-arrange-mutate-summarize">Reshaping data using dplyr functions (filter, arrange, mutate, summarize)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#more-on-the-pipe-operator">More on the pipe operator</a></li>
+<li><a class="nav-link" href="#filter">Filter()</a></li>
+<li><a class="nav-link" href="#overview-of-logical-tests">Overview of logical tests</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#mutate">Mutate()</a></li>
+<li><a class="nav-link" href="#multistep-operations">Multistep operations</a></li>
+<li><a class="nav-link" href="#summarize">Summarize()</a></li>
+<li>
+<a class="nav-link" href="#group_by">Group_by()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-4">Exercise 1</a></li></ul>
+</li>
+<li><a class="nav-link" href="#transforming-a-dataframe-into-tibbles">Transforming a dataframe into tibbles</a></li>
+<li><a class="nav-link" href="#part-ii-data-cleaning-and-transformation">Part II : Data Cleaning and Transformation</a></li>
+<li>
+<a class="nav-link" href="#the-policy-data-set">The Policy data set</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-5">Exercise 1</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#the-gapminder-package">The Gapminder package</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-2-3">Exercise 2</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#revisit-factor">Revisit factor()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#what-is-a-factor-variable">What is a factor variable ?</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#levels">levels()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-4-2">Exercise 4</a></li></ul>
+</li>
+<li><a class="nav-link" href="#cut">cut()</a></li>
+<li><a class="nav-link" href="#exercise-5-2">Exercise 5</a></li>
+<li>
+<a class="nav-link" href="#handling-missing-data">Handling missing data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#some-history">Some history</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#missing-values-in-r">Missing Values in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#difference-between-na-and-nan-in-r"><span class="header-section-number">0.0.1</span> Difference Between NA and NaN in R</a></li>
+<li><a class="nav-link" href="#identifying-missing-values">Identifying Missing Values</a></li>
+<li><a class="nav-link" href="#removing-na-values">Removing NA Values</a></li>
+<li><a class="nav-link" href="#imputing-missing-values">Imputing Missing Values</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#using-packages-for-advanced-imputation">Using Packages for Advanced Imputation</a></li>
+<li><a class="nav-link" href="#exercise-1-explore-missingness">Exercise 1: Explore Missingness</a></li>
+<li><a class="nav-link" href="#exercise-2-calculate-summary-statistics-before-handling-na">Exercise 2: Calculate Summary Statistics Before Handling NA</a></li>
+<li><a class="nav-link" href="#exercise-3-impute-missing-values-with-column-median">Exercise 3: Impute Missing Values with Column Median</a></li>
+<li><a class="nav-link" href="#exercise-4-identifying-complete-rows">Exercise 4: Identifying Complete Rows</a></li>
+<li><a class="nav-link" href="#exercise-5-advanced-imputation-on-a-subset">Exercise 5: Advanced Imputation on a Subset</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/07-Intermediate-R-Part2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/07-Intermediate-R-Part2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

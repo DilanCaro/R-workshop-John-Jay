@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Workshop 1: Suplementary Exercises | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
+<meta name="description" content="These exercises are from https://intro2r.com/ There are links in which more explanation is found , additionally, you can read the book and chapters you are interested in for a more detailed...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Workshop 1: Suplementary Exercises | R Workshop">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/workshop-1-suplementary-exercises.html">
+<meta property="og:description" content="These exercises are from https://intro2r.com/ There are links in which more explanation is found , additionally, you can read the book and chapters you are interested in for a more detailed...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Workshop 1: Suplementary Exercises | R Workshop">
+<meta name="twitter:description" content="These exercises are from https://intro2r.com/ There are links in which more explanation is found , additionally, you can read the book and chapters you are interested in for a more detailed...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Workshop</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
+<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
+<li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="active" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="workshop-1-suplementary-exercises" class="section level1 unnumbered">
+<h1>Workshop 1: Suplementary Exercises<a class="anchor" aria-label="anchor" href="#workshop-1-suplementary-exercises"><i class="fas fa-link"></i></a>
+</h1>
+<p>These exercises are from <a href="https://intro2r.com/" class="uri">https://intro2r.com/</a></p>
+<p>There are links in which more explanation is found , additionally, you can read the book and chapters you are interested in for a more detailed explanation that relates more closely to these exercises.</p>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>Now to practice writing code in the script editor and sourcing this code into the R console. Let’s display the help file for the function <code>mean</code>. In your script type <code><a href="https://rdrr.io/r/base/mean.html">help('mean')</a></code> and source this code into the console. Notice that the help file is displayed in the bottom right window (if not then click on the ‘Help’ tab). Examine the different components of the help file (especially the examples section at the end of the help file). See <a href="https://intro2r.com/help.html">Section 2.5</a> of the Introduction to R book for more details on using the help functions.</li>
+</ol>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>The content displayed in the bottom right window is context dependent. For example if we write the code <code>plot(1:10)</code> in our script and then source it into the R console the bottom right window will display this plot (don’t worry about understanding the R code right now, hopefully this will become clear later on in the course!).</li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>Next, let’s practice creating a variable and assigning a value to this variable. Take a look at <a href="https://intro2r.com/objects-in-r.html">Section 2.2</a> of the Introduction to R book for further information on how to do this or if you prefer watch the <a href="https://alexd106.github.io/BI5009/howto.html#objs-vid">Objects in R video</a>. Create a variable called <code>first_num</code> and assign it the value <code>42</code>. Click on the ‘Environment’ tab in the top right window to display the variable and value. Now create another variable called <code>first_char</code> and assign it a value <code>"my first character"</code>. Notice this variable is now also displayed in the ‘Environment’ along with it’s value and class (<code>chr</code> - short for character class).</li>
+</ol>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li>Remove the variable <code>first_num</code> from your environment using the <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code> function. Use the code <code>rm(first_num)</code> to do this. Check out the ‘Environment’ tab to ensure the variable has been removed. Alternatively, use the <code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code> function to list all objects in your environment.</li>
+</ol>
+<p> </p>
+<ol start="5" style="list-style-type: decimal">
+<li>Let’s see what happens if we assign another value to an existing variable. Assign the value <code>"my second character"</code> to the variable <code>first_char</code> you created in Q6. Notice the value has changed in the ‘Environment’. To display the value of <code>first.char</code> enter the name of the variable in the console. Don’t to forget to save your R script periodically!</li>
+</ol>
+<p> </p>
+<ol start="6" style="list-style-type: decimal">
+<li>OK, let’s leave RStudio for a minute. Using your favourite web browser, navigate to the <a href="http://www.r-project.org">R-project website</a> and explore links that catch your eye. Make sure you find the R manuals page and the user contributed documents section. Download any manuals that you think you might find useful (some are listed in the course manual) and save them on your computer (or USB drive).</li>
+</ol>
+<p> </p>
+<ol start="7" style="list-style-type: decimal">
+<li>Click on the ‘Search’ link on the R-Project website. Use ‘Rseek’ to search for the term ‘mixed model p values’ (this is a controversial subject!) and explore anything that looks interesting. Also experiment with the ‘R site search’ and ‘Nabble R Forum’ links. Learning how to search for help when you run into a problem when using R is an acquired skill and something you get better at over time. One note of caution, often you will find many different solutions to solving a problem in R, some written by experienced R users and others by people with less experience. Whichever solution you choose make sure you understand what the code is doing and thoroughly test it to make sure it’s doing what you want.</li>
+</ol>
+<p> </p>
+<ol start="8" style="list-style-type: decimal">
+<li>OK, back to RStudio. Sometimes you may forget the exact name of a function you want to use so it would be useful to be able to search through all the function names. For example, you want to create a design plot but can only remember that the name of the function has the word ‘plot’ in it. Use the <code><a href="https://rdrr.io/r/utils/apropos.html">apropos()</a></code> function to list all the functions with the word plot in their name (see <a href="https://intro2r.com/help.html#help">Section 2.5.1</a> of the Introduction to R book). Look through the list and once you have figured what the correct function is then bring up the help file for this function (Hint: the function name probably has the words ‘plot’ and ‘design’ in it!).</li>
+</ol>
+<p> </p>
+<ol start="9" style="list-style-type: decimal">
+<li>Another strategy would be to use the <code><a href="https://rdrr.io/r/utils/help.search.html">help.search()</a></code> function to search through R’s help files. Search the R help system for instances of the character string ‘plot’. Take a look at <a href="https://intro2r.com/help.html#r-help">Section 2.5.1</a> for more information. Also, see if you can figure out how to narrow your search by only searching for ‘plot’ in the <code>nlme</code> package (hint: see the help page for <code><a href="https://rdrr.io/r/utils/help.search.html">help.search()</a></code>).</li>
+</ol>
+<p> </p>
+<ol start="10" style="list-style-type: decimal">
+<li>R’s working directory is the default location of any files you read into R, or export from R. Although you won’t be importing or exporting files just yet (that’s tomorrows job) it’s useful to be able to determine what your current working directory is. So, read <a href="https://intro2r.com/work-d.html">Section 1.7</a> of the Introduction to R book to introduce yourself to working directories and figure out how to display your current working directory.</li>
+</ol>
+<p> </p>
+<p>##Basic R operations {-}</p>
+<p><br>
+Read <a href="https://intro2r.com/basics-r.html">Chapter 2</a> to help you complete the questions in this exercise.</p>
+<p> 
+11. Let’s use R as a fancy calculator. Find the natural log, log to the base 10, log to the base 2, square root and the natural antilog of 12.43. See <a href="https://intro2r.com/getting-started.html#getting-started">Section 2.1</a> of the Introduction to R book for more information on mathematical functions in R. Don’t forget to write your code in RStudio’s script editor and source the code into the console.</p>
+<p> </p>
+<ol start="12" style="list-style-type: decimal">
+<li>Next, use R to determine the area of a circle with a diameter of 20 cm and assign the result to an object called <code>area_circle</code>. If you can’t remember how to create and assign objects see <a href="https://intro2r.com/objects-in-r.html#objects-in-r">Section 2.2</a> or watch this <a href="https://alexd106.github.io/BI5009/howto.html#objs-vid">video</a>. Google is your friend if you can’t remember the formula to calculate the area of a circle! Also, remember that R already knows about <code>pi</code>. Don’t worry if you’re stumped and feel free to ask one of the instructors for guidance.</li>
+</ol>
+<p> </p>
+<ol start="13" style="list-style-type: decimal">
+<li>Now for something a little more tricky. Calculate the cube root of 14 x 0.51. You might need to think creatively for a solution (hint: think exponents), and remember that R follows the usual order of mathematical operators so you might need to use brackets in your code (see <a href="https://en.wikipedia.org/wiki/Order_of_operations">this page</a> if you’ve never heard of this). The point of this question is not to torture you with maths (so please don’t stress!), its to get you used to writing mathematical equations in R and highlight the order of operations.</li>
+</ol>
+<p> </p>
+<ol start="14" style="list-style-type: decimal">
+<li>Ok, you’re now ready to explore one of R’s basic (but very useful) data structures - vectors. A vector is a sequence of elements (or components) that are all of the same data type (see <a href="https://intro2r.com/data-structures.html#scal_vecs">Section 3.2.1</a> for an introduction to vectors). Although technically not correct it might be useful to think of a vector as something like a single column in a spreadsheet. There are a multitude of ways to create vectors in R but you will use the concatenate function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> to create a vector called <code>weight</code> containing the weight (in kg) of 10 children: <code>69, 62, 57, 59, 59, 64, 56, 66, 67, 66</code> (<a href="https://intro2r.com/using-functions-in-r.html#using-functions-in-r">Section 2.3</a> or watch this <a href="https://alexd106.github.io/BI5009/howto.html#vec-vid">video</a> for more information).</li>
+</ol>
+<p> </p>
+<ol start="15" style="list-style-type: decimal">
+<li>Now you can do some useful stuff to your <code>weight</code> vector. Get R to calculate the mean, variance, standard deviation, range of weights and the number of children of your <code>weight</code> vector (see <a href="https://intro2r.com/using-functions-in-r.html">Section 2.3</a> for more details). Now read <a href="https://intro2r.com/vectors.html">Section 2.4</a> of the R book to learn how to work with vectors. After reading this section you should be able to extract the weights for the first five children using <a href="https://intro2r.com/vectors.html#positional-index">Positional indexes</a> and store these weights in a new variable called <code>first_five</code>. Remember, you will need to use the square brackets <code>[ ]</code> to extract (aka index, subset) elements from a variable.</li>
+</ol>
+<p> </p>
+<ol start="16" style="list-style-type: decimal">
+<li>We’re now going to use the the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function again to create another vector called <code>height</code> containing the height (in cm) of the same 10 children: <code>112, 102, 83, 84, 99, 90, 77, 112, 133, 112</code>. Use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function to summarise these data in the <code>height</code> object. Extract the height of the 2nd, 3rd, 9th and 10th child and assign these heights to a variable called <code>some_child</code> (take a look at the section <a href="https://intro2r.com/vectors.html#positional-index">Positional indexes</a> in the R book if you’re stuck). We can also extract elements using <a href="https://intro2r.com/vectors.html#logical-index">Logical indexes</a>. Let’s extract all the heights of children less than or equal to 99 cm and assign to a variable called <code>shorter_child</code>.</li>
+</ol>
+<p> </p>
+<ol start="17" style="list-style-type: decimal">
+<li>Now you can use the information in your <code>weight</code> and <code>height</code> variables to calculate the body mass index (BMI) for each child. The BMI is calculated as weight (in kg) divided by the square of the height (in meters). Store the results of this calculation in a variable called <code>bmi</code>. Note: you don’t need to do this calculation for each child individually, you can use both vectors in the BMI equation – this is called vectorisation (see <a href="https://intro2r.com/vectors.html#vectorisation">Section 2.4.4</a> of the Introduction to R book).</li>
+</ol>
+<p> </p>
+<ol start="18" style="list-style-type: decimal">
+<li>Now let’s practice a very useful skill - creating sequences (honestly it is…). Take a look at <a href="https://intro2r.com/using-functions-in-r.html#using-functions-in-r">Section 2.3</a> in the R book (the bit on creating sequences) to see the myriad ways you can create sequences in R. Let’s use the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function to create a sequence of numbers ranging from 0 to 1 in steps of 0.1 (this is also a vector by the way) and assign this sequence to a variable called <code>seq1</code>.</li>
+</ol>
+<p> </p>
+<ol start="19" style="list-style-type: decimal">
+<li>Next, see if you can figure out how to create a sequence from 10 to 1 in steps of 0.5. Assign this sequence to a variable called <code>seq2</code> (Hint: you may find it useful to include the <code><a href="https://rdrr.io/r/base/rev.html">rev()</a></code> function in your code).</li>
+</ol>
+<p> </p>
+<ol start="20" style="list-style-type: decimal">
+<li>Let’s go sequence crazy! Generate the following sequences. You will need to experiment with the arguments to the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function to generate these sequences (see <a href="https://intro2r.com/using-functions-in-r.html#using-functions-in-r">Section 2.3</a> for some clues):</li>
+</ol>
+<ul>
+<li>1 2 3 1 2 3 1 2 3</li>
+<li>“a” “a” “a” “c” “c” “c” “e” “e” “e” “g” “g” “g”</li>
+<li>“a” “c” “e” “g” “a” “c” “e” “g” “a” “c” “e” “g”</li>
+<li>1 1 1 2 2 2 3 3 3 1 1 1 2 2 2 3 3 3</li>
+<li>1 1 1 1 1 2 2 2 2 3 3 3 4 4 5</li>
+<li>7 7 7 7 2 2 2 8 1 1 1 1 1</li>
+</ul>
+<p> </p>
+<ol start="21" style="list-style-type: decimal">
+<li>Ok, back to the variable <code>height</code> you created in Q7. Let’s sort the values of <code>height</code> into ascending order (shortest to tallest) and assign the sorted vector to a new variable called <code>height_sorted</code>. Take a look at <a href="https://intro2r.com/vectors.html#vec_ord">Section 2.4.3</a> in the R book to see how to do this. Now sort all heights into descending order and assign the new vector a name of your choice.</li>
+</ol>
+<p> </p>
+<ol start="22" style="list-style-type: decimal">
+<li>Let’s give the children some names. Create a new vector called <code>child_name</code> with the following names of the 10 children: <code>"Alfred", "Barbara", "James", "Jane", "John", "Judy", "Louise", "Mary", "Ronald", "William"</code>.</li>
+</ol>
+<p> </p>
+<ol start="23" style="list-style-type: decimal">
+<li>A really useful (and common) task is to order the values of one variable by the order of another variable. To do this you will need to use the <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> function in combination with the square bracket notation <code>[ ]</code>. Have a peep at <a href="https://intro2r.com/vectors.html#vec_ord">Section 2.4.3</a> for some details. Create a new variable called <code>names_sort</code> to store the names of the children ordered by child height (from shortest to tallest). Who is the shortest? who is the tallest child? If you’re not sure how to do this, please ask one of the instructors.</li>
+</ol>
+<p> </p>
+<ol start="24" style="list-style-type: decimal">
+<li>Now order the names of the children by <strong>descending</strong> values of weight and assign the result to a variable called <code>weight_rev</code> (Hint: perhaps include the <code><a href="https://rdrr.io/r/base/rev.html">rev()</a></code> function?). Who is the heaviest? Who is the lightest?</li>
+</ol>
+<p> </p>
+<ol start="25" style="list-style-type: decimal">
+<li>Finally, list all variables in your workspace that you have created in this exercise. Remove the variable <code>seq1</code> from the workspace using the <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code> function.</li>
+</ol>
+<p> </p>
+
+<ol start="16" style="list-style-type: decimal">
+<li>Almost there! In R, missing values are usually represented with an <code>NA</code>. Missing data can be tricky to deal with in R (and in statistics more generally) and cause some surprising behaviour when using some functions. Take a look at <a href="https://intro2r.com/vectors.html#na_vals">Section 2.4.5</a> of the R book for more information about missing values. To explore this a little further let’s create a vector called <code>mydata</code> with the values <code>2, 4, 1, 6, 8, 5, NA, 4, 7</code>. Notice the value of the 7<sup>th</sup> element of <code>mydata</code> is missing. Now use the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function to calculate the mean of the values in <code>mydata</code>. What does R return? Confused? Next, take a look at the help page for the function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>. Can you figure out how to alter your use of the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function to calculate the mean without this missing value?</li>
+</ol>
+<p> </p>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></div>
+<div class="next"><a href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#workshop-1-suplementary-exercises">Workshop 1: Suplementary Exercises</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/100-Opt-Workshop-1-Exercises.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/100-Opt-Workshop-1-Exercises.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

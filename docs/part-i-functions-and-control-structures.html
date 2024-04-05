@@ -6,21 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Part I: Functions and Control Structures | R Workshop</title>
 <meta name="author" content="Dilan Morales Caro">
-<meta name="description" content="Writing and using functions # Example: A simple function to calculate the square of a number square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;- square_function(4)...">
+<meta name="description" content="Writing and using functions Example: A simple function to calculate the square of a number \[ f(x) = x^2 \] square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;-...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Part I: Functions and Control Structures | R Workshop">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-i-functions-and-control-structures.html">
-<meta property="og:description" content="Writing and using functions # Example: A simple function to calculate the square of a number square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;- square_function(4)...">
+<meta property="og:description" content="Writing and using functions Example: A simple function to calculate the square of a number \[ f(x) = x^2 \] square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;-...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Part I: Functions and Control Structures | R Workshop">
-<meta name="twitter:description" content="Writing and using functions # Example: A simple function to calculate the square of a number square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;- square_function(4)...">
+<meta name="twitter:description" content="Writing and using functions Example: A simple function to calculate the square of a number \[ f(x) = x^2 \] square_function &lt;- function(x) {  return(x^2) } # Using the function result &lt;-...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -47,7 +45,6 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="r-basics.html">R Basics</a></li>
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
@@ -56,10 +53,11 @@
 <li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
 <li><a class="active" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
-<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -78,8 +76,12 @@
 <div id="writing-and-using-functions" class="section level2 unnumbered">
 <h2>Writing and using functions<a class="anchor" aria-label="anchor" href="#writing-and-using-functions"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Example: A simple function to calculate the square of a number</span></span>
+<p>Example: A simple function to calculate the square of a number</p>
+<p><span class="math display">\[
+f(x) = x^2
+\]</span></p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">square_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -88,11 +90,54 @@
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">square_function</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 16</span></span></code></pre></div>
+<div id="exercise-1-3" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-3"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Write and Use a Function
+<strong>Objective:</strong> Create a function that calculates the cube of a number and use this function to calculate the cube of 3.</p>
+<p><strong>Hint:</strong> Use the structure of the square_function as a template.</p>
+<p>The reason why this is useful, is because functions are used for anything we want, R functions are just similar to the one we have just created, optimized for the specific tasks they were designed for .</p>
+<p>We now create a more complex function , one that takes a vector , finds the mean , standard deviation and the histogram</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">analyze_vector</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">plot_title</span> <span class="op">=</span> <span class="st">"Histogram"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># Check if the input is numeric</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Input must be a numeric vector"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="co"># Calculate mean and standard deviation</span></span>
+<span>  <span class="va">mean_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="va">std_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Output the mean and std</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Mean:"</span>, <span class="va">mean_value</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Standard Deviation:"</span>, <span class="va">std_value</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Create a histogram</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, main <span class="op">=</span> <span class="va">plot_title</span>, xlab <span class="op">=</span> <span class="st">"Values"</span>, col <span class="op">=</span> <span class="st">"lightblue"</span>, border <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Return a list containing the mean and std</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="va">mean_value</span>, std <span class="op">=</span> <span class="va">std_value</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Example usage with the mtcars$mpg vector</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">analyze_vector</span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, <span class="st">"MPG Histogram"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Mean: 20.09062 </span></span>
+<span><span class="co">#&gt; Standard Deviation: 6.026948</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-Intermediate-R-Part1_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+</div>
+<div id="exercise-2-2" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-2"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Analyze a Numeric Vector
+<strong>Objective:</strong> Write a function named summarize_vector that takes a numeric vector as input and calculates the median, variance, and creates a boxplot. The function should print the median and variance, and return them as a list. Use the airquality$Ozone data for analysis.</p>
+<p><strong>Hint:</strong> Similar to analyze_vector, check if the input is numeric and use median, var, and <code>boxplot</code> functions.</p>
+</div>
 </div>
 <div id="if-statements-and-loops-for-and-while" class="section level2 unnumbered">
 <h2>If statements and loops (for and while)<a class="anchor" aria-label="anchor" href="#if-statements-and-loops-for-and-while"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example: Using if statement</span></span>
 <span><span class="va">number</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
@@ -100,9 +145,21 @@
 <span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Non-positive number"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] "Positive number"</span></span>
-<span></span>
-<span><span class="co"># Example: For loop to calculate the factorial of a number</span></span>
+<span><span class="co">#&gt; [1] "Positive number"</span></span></code></pre></div>
+<div id="exercise-3-1" class="section level3 unnumbered">
+<h3>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-1"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Using if Statements
+<strong>Objective:</strong> Create an R script that checks if a number is negative, zero, or positive and prints an appropriate message. Test your script with the number -4.</p>
+<p><strong>Hint:</strong> Use an if statement followed by else if and else.</p>
+</div>
+</div>
+<div id="example-1" class="section level2 unnumbered">
+<h2>Example:<a class="anchor" aria-label="anchor" href="#example-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>For loop to calculate the factorial of a number</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">factorial_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
@@ -113,27 +170,59 @@
 <span></span>
 <span><span class="va">factorial_of_5</span> <span class="op">&lt;-</span> <span class="fu">factorial_function</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">factorial_of_5</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 120</span></span>
-<span></span>
-<span><span class="co"># Example: While loop to find the first square number greater than 100</span></span>
+<span><span class="co">#&gt; [1] 120</span></span></code></pre></div>
+<div id="exercise-4-1" class="section level3 unnumbered">
+<h3>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-1"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> For Loop
+<strong>Objective:</strong> Write a function using a for loop that calculates the sum of squares of numbers from 1 to n. Use this function to calculate the sum of squares for n=10.</p>
+<p><strong>Hint:</strong> Iterate from 1 to n, and keep adding the square of each number to a result variable.</p>
+</div>
+</div>
+<div id="example-6" class="section level2 unnumbered">
+<h2>Example:<a class="anchor" aria-label="anchor" href="#example-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>While loop to find the first square number greater than 100</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">number</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span><span class="kw">while</span> <span class="op">(</span><span class="va">number</span><span class="op">^</span><span class="fl">2</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">number</span> <span class="op">&lt;-</span> <span class="va">number</span> <span class="op">+</span> <span class="fl">1</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"First square number greater than 100 is:"</span>, <span class="va">number</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "First square number greater than 100 is: 121"</span></span></code></pre></div>
+<div id="exercise-5-1" class="section level3 unnumbered">
+<h3>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-1"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> While Loop
+<strong>Objective:</strong> Write a script using a while loop that finds the smallest number whose cube is greater than 100. Print the number and its cube.</p>
+<p><strong>Hint:</strong> Increment a number starting from 1, and check if its cube is greater than 100 in the while loop condition.</p>
 
+</div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="intermediate-r.html">Intermediate R</a></div>
-<div class="next"><a href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></div>
+<div class="next"><a href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#part-i-functions-and-control-structures">Part I: Functions and Control Structures</a></li>
-<li><a class="nav-link" href="#writing-and-using-functions">Writing and using functions</a></li>
-<li><a class="nav-link" href="#if-statements-and-loops-for-and-while">If statements and loops (for and while)</a></li>
+<li>
+<a class="nav-link" href="#writing-and-using-functions">Writing and using functions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-3">Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-2">Exercise 2</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#if-statements-and-loops-for-and-while">If statements and loops (for and while)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-3-1">Exercise 3</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#example-1">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-4-1">Exercise 4</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#example-6">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-5-1">Exercise 5</a></li></ul>
+</li>
 </ul>
 
       <div class="book-extra">
@@ -151,7 +240,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

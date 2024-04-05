@@ -1,6 +1,4 @@
 fig:unnamed-chunk-3
-section
-exercise-3
-exercise-6
-why-use-dyplr
-exploratory-data-analysis
+difference-between-na-and-nan-in-r
+na-not-available
+nan-not-a-number

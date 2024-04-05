@@ -55,6 +55,7 @@ Alternatively , you can look at these videos .
 1. [How to install Rstudio on Windows](https://www.youtube.com/watch?v=YrEe2TLr3MI)
 
 ### Basic RStudio layout and functionality {-}
+
 <center>
 <div class="figure">
 <img src="images/rstudio_layout.png" alt="From: http://www.sthda.com/english/wiki/r-basics-quick-and-easy " width="80%" />

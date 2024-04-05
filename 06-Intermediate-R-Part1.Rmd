@@ -4,12 +4,40 @@ In this session , we will learn about function and control structures such as wr
 
 We will also explore Data Cleaning and Transformations such as handling missing data , reshaping data using the dplyr functions. 
 
+First , we need to load this package
+
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+```
+
+It will load 
+
+
+1. `ggplot2`: Used for data visualization using the grammar of graphics.
+1. `dplyr`: Provides a set of tools for efficiently manipulating datasets.
+1. `tidyr`: Used for tidying data, that is, transforming it to a format that is easy to work with.
+1. `readr`: Used to read rectangular data like CSVs and text files into R.
+1. `purrr`: Enhances R's functional programming (FP) toolkit, making it easier to work with lists and functions.
+1. `tibble`: A modern reimagining of data frames, providing a cleaner and more user-friendly data structure.
+1. `stringr`: Simplifies the process of working with strings (text data).
+1. `forcats`: Designed to handle categorical variables (factors) with ease.
+
+In this session , we will use some of them 
+
+
 # Part I: Functions and Control Structures {-}
 
 ## Writing and using functions {-}
 
+Example: A simple function to calculate the square of a number
+
+$$
+f(x) = x^2
+$$
+
 ```{r}
-# Example: A simple function to calculate the square of a number
+
 square_function <- function(x) {
   return(x^2)
 }
@@ -18,6 +46,52 @@ square_function <- function(x) {
 result <- square_function(4)
 print(result)
 ```
+
+### Exercise 1{-}
+
+**Task:** Write and Use a Function
+**Objective:** Create a function that calculates the cube of a number and use this function to calculate the cube of 3.
+
+**Hint:** Use the structure of the square_function as a template.
+
+
+The reason why this is useful, is because functions are used for anything we want, R functions are just similar to the one we have just created, optimized for the specific tasks they were designed for .
+
+We now create a more complex function , one that takes a vector , finds the mean , standard deviation and the histogram
+
+```{r}
+analyze_vector <- function(x, plot_title = "Histogram") {
+  # Check if the input is numeric
+  if (!is.numeric(x)) {
+    stop("Input must be a numeric vector")
+  }
+  
+  # Calculate mean and standard deviation
+  mean_value <- mean(x)
+  std_value <- sd(x)
+  
+  # Output the mean and std
+  cat("Mean:", mean_value, "\n")
+  cat("Standard Deviation:", std_value, "\n")
+  
+  # Create a histogram
+  hist(x, main = plot_title, xlab = "Values", col = "lightblue", border = "black")
+  
+  # Return a list containing the mean and std
+  return(list(mean = mean_value, std = std_value))
+}
+
+# Example usage with the mtcars$mpg vector
+result <- analyze_vector(mtcars$mpg, "MPG Histogram")
+
+```
+
+
+### Exercise 2 {-}
+**Task:** Analyze a Numeric Vector
+**Objective:** Write a function named summarize_vector that takes a numeric vector as input and calculates the median, variance, and creates a boxplot. The function should print the median and variance, and return them as a list. Use the airquality$Ozone data for analysis.
+
+**Hint:** Similar to analyze_vector, check if the input is numeric and use median, var, and `boxplot` functions.
 
 ## If statements and loops (for and while) {-}
 
@@ -30,7 +104,22 @@ if (number > 0) {
   print("Non-positive number")
 }
 
-# Example: For loop to calculate the factorial of a number
+
+```
+
+### Exercise 3 {-}
+
+**Task:** Using if Statements
+**Objective:** Create an R script that checks if a number is negative, zero, or positive and prints an appropriate message. Test your script with the number -4.
+
+**Hint:** Use an if statement followed by else if and else.
+
+## Example: {-}
+
+For loop to calculate the factorial of a number
+
+```{r}
+
 factorial_function <- function(n) {
   result <- 1
   for (i in 1:n) {
@@ -42,7 +131,20 @@ factorial_function <- function(n) {
 factorial_of_5 <- factorial_function(5)
 print(factorial_of_5)
 
-# Example: While loop to find the first square number greater than 100
+```
+
+### Exercise 4 {-}
+
+**Task:** For Loop
+**Objective:** Write a function using a for loop that calculates the sum of squares of numbers from 1 to n. Use this function to calculate the sum of squares for n=10.
+
+**Hint:** Iterate from 1 to n, and keep adding the square of each number to a result variable.
+
+## Example: {-}
+While loop to find the first square number greater than 100
+
+```{r}
+
 number <- 1
 while (number^2 <= 100) {
   number <- number + 1
@@ -50,3 +152,9 @@ while (number^2 <= 100) {
 print(paste("First square number greater than 100 is:", number^2))
 ```
 
+### Exercise 5 {-}
+
+**Task:** While Loop
+**Objective:** Write a script using a while loop that finds the smallest number whose cube is greater than 100. Print the number and its cube.
+
+**Hint:** Increment a number starting from 1, and check if its cube is greater than 100 in the while loop condition.

@@ -18,9 +18,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -47,7 +45,6 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="r-basics.html">R Basics</a></li>
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="active" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
@@ -56,10 +53,11 @@
 <li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
 <li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
-<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -99,31 +97,31 @@
 <ul>
 <li>Addition</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span><span class="op">+</span><span class="fl">5</span></span>
 <span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 <ul>
 <li>Subtraction</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">143</span><span class="op">-</span><span class="fl">12</span></span>
 <span><span class="co">#&gt; [1] 131</span></span></code></pre></div>
 <ul>
 <li>Multiplication</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">4</span><span class="op">*</span><span class="fl">5</span></span>
 <span><span class="co">#&gt; [1] 20</span></span></code></pre></div>
 <ul>
 <li>Division</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">180</span><span class="op">/</span><span class="fl">23</span></span>
 <span><span class="co">#&gt; [1] 7.826087</span></span></code></pre></div>
 <ul>
 <li>Exponientiation</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">4</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="co">#&gt; [1] 16</span></span></code></pre></div>
 <div id="arithmetic-functions" class="section level4 unnumbered">
@@ -133,19 +131,19 @@
 <ul>
 <li>Absolute value</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="op">-</span><span class="fl">23</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 23</span></span></code></pre></div>
 <ul>
 <li>Square root</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">16</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 4</span></span></code></pre></div>
 <ul>
 <li>Remainder/modulo</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">7</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">3</span></span>
 <span><span class="co">#&gt; [1] 1</span></span></code></pre></div>
 <ul>
@@ -153,7 +151,7 @@
 i.e,</li>
 </ul>
 <p><span class="math display">\[\log_a b = c,\quad ln_e b=a , \quad  e^{a}=b\]</span></p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
@@ -174,17 +172,17 @@ i.e,</li>
 </h4>
 <p>in <code>R</code>, to create a variable , you can use the assigment symbol <code>&lt;-</code>, or <code>=</code> however, the later is not commonly used in <code>R</code>.</p>
 <p>To assign the value of 7 to x , we will do</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">7</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 7</span></span></code></pre></div>
 <p>We can now perform operations on these variables</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span><span class="op">*</span><span class="va">x</span><span class="op">+</span><span class="fl">3</span> <span class="co"># 3*7+3 = 21+3 =24</span></span>
 <span><span class="co">#&gt; [1] 24</span></span></code></pre></div>
 <p><strong>Remark:</strong> R is case sensitive so, <code>x</code> is different from <code>X</code></p>
 <p>calling <code>print(X)</code> will output error</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error in eval(expr, envir, enclos): object 'X' not found</span></span></code></pre></div>
 </div>
@@ -200,22 +198,35 @@ i.e,</li>
 <li>logical (True/False)</li>
 </ul>
 </div>
-<div id="exercise" class="section level4 unnumbered">
-<h4>Exercise<a class="anchor" aria-label="anchor" href="#exercise"><i class="fas fa-link"></i></a>
+<div id="exercise-1" class="section level4 unnumbered">
+<h4>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<p>Run the following code, then use typeof(), class() functions to find out the data type and/or class object.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_numeric</span> <span class="op">&lt;-</span> <span class="fl">42.5</span></span>
 <span><span class="va">John_jay</span> <span class="op">&lt;-</span> <span class="st">"university"</span></span>
 <span><span class="va">my_logical</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span><span class="va">my_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"05/29/2018"</span>, <span class="st">"%m/%d/%Y"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "double"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Date"</span></span></code></pre></div>
-<p>Use <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function to find out what the data type of a variable is .
-<strong>Character Data type </strong>
+<span><span class="va">my_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"05/29/2018"</span>, <span class="st">"%m/%d/%Y"</span><span class="op">)</span></span></code></pre></div>
+<p>Use <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> or <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>function to find out what the data type of a variable is .</p>
+</div>
+<div id="what-is-the-difference-between-typeof-and-class" class="section level4 unnumbered">
+<h4>What is the difference between typeof() and class()?<a class="anchor" aria-label="anchor" href="#what-is-the-difference-between-typeof-and-class"><i class="fas fa-link"></i></a>
+</h4>
+<p>Here we can see that <code>typeof(my_date)</code> is a double, and <code>class(my_date)</code> is <code>Date</code>. This is because <code>typeof</code> output the lowest level data type of the object. While <code>class</code> outputs the class of the object.</p>
+<p>If you are writing code that involves checking whether an element is of an specific data type , then you need to be careful on how you check that. Depending on the function , it may give you a true value when in reality you want a false value to be returned.</p>
+<p>For example, Imagine you are asked to check if all dates in a dateframe have the correct data type.</p>
+<p>In some cases it might be <code>"05/29/2018"</code> but in a rare case (maybe due to a data entry error), there is a <code>"42.5"</code></p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>In the previous comparison , it returns true, meaning that the two data types are the same, maybe youu thought you are comparing if both are date type, but in reality , you are comparing the lowest level data types which are indeed equal (double)</p>
+<p>Instead, you should do.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p><strong>Character Data type </strong>
 A character stores character values or strings</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">char</span> <span class="op">&lt;-</span> <span class="st">"This is a character data type"</span></span>
 <span><span class="va">char</span></span>
 <span><span class="co">#&gt; [1] "This is a character data type"</span></span>
@@ -223,7 +234,7 @@ A character stores character values or strings</p>
 <span><span class="co">#&gt; [1] "character"</span></span></code></pre></div>
 <p><strong>Numeric Data type </strong></p>
 <p>This is for numerical values .</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">num</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
@@ -236,7 +247,7 @@ A character stores character values or strings</p>
 <span><span class="co">#&gt; [1] "numeric"</span></span></code></pre></div>
 <p><strong>Integer Data type</strong></p>
 <p>For integers, we must specify it as so, and to do it , we must convert the data type. Remark: if it is a decimal, it will remove all decimal, acting as a floor function .</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">3.6332</span><span class="op">)</span></span>
 <span><span class="va">int</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
@@ -250,18 +261,18 @@ A character stores character values or strings</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">int2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
 <p>We can also create a integer by adding an L after it</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int3</span> <span class="op">&lt;-</span> <span class="fl">8L</span></span>
 <span><span class="va">int3</span></span>
 <span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 <p>Remark: It does not work with decimals</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">int4</span> <span class="op">&lt;-</span> <span class="fl">3.4546L</span></span>
 <span><span class="va">int4</span></span>
 <span><span class="co">#&gt; [1] 3.4546</span></span></code></pre></div>
 <p><strong>Complex Data type</strong>
 Complex data types are stored as <code>x+yi</code> , i.e, with the imaginary component</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">compl</span> <span class="op">&lt;-</span> <span class="fl">13</span><span class="op">+</span><span class="fl">7i</span></span>
 <span><span class="va">compl</span></span>
 <span><span class="co">#&gt; [1] 13+7i</span></span>
@@ -271,7 +282,7 @@ Complex data types are stored as <code>x+yi</code> , i.e, with the imaginary com
 <span><span class="co">#&gt; [1] 23+7i</span></span></code></pre></div>
 <p><strong>Boolean Data type </strong>
 This stores boolean values of <code>TRUE</code> and <code>FALSE</code></p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_bool</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
 <span><span class="va">my_bool</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
@@ -285,6 +296,22 @@ This stores boolean values of <code>TRUE</code> and <code>FALSE</code></p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_boolean</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "logical"</span></span></code></pre></div>
 </div>
+</div>
+<div id="what-is-the-difference-between-typeof-and-class-1" class="section level3 unnumbered">
+<h3>2 What is the difference between typeof() and class()?<a class="anchor" aria-label="anchor" href="#what-is-the-difference-between-typeof-and-class-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here we can see that <code>typeof(my_date)</code> is a double, and <code>class(my_date)</code> is <code>Date</code>. This is because <code>typeof</code> output the lowest level data type of the object. While <code>class</code> outputs the class of the object.</p>
+<p>If you are writing code that involves checking whether an element is of an specific data type , then you need to be careful on how you check that. Depending on the function , it may give you a true value when in reality you want a false value to be returned.</p>
+<p>For example, Imagine you are asked to check if all dates in a dateframe have the correct data type.</p>
+<p>In some cases it might be <code>"05/29/2018"</code> but in a rare case (maybe due to a data entry error), there is a <code>"42.5"</code></p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>In the previous comparison , it returns true, meaning that the two data types are the same, maybe youu thought you are comparing if both are date type, but in reality , you are comparing the lowest level data types which are indeed equal (double)</p>
+<p>Instead, you should do.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <div id="converting-data-types" class="section level4 unnumbered">
 <h4>Converting Data types<a class="anchor" aria-label="anchor" href="#converting-data-types"><i class="fas fa-link"></i></a>
 </h4>
@@ -299,7 +326,7 @@ When converting</p>
 </li>
 </ul>
 <p>We can use <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> to check if a variable is numeric</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Complex</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">compl</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
@@ -340,7 +367,7 @@ When converting</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">number4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p><strong>Convert into integer</strong></p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inte1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="st">"234"</span><span class="op">)</span></span>
 <span><span class="va">inte1</span></span>
 <span><span class="co">#&gt; [1] 234</span></span>
@@ -361,7 +388,7 @@ When converting</p>
 <span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
 <p><strong>Converting into Logical</strong></p>
 <p>Return <code>FALSE</code> for <code>0</code> , <code>TRUE</code> otherwise</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
@@ -372,13 +399,18 @@ When converting</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="op">-</span><span class="fl">324</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "logical"</span></span></code></pre></div>
 </div>
+<div id="exercise-2" class="section level4 unnumbered">
+<h4>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>Create 1 datatype of each: Character, numeric, integer, complex, Boolean</p>
+</div>
 </div>
 <div id="getting-help" class="section level3 unnumbered">
 <h3>Getting help<a class="anchor" aria-label="anchor" href="#getting-help"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can use the Plots and files pane (bottom left pane) to click on Help and then search for whichever function you need help with.</p>
 <p>You can also use the <code>?</code> before each function.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">mean</span></span></code></pre></div>
 <p>This will open the information about the function on the plots and files pane.</p>
 
@@ -394,6 +426,7 @@ When converting</p>
 <li><a class="nav-link" href="#r-as-a-calculator">R as a calculator</a></li>
 <li><a class="nav-link" href="#basic-arithmetic-operations">Basic arithmetic operations</a></li>
 <li><a class="nav-link" href="#variables-and-data-types-numericcharacter">Variables and data types (numeric,character)</a></li>
+<li><a class="nav-link" href="#what-is-the-difference-between-typeof-and-class-1">2 What is the difference between typeof() and class()?</a></li>
 <li><a class="nav-link" href="#getting-help">Getting help</a></li>
 </ul>
 </li></ul>
@@ -413,7 +446,7 @@ When converting</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

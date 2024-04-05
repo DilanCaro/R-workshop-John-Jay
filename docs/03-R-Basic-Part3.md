@@ -22,6 +22,7 @@ print(v2)
 
 You can give names to the columns of the vector 
 
+
 ```r
 my_vector <- c("Katrien Antonio", "teacher")
 names(my_vector) <- c("Name", "Profession")
@@ -30,11 +31,22 @@ my_vector
 #> "Katrien Antonio"         "teacher"
 ```
 
-### Exercise :
+### Exercise 1: {-}
 
 1. Create a vector of your favorite numbers.
 2. Access the third element in your vector.
 3. Create a new vector that is the square of each element in the original vector.
+
+
+```r
+my_vector <- c("Katrien Antonio", "teacher")
+names(my_vector) <- c("Name", "Profession")
+my_vector
+#>              Name        Profession 
+#> "Katrien Antonio"         "teacher"
+```
+4. Inspect my_vector using: 
+the attributes(), the length() and the str() function 
 
 ## Matrices {-}
 
@@ -184,7 +196,7 @@ print(summary(df))  # Summary statistics
 #>                     Max.   :35.0   Max.   :70000
 ```
 
-## Exercise 3 {-}
+### Exercise 2 {-}
 
 1. Create a data frame with at least three columns and four rows.
 1. Print the number of rows and columns of your data frame.
@@ -192,7 +204,11 @@ print(summary(df))  # Summary statistics
 
 ## Part 2 {-}
 
-Inspect a built-in data frame
+### Exercise 3 {-}
+
+1. Inspect a built-in data frame, inspect `mtcars` using `str()`, `head()`
+2. Get summary from a variable in a dataframe, use `$` to extract a variable from the dataframe. 
+3. Now inspect a tibble, inspect `diamonds` from the `ggplot2` library. Use `str()`, `head()`, `summary()`
 
 
 ```r
@@ -201,22 +217,18 @@ str(mtcars)
 head(mtcars)
 ```
 
-Get summary from a variable in a dataframe
-
 
 ```r
 summary(mtcars$cyl) # use $ to extract variable from a data frame
 ```
 
-Now inspect a tibble
+
+
 
 
 ```r
 library(ggplot2)
-diamonds
-str(diamonds)  # built-in in library ggplot2
 head(diamonds)
-summary(diamonds$depth)
 ```
 
 Can you list some differences?

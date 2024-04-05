@@ -18,9 +18,7 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -47,7 +45,6 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="active" href="index.html">Welcome</a></li>
-<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="r-basics.html">R Basics</a></li>
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
@@ -56,10 +53,11 @@
 <li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
 <li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
-<li><a class="" href="part-ii-data-cleaning-and-transformation-30-minutes.html">Part II: Data Cleaning and Transformation (30 minutes)</a></li>
+<li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -87,8 +85,8 @@
 <div id="session-1-r-basics-2-hours" class="section level2 unnumbered">
 <h2>Session 1: R Basics (2 hours)<a class="anchor" aria-label="anchor" href="#session-1-r-basics-2-hours"><i class="fas fa-link"></i></a>
 </h2>
-<div id="part-1-introduction-to-r-30-minutes" class="section level3 unnumbered">
-<h3>Part 1: Introduction to R (30 minutes)<a class="anchor" aria-label="anchor" href="#part-1-introduction-to-r-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-1-introduction-to-r" class="section level3 unnumbered">
+<h3>Part 1: Introduction to R<a class="anchor" aria-label="anchor" href="#part-1-introduction-to-r"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>What is R and why use it?</li>
@@ -96,8 +94,8 @@
 <li>Basic RStudio layout and functionality</li>
 </ol>
 </div>
-<div id="part-2-r-fundamentals-30-minutes" class="section level3 unnumbered">
-<h3>Part 2: R Fundamentals (30 minutes)<a class="anchor" aria-label="anchor" href="#part-2-r-fundamentals-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-2-r-fundamentals" class="section level3 unnumbered">
+<h3>Part 2: R Fundamentals<a class="anchor" aria-label="anchor" href="#part-2-r-fundamentals"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>R as a calculator</li>
@@ -105,8 +103,8 @@
 <li>Basic arithmetic operations</li>
 </ol>
 </div>
-<div id="part-3-data-structures-30-minutes" class="section level3 unnumbered">
-<h3>Part 3: Data Structures (30 minutes)<a class="anchor" aria-label="anchor" href="#part-3-data-structures-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-3-data-structures" class="section level3 unnumbered">
+<h3>Part 3: Data Structures<a class="anchor" aria-label="anchor" href="#part-3-data-structures"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Vectors: Creating, indexing, and operations</li>
@@ -114,8 +112,8 @@
 <li>Importing and exporting data (CSV files)</li>
 </ol>
 </div>
-<div id="part-4-data-manipulation-30-minutes" class="section level3 unnumbered">
-<h3>Part 4: Data Manipulation (30 minutes)<a class="anchor" aria-label="anchor" href="#part-4-data-manipulation-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-4-data-manipulation" class="section level3 unnumbered">
+<h3>Part 4: Data Manipulation<a class="anchor" aria-label="anchor" href="#part-4-data-manipulation"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Subsetting and filtering data</li>
@@ -123,51 +121,55 @@
 <li>Basic data summary and exploration</li>
 </ol>
 </div>
-<div id="part-5-basic-data-visualization-10-minutes" class="section level3 unnumbered">
-<h3>Part 5: Basic Data Visualization (10 minutes)<a class="anchor" aria-label="anchor" href="#part-5-basic-data-visualization-10-minutes"><i class="fas fa-link"></i></a>
+<div id="part-5-basic-data-visualization" class="section level3 unnumbered">
+<h3>Part 5: Basic Data Visualization<a class="anchor" aria-label="anchor" href="#part-5-basic-data-visualization"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Creating simple plots using plot()</li>
 </ol>
 </div>
 </div>
-<div id="session-2-intermediate-r-2-hours" class="section level2 unnumbered">
-<h2>Session 2: Intermediate R (2 hours)<a class="anchor" aria-label="anchor" href="#session-2-intermediate-r-2-hours"><i class="fas fa-link"></i></a>
+<div id="session-2-intermediate-r-i" class="section level2 unnumbered">
+<h2>Session 2: Intermediate R I<a class="anchor" aria-label="anchor" href="#session-2-intermediate-r-i"><i class="fas fa-link"></i></a>
 </h2>
-<div id="part-1-functions-and-control-structures-30-minutes" class="section level3 unnumbered">
-<h3>Part 1: Functions and Control Structures (30 minutes)<a class="anchor" aria-label="anchor" href="#part-1-functions-and-control-structures-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-1-functions-and-control-structures" class="section level3 unnumbered">
+<h3>Part 1: Functions and Control Structures<a class="anchor" aria-label="anchor" href="#part-1-functions-and-control-structures"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Writing and using functions</li>
 <li>If statements and loops (for and while)</li>
 </ol>
 </div>
-<div id="part-2-data-cleaning-and-transformation-30-minutes" class="section level3 unnumbered">
-<h3>Part 2: Data Cleaning and Transformation (30 minutes)<a class="anchor" aria-label="anchor" href="#part-2-data-cleaning-and-transformation-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-2-data-cleaning-and-transformation" class="section level3 unnumbered">
+<h3>Part 2: Data Cleaning and Transformation<a class="anchor" aria-label="anchor" href="#part-2-data-cleaning-and-transformation"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Handling missing data</li>
 <li>Reshaping data using dplyr functions (filter, arrange, mutate, summarize)</li>
 </ol>
 </div>
-<div id="part-3-advanced-data-visualization-30-minutes" class="section level3 unnumbered">
-<h3>Part 3: Advanced Data Visualization (30 minutes)<a class="anchor" aria-label="anchor" href="#part-3-advanced-data-visualization-30-minutes"><i class="fas fa-link"></i></a>
+</div>
+<div id="session-3-intermediate-r-ii" class="section level2 unnumbered">
+<h2>Session 3: Intermediate R II<a class="anchor" aria-label="anchor" href="#session-3-intermediate-r-ii"><i class="fas fa-link"></i></a>
+</h2>
+<div id="part-1-advanced-data-visualization" class="section level3 unnumbered">
+<h3>Part 1: Advanced Data Visualization<a class="anchor" aria-label="anchor" href="#part-1-advanced-data-visualization"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Creating customized plots with ggplot2</li>
 <li>Adding titles, labels, and themes to plots</li>
 </ol>
 </div>
-<div id="part-4-statistical-analysis-30-minutes" class="section level3 unnumbered">
-<h3>Part 4: Statistical Analysis (30 minutes)<a class="anchor" aria-label="anchor" href="#part-4-statistical-analysis-30-minutes"><i class="fas fa-link"></i></a>
+<div id="part-2-statistical-analysis" class="section level3 unnumbered">
+<h3>Part 2: Statistical Analysis<a class="anchor" aria-label="anchor" href="#part-2-statistical-analysis"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Introduction to hypothesis testing and statistical tests</li>
 <li>Performing t-tests and chi-squared tests</li>
 </ol>
 </div>
-<div id="optional-part-5-working-with-dates-and-times-20-minutes" class="section level3 unnumbered">
-<h3>(Optional) Part 5: Working with Dates and Times (20 minutes)<a class="anchor" aria-label="anchor" href="#optional-part-5-working-with-dates-and-times-20-minutes"><i class="fas fa-link"></i></a>
+<div id="optional-part-3-working-with-dates-and-times" class="section level3 unnumbered">
+<h3>(Optional) Part 3: Working with Dates and Times<a class="anchor" aria-label="anchor" href="#optional-part-3-working-with-dates-and-times"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Handling date and time data in R</li>
@@ -175,8 +177,8 @@
 </ol>
 </div>
 </div>
-<div id="session-3-advanced-r-2-hours" class="section level2 unnumbered">
-<h2>Session 3: Advanced R (2 hours)<a class="anchor" aria-label="anchor" href="#session-3-advanced-r-2-hours"><i class="fas fa-link"></i></a>
+<div id="optional-session-4-advanced-r" class="section level2 unnumbered">
+<h2>(optional) Session 4: Advanced R<a class="anchor" aria-label="anchor" href="#optional-session-4-advanced-r"><i class="fas fa-link"></i></a>
 </h2>
 <div id="part-1-advanced-data-manipulation-with-dplyr-30-minutes" class="section level3 unnumbered">
 <h3>Part 1: Advanced Data Manipulation with dplyr (30 minutes)<a class="anchor" aria-label="anchor" href="#part-1-advanced-data-manipulation-with-dplyr-30-minutes"><i class="fas fa-link"></i></a>
@@ -221,7 +223,7 @@
 </div>
   <div class="chapter-nav">
 <div class="empty"></div>
-<div class="next"><a href="workshop-1.html">Workshop 1</a></div>
+<div class="next"><a href="r-basics.html">R Basics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -229,24 +231,28 @@
 <li><a class="nav-link" href="#objectives">Objectives</a></li>
 <li>
 <a class="nav-link" href="#session-1-r-basics-2-hours">Session 1: R Basics (2 hours)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#part-1-introduction-to-r-30-minutes">Part 1: Introduction to R (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-2-r-fundamentals-30-minutes">Part 2: R Fundamentals (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-3-data-structures-30-minutes">Part 3: Data Structures (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-4-data-manipulation-30-minutes">Part 4: Data Manipulation (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-5-basic-data-visualization-10-minutes">Part 5: Basic Data Visualization (10 minutes)</a></li>
+<li><a class="nav-link" href="#part-1-introduction-to-r">Part 1: Introduction to R</a></li>
+<li><a class="nav-link" href="#part-2-r-fundamentals">Part 2: R Fundamentals</a></li>
+<li><a class="nav-link" href="#part-3-data-structures">Part 3: Data Structures</a></li>
+<li><a class="nav-link" href="#part-4-data-manipulation">Part 4: Data Manipulation</a></li>
+<li><a class="nav-link" href="#part-5-basic-data-visualization">Part 5: Basic Data Visualization</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#session-2-intermediate-r-2-hours">Session 2: Intermediate R (2 hours)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#part-1-functions-and-control-structures-30-minutes">Part 1: Functions and Control Structures (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-2-data-cleaning-and-transformation-30-minutes">Part 2: Data Cleaning and Transformation (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-3-advanced-data-visualization-30-minutes">Part 3: Advanced Data Visualization (30 minutes)</a></li>
-<li><a class="nav-link" href="#part-4-statistical-analysis-30-minutes">Part 4: Statistical Analysis (30 minutes)</a></li>
-<li><a class="nav-link" href="#optional-part-5-working-with-dates-and-times-20-minutes">(Optional) Part 5: Working with Dates and Times (20 minutes)</a></li>
+<a class="nav-link" href="#session-2-intermediate-r-i">Session 2: Intermediate R I</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#part-1-functions-and-control-structures">Part 1: Functions and Control Structures</a></li>
+<li><a class="nav-link" href="#part-2-data-cleaning-and-transformation">Part 2: Data Cleaning and Transformation</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#session-3-advanced-r-2-hours">Session 3: Advanced R (2 hours)</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#session-3-intermediate-r-ii">Session 3: Intermediate R II</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#part-1-advanced-data-visualization">Part 1: Advanced Data Visualization</a></li>
+<li><a class="nav-link" href="#part-2-statistical-analysis">Part 2: Statistical Analysis</a></li>
+<li><a class="nav-link" href="#optional-part-3-working-with-dates-and-times">(Optional) Part 3: Working with Dates and Times</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#optional-session-4-advanced-r">(optional) Session 4: Advanced R</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#part-1-advanced-data-manipulation-with-dplyr-30-minutes">Part 1: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="nav-link" href="#part-2-text-data-processing-30-minutes">Part 2: Text Data Processing (30 minutes)</a></li>
 <li><a class="nav-link" href="#part-3-building-predictive-models-30-minutes">Part 3: Building Predictive Models (30 minutes)</a></li>
@@ -271,7 +277,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-02.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

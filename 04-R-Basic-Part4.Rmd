@@ -100,7 +100,7 @@ data <- data %>%
 print(data)
 ```
 
-## Why use dyplr
+## Why use dyplr {-}
 
 One might think that using pipe operator `(%>%)` from the `magrittr` package, prominently used in dplyr and the wider tidyverse is unnecessarily more complex. While it may seem more complex at first, especially to those accustomed to base R functions and syntax, it offers several benefits that can greatly enhance the readability, efficiency, and overall workflow of data analysis. Some reasons to use it are:
 
@@ -179,7 +179,7 @@ print(unique_names_count)
 ```
 
 
-## Exploratory data analysis 
+## Exploratory data analysis {-}
 
 Exploratory Data Analysis (EDA) is a critical initial step in the data analysis process, where the main characteristics of a dataset are examined to understand its structure, uncover patterns, identify anomalies, and test hypotheses. The goal is to use statistical summaries and visualizations to get a sense of the data, which guides further analysis and modeling decisions. EDA is not about making formal predictions or testing hypotheses but rather about asking questions and seeking insights in a more open-ended, exploratory manner.
 

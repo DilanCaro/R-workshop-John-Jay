@@ -49,15 +49,17 @@
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
 <li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
-<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
-<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="part-iv-data-manipulation.html">Part IV: Data Manipulation</a></li>
+<li><a class="" href="part-v-basic-data-visualization.html">Part V: Basic Data Visualization</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
 <li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
 <li><a class="active" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-i-advanced-data-visualization.html">Part I: Advanced Data Visualization</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -114,7 +116,7 @@
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -148,7 +150,7 @@
 <p>Extract rows that meet logical criteria. Here you go:
 - inspect the diamonds data set
 - filter observations with cut equal to Ideal</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span> <span class="op">==</span> <span class="st">"Ideal"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 21,551 × 10</span></span>
 <span><span class="co">#&gt;    carat cut   color clarity depth table price     x     y</span></span>
@@ -180,7 +182,7 @@
 <p>Create new columns. Here you go:
 - inspect the diamonds data set
 - create a new variable price_per_carat</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>, price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 53,940 × 11</span></span>
 <span><span class="co">#&gt;    carat cut     color clarity depth table price     x     y</span></span>
@@ -203,7 +205,7 @@
 </h2>
 <p>Use the %&gt;% for multistep operations.
 Passes result on left into first argument of function on right. Here you go:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price_per_carat</span> <span class="op">&gt;</span> <span class="fl">1500</span><span class="op">)</span></span>
@@ -231,7 +233,7 @@ Passes result on left into first argument of function on right. Here you go:</p>
 <li>inspect the diamonds data set</li>
 <li>calculate mean and standard deviation of price</li>
 </ul>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>, std_dev <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
 <span><span class="co">#&gt;    mean std_dev</span></span>
@@ -244,7 +246,7 @@ Passes result on left into first argument of function on right. Here you go:</p>
 <p>Groups cases by common values of one or more columns. Here you go:
 inspect the diamonds data set
 calculate mean and standard deviation of price by level of cut</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cut</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>, carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span></span>
@@ -256,8 +258,8 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 3 Very Good 3982. 0.806</span></span>
 <span><span class="co">#&gt; 4 Premium   4584. 0.892</span></span>
 <span><span class="co">#&gt; 5 Ideal     3458. 0.703</span></span></code></pre></div>
-<div id="exercise-1-4" class="section level3 unnumbered">
-<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-4"><i class="fas fa-link"></i></a>
+<div id="exercise-1-5" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-5"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Load the data Parade2005.txt.</li>
@@ -271,7 +273,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <h2>Transforming a dataframe into tibbles<a class="anchor" aria-label="anchor" href="#transforming-a-dataframe-into-tibbles"><i class="fas fa-link"></i></a>
 </h2>
 <p>Transform the mtcars into a tibble and inspect.</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 'data.frame':    32 obs. of  11 variables:</span></span>
 <span><span class="co">#&gt;  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...</span></span>
@@ -285,7 +287,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt;  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...</span></span>
 <span><span class="co">#&gt;  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
 <span><span class="co">#&gt;  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span></code></pre></div>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#library(tidyverse)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
@@ -318,10 +320,10 @@ calculate mean and standard deviation of price by level of cut</p>
 <li>Data stored in a .csv file.</li>
 <li>Individual records separated by a semicolon.</li>
 </ul>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'./John Jay Workshop Data/PolicyData.csv'</span>, sep <span class="op">=</span> <span class="st">';'</span><span class="op">)</span></span></code></pre></div>
-<div id="exercise-1-5" class="section level3 unnumbered">
-<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-5"><i class="fas fa-link"></i></a>
+<div id="exercise-1-6" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use the skills you obtained in the first R workshop.</p>
 <ol style="list-style-type: decimal">
@@ -337,7 +339,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <ul>
 <li>Describes the evolution of a number of population characteristics (GDP, life expectancy, …) over time.</li>
 </ul>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#install.packages("gapminder")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span></code></pre></div>
 <div id="exercise-2-3" class="section level3 unnumbered">
@@ -363,7 +365,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <li>Protecting data quality.</li>
 </ul>
 <p>Example , sex a categorical value with two possible outcomes, <code>m</code> and <code>f</code></p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'m'</span>, <span class="st">'f'</span>, <span class="st">'m'</span>, <span class="st">'f'</span><span class="op">)</span>,</span>
 <span>              levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'m'</span>, <span class="st">'f'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">sex</span></span>
@@ -374,12 +376,12 @@ calculate mean and standard deviation of price by level of cut</p>
 <li><p><code>levels</code> specifies the possible outcomes of the variable.</p></li>
 </ul>
 <p>Assigning an unrecognized level to a factor variable results in a warning</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sex</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'male'</span></span>
 <span><span class="co">#&gt; Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "male"):</span></span>
 <span><span class="co">#&gt; invalid factor level, NA generated</span></span></code></pre></div>
 <p>This protects the quality of the data</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sex</span></span>
 <span><span class="co">#&gt; [1] &lt;NA&gt; f    m    f   </span></span>
 <span><span class="co">#&gt; Levels: m f</span></span></code></pre></div>
@@ -390,11 +392,11 @@ calculate mean and standard deviation of price by level of cut</p>
 <h2>levels()<a class="anchor" aria-label="anchor" href="#levels"><i class="fas fa-link"></i></a>
 </h2>
 <p>levels print the allowed outcomes for a factor variable</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "m" "f"</span></span></code></pre></div>
 <p>Assigning a vector to levels() renames the allowed outcomes.</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'male'</span>, <span class="st">'female'</span><span class="op">)</span></span>
 <span><span class="va">sex</span></span>
 <span><span class="co">#&gt; [1] &lt;NA&gt;   female male   female</span></span>
@@ -408,14 +410,14 @@ calculate mean and standard deviation of price by level of cut</p>
 <li>Is this the result you expected?</li>
 </ol>
 <p>To add a level</p>
-<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, <span class="st">'x'</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div id="cut" class="section level2 unnumbered">
 <h2>cut()<a class="anchor" aria-label="anchor" href="#cut"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span></span>
 <span><span class="co">#&gt; # A tibble: 1,704 × 6</span></span>
 <span><span class="co">#&gt;    country     continent  year lifeExp      pop gdpPercap</span></span>
@@ -431,17 +433,17 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.</span></span>
 <span><span class="co">#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.</span></span>
 <span><span class="co">#&gt; # ℹ 1,694 more rows</span></span></code></pre></div>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">5</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">8</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] (0,1e+07]     (0,1e+07]     (1e+07,5e+07] (1e+07,5e+07]</span></span>
 <span><span class="co">#&gt; [5] (1e+07,5e+07] (1e+07,5e+07]</span></span>
 <span><span class="co">#&gt; 4 Levels: (0,1e+07] (1e+07,5e+07] ... (1e+08,Inf]</span></span></code></pre></div>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop_category</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">pop</span>,</span>
 <span>                             breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">5</span><span class="op">*</span><span class="fl">10</span><span class="op">^</span><span class="fl">7</span>, <span class="fl">10</span><span class="op">^</span><span class="fl">8</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
 <span>                             labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"&lt;= 10M"</span>, <span class="st">"10M-50M"</span>, <span class="st">"50M-100M"</span>, <span class="st">"&gt; 100M"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span></span>
 <span><span class="co">#&gt; # A tibble: 1,704 × 7</span></span>
 <span><span class="co">#&gt;    country     continent  year lifeExp      pop gdpPercap</span></span>
@@ -562,7 +564,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <strong>Nature of Undefinedness</strong>: <code>NA</code> indicates the absence of data, whereas <code>NaN</code> indicates that a calculation has failed to produce a meaningful result.</li>
 </ul>
 <p>In summary, the use of <code>NA</code> vs. <code>NaN</code> helps distinguish between data that is missing (<code>NA</code>) and numerical operations that result in undefined or unrepresentable values (<code>NaN</code>).</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">coffee_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">32</span>, <span class="cn">NA</span>, <span class="fl">45</span>, <span class="fl">22</span>, <span class="fl">33</span>, <span class="cn">NA</span>, <span class="fl">28</span><span class="op">)</span>,</span>
 <span>  Gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
@@ -584,7 +586,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <h3>Identifying Missing Values<a class="anchor" aria-label="anchor" href="#identifying-missing-values"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function to check for missing values. To count them in a specific column:</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
 </div>
@@ -592,24 +594,24 @@ calculate mean and standard deviation of price by level of cut</p>
 <h3>Removing NA Values<a class="anchor" aria-label="anchor" href="#removing-na-values"><i class="fas fa-link"></i></a>
 </h3>
 <p>A common task in data analysis is removing missing values (NAs).</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">bad</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE  TRUE FALSE</span></span></code></pre></div>
 <p>We can remove them by</p>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="va">bad</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 1 2 4 5</span></span></code></pre></div>
 <p>A faster way ,</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 1 2 4 5</span></span></code></pre></div>
 <div id="in-a-data-frame" class="section level4 unnumbered">
 <h4>In a Data frame<a class="anchor" aria-label="anchor" href="#in-a-data-frame"><i class="fas fa-link"></i></a>
 </h4>
 <p>Also, using our coffee example,</p>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">coffee_data_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">)</span></span>
 <span><span class="va">coffee_data_clean</span></span>
 <span><span class="co">#&gt;   Age Gender Cups_Per_Day</span></span>
@@ -618,7 +620,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 5  22 Female            2</span></span>
 <span><span class="co">#&gt; 6  33   Male            3</span></span></code></pre></div>
 <p>To remove rows with missing values in a specific column:</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">coffee_data_clean2</span> <span class="op">&lt;-</span> <span class="va">coffee_data</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="va">coffee_data_clean2</span></span>
@@ -639,7 +641,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 5  33   Male            3</span></span>
 <span><span class="co">#&gt; 6  28   &lt;NA&gt;            2</span></span></code></pre></div>
 <p>What if there are multiple R objects and you want to take the subset with no missing values in any of those objects?</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="cn">NA</span>, <span class="st">"d"</span>, <span class="cn">NA</span>, <span class="st">"f"</span><span class="op">)</span></span>
 <span><span class="va">good</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
@@ -650,7 +652,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="va">y</span><span class="op">[</span><span class="va">good</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] "a" "b" "d" "f"</span></span></code></pre></div>
 <p>You can use complete.cases on data frames too.</p>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
 <span><span class="co">#&gt; 1    41     190  7.4   67     5   1</span></span>
@@ -659,7 +661,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
 <span><span class="co">#&gt; 5    NA      NA 14.3   56     5   5</span></span>
 <span><span class="co">#&gt; 6    28      NA 14.9   66     5   6</span></span></code></pre></div>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">good</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">[</span><span class="va">good</span>, <span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   Ozone Solar.R Wind Temp Month Day</span></span>
@@ -669,7 +671,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 4    18     313 11.5   62     5   4</span></span>
 <span><span class="co">#&gt; 7    23     299  8.6   65     5   7</span></span>
 <span><span class="co">#&gt; 8    19      99 13.8   59     5   8</span></span></code></pre></div>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Ozone</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] NA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Ozone</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -680,7 +682,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <h3>Imputing Missing Values<a class="anchor" aria-label="anchor" href="#imputing-missing-values"><i class="fas fa-link"></i></a>
 </h3>
 <p>Replacing missing values with a specific value, like the mean or median:</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">coffee_data2</span><span class="op">&lt;-</span><span class="va">coffee_data</span></span>
 <span></span>
 <span><span class="va">coffee_data2</span><span class="op">$</span><span class="va">Age</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">coffee_data2</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -694,7 +696,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <span><span class="co">#&gt; 6 33.00000   Male            3</span></span>
 <span><span class="co">#&gt; 7 30.83333 Female            1</span></span>
 <span><span class="co">#&gt; 8 28.00000   &lt;NA&gt;            2</span></span></code></pre></div>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Assuming 'median' is the mode of the column</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 30</span></span>
@@ -714,7 +716,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <div id="using-packages-for-advanced-imputation" class="section level2 unnumbered">
 <h2>Using Packages for Advanced Imputation<a class="anchor" aria-label="anchor" href="#using-packages-for-advanced-imputation"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("mice")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -788,7 +790,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <div id="exercise-2-calculate-summary-statistics-before-handling-na" class="section level2 unnumbered">
 <h2>Exercise 2: Calculate Summary Statistics Before Handling NA<a class="anchor" aria-label="anchor" href="#exercise-2-calculate-summary-statistics-before-handling-na"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="va">mean_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></span>
 <span><span class="va">mean_mpg</span></span>
@@ -843,12 +845,12 @@ calculate mean and standard deviation of price by level of cut</p>
 <li><a class="nav-link" href="#multistep-operations">Multistep operations</a></li>
 <li><a class="nav-link" href="#summarize">Summarize()</a></li>
 <li>
-<a class="nav-link" href="#group_by">Group_by()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-4">Exercise 1</a></li></ul>
+<a class="nav-link" href="#group_by">Group_by()</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-5">Exercise 1</a></li></ul>
 </li>
 <li><a class="nav-link" href="#transforming-a-dataframe-into-tibbles">Transforming a dataframe into tibbles</a></li>
 <li><a class="nav-link" href="#part-ii-data-cleaning-and-transformation">Part II : Data Cleaning and Transformation</a></li>
 <li>
-<a class="nav-link" href="#the-policy-data-set">The Policy data set</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-5">Exercise 1</a></li></ul>
+<a class="nav-link" href="#the-policy-data-set">The Policy data set</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-6">Exercise 1</a></li></ul>
 </li>
 <li>
 <a class="nav-link" href="#the-gapminder-package">The Gapminder package</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-2-3">Exercise 2</a></li></ul>
@@ -895,7 +897,7 @@ calculate mean and standard deviation of price by level of cut</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

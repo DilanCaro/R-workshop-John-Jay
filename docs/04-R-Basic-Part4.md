@@ -1,4 +1,4 @@
-# Part IV: Data Manipulation (30 minutes) {-}
+# Part IV: Data Manipulation {-}
 
 ## Subsetting and filtering data {-}
 

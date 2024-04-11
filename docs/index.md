@@ -1,7 +1,7 @@
 --- 
 title: "R Workshop"
 author: "Dilan Morales Caro"
-date: "2024-04-05"
+date: "2024-04-11"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -49,7 +49,7 @@ In this website, you will have resources, examples and practice to master R.
 1. Basic data summary and exploration
 
 ### Part 5: Basic Data Visualization {-}
-1. Creating simple plots using plot()
+1. Creating simple plots using plot(), hist(), pie(),barplot(),boxplot()
 
 ## Session 2: Intermediate R I {-}
 
@@ -58,9 +58,9 @@ In this website, you will have resources, examples and practice to master R.
 1. Writing and using functions
 1. If statements and loops (for and while)
 
-### Part 2: Data Cleaning and Transformation{-}
-1. Handling missing data
+### Part 2: Data Wrangling:  Cleaning and Transformation {-}
 1. Reshaping data using dplyr functions (filter, arrange, mutate, summarize)
+1. Handling missing data
 
 ## Session 3: Intermediate R II {-}
 
@@ -81,27 +81,27 @@ In this website, you will have resources, examples and practice to master R.
 
 ## (optional) Session 4: Advanced R {-}
 
-### Part 1: Advanced Data Manipulation with dplyr (30 minutes) {-}
+### Part 1: Advanced Data Manipulation with dplyr {-}
 
 1. Grouping and summarizing data
 1. Joining and merging datasets
 
-### Part 2: Text Data Processing (30 minutes) {-}
+### Part 2: Text Data Processing  {-}
 
 1. Manipulating and analyzing text data using regular expressions
 1. Text mining basics
 
-### Part 3: Building Predictive Models (30 minutes) {-}
+### Part 3: Building Predictive Models {-}
 
 1. Introduction to machine learning in R
 1. Creating predictive models with caret
 
-### Part 4: Interactive Dashboards with Shiny (30 minutes) {-}
+### Part 4: Bookdown: Using R markdown to create books {-}
 
-1. Introduction to Shiny for building web-based data dashboards
-1. Creating a simple Shiny app
+1. Introduction to Bookdown Package
+1. Creating a simple bookdown book
 
-### Part 5: Version Control and Collaboration (10 minutes) {-}
+### Part 5: Version Control and Collaboration  {-}
 
 1. Using Git and GitHub for version control and collaboration in R projects
 

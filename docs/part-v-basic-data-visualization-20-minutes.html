@@ -55,9 +55,11 @@
 <li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
 <li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-i-advanced-data-visualization.html">Part I: Advanced Data Visualization</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -143,11 +145,36 @@ points: Add points to a plot.</li>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, main <span class="op">=</span> <span class="st">"Simple Scatter Plot"</span>, xlab <span class="op">=</span> <span class="st">"X Axis"</span>, ylab <span class="op">=</span> <span class="st">"Y Axis"</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-1-1.png" width="672"></div>
 </div>
+<div id="exercise-1-2" class="section level2 unnumbered">
+<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Making a Scatter plot:</p>
+<ul>
+<li>load the journals.txt data set and save as Journals data frame</li>
+<li>Work through the following instructions</li>
+</ul>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span>, side <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p>Now adjust the plotting instructions</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">19</span>,</span>
+<span>     col <span class="op">=</span> <span class="st">"blue"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">7</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Library subscriptions"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span>, side<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p>The <code><a href="https://rdrr.io/r/graphics/curve.html">curve()</a></code> function draws a curve corresponding to a function over the interval [from, to].</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="va">dnorm</span>, from <span class="op">=</span> <span class="op">-</span><span class="fl">5</span>, to <span class="op">=</span> <span class="fl">5</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>      main <span class="op">=</span> <span class="st">"Density of the standard normal distribution"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+</div>
 <div id="example-2" class="section level2 unnumbered">
 <h2>Example 2<a class="anchor" aria-label="anchor" href="#example-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>To create a basic scatter plot, you can use the mtcars dataset, which comes built into R. This dataset contains various characteristics of 32 automobiles.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span></span>
@@ -155,13 +182,13 @@ points: Add points to a plot.</li>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">hp</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, main<span class="op">=</span><span class="st">"MPG vs. Horsepower"</span>,</span>
 <span>     xlab<span class="op">=</span><span class="st">"Horsepower"</span>, ylab<span class="op">=</span><span class="st">"Miles Per Gallon"</span>,</span>
 <span>     pch<span class="op">=</span><span class="fl">19</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 </div>
 <div id="example-3" class="section level2 unnumbered">
 <h2>Example 3<a class="anchor" aria-label="anchor" href="#example-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>Using the pressure dataset, which is also built into R, you can create a simple line plot. The pressure dataset shows the temperature and resulting vapor pressure of mercury.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">pressure</span><span class="op">)</span></span>
 <span></span>
@@ -170,12 +197,12 @@ points: Add points to a plot.</li>
 <span>     main<span class="op">=</span><span class="st">"Vapor Pressure of Mercury"</span>,</span>
 <span>     xlab<span class="op">=</span><span class="st">"Temperature"</span>, ylab<span class="op">=</span><span class="st">"Pressure"</span>,</span>
 <span>     col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 </div>
 <div id="example-4" class="section level2 unnumbered">
 <h2>Example 4<a class="anchor" aria-label="anchor" href="#example-4"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
 <span></span>
@@ -185,7 +212,7 @@ points: Add points to a plot.</li>
 <span>     xlab<span class="op">=</span><span class="st">"Sepal Length"</span>, ylab<span class="op">=</span><span class="st">"Sepal Width"</span>,</span>
 <span>     pch<span class="op">=</span><span class="fl">19</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, pch<span class="op">=</span><span class="fl">19</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p>Explanation:</p>
 <p><code>iris$Sepal.Length</code>: This selects the Sepal.Length column from the iris dataset as the x-coordinates for the plot.
 <code>iris$Sepal.Width</code>: This selects the Sepal.Width column from the iris dataset as the y-coordinates for the plot.
@@ -198,7 +225,7 @@ points: Add points to a plot.</li>
 <div id="example-5" class="section level2 unnumbered">
 <h2>Example 5<a class="anchor" aria-label="anchor" href="#example-5"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the mtcars dataset</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span></span>
@@ -213,14 +240,22 @@ points: Add points to a plot.</li>
 <span>       legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Cylinders:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>       pch<span class="op">=</span><span class="fl">19</span>, cex<span class="op">=</span><span class="fl">0.8</span><span class="op">)</span></span></code></pre></div>
-<p><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-5-1.png" width="672">
-- <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> is the generic function to create a scatter plot.
-mtcars<span class="math inline">\(disp and mtcars\)</span>mpg are the x and y coordinates for the plot, representing the engine displacement in cubic inches and miles per gallon, respectively.
-- <code>col=as.factor(mtcars$cyl)</code> specifies the colors for the points on the plot. The cyl variable, which represents the number of cylinders in the car’s engine, is converted into a factor. The levels of this factor (unique values of cyl) are automatically given different colors.
-- <code>main</code> is the main title for the plot.
-- <code>xlab</code> and <code>ylab</code> are labels for the x-axis and y-axis, respectively.
-- <code>pch=19</code> specifies the plotting symbol (in this case, a solid circle).
-- <code>cex=1.5</code> sets the size of the plot symbols; cex stands for character expansion factor, where 1.5 means 150% of the default size.</p>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> is the generic function to create a scatter plot.
+mtcars<span class="math inline">\(disp and mtcars\)</span>mpg are the x and y coordinates for the plot, representing the engine displacement in cubic inches and miles per gallon, respectively.</li>
+<li>
+<code>col=as.factor(mtcars$cyl)</code> specifies the colors for the points on the plot. The cyl variable, which represents the number of cylinders in the car’s engine, is converted into a factor. The levels of this factor (unique values of cyl) are automatically given different colors.</li>
+<li>
+<code>main</code> is the main title for the plot.</li>
+<li>
+<code>xlab</code> and <code>ylab</code> are labels for the x-axis and y-axis, respectively.</li>
+<li>
+<code>pch=19</code> specifies the plotting symbol (in this case, a solid circle).</li>
+<li>
+<code>cex=1.5</code> sets the size of the plot symbols; cex stands for character expansion factor, where 1.5 means 150% of the default size.</li>
+</ul>
 <p>For the legend,</p>
 <ul>
 <li>
@@ -237,8 +272,125 @@ mtcars<span class="math inline">\(disp and mtcars\)</span>mpg are the x and y co
 <code>cex=0.8</code> sets the size of the symbols in the legend.</li>
 </ul>
 </div>
-<div id="exercise-1-2" class="section level2 unnumbered">
-<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-2"><i class="fas fa-link"></i></a>
+<div id="example-6" class="section level2 unnumbered">
+<h2>Example 6<a class="anchor" aria-label="anchor" href="#example-6"><i class="fas fa-link"></i></a>
+</h2>
+<div id="scatterplot" class="section level3 unnumbered">
+<h3>Scatterplot()<a class="anchor" aria-label="anchor" href="#scatterplot"><i class="fas fa-link"></i></a>
+</h3>
+<p>The most common high level function used to produce plots in <code>R</code> is (rather unsurprisingly) the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. For example, let’s plot the weight of petunia plants from our flowers data frame from <code>flower.xls</code></p>
+<p>Use the library <code>readxl</code>, and <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel()</a></code> function.</p>
+<p>Alternatively , you can also use <code>flower.txt</code> and use read_ta</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="va">flowers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'./John Jay Workshop Data/flower.xls'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">flowers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'./John Jay Workshop Data/flower.txt'</span>, </span>
+<span>                        header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, </span>
+<span>                        stringsAsFactors <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>To plot a scatterplot of one numeric variable against another numeric variable we just need to include both variables as arguments when using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. For example to plot <code>shootarea</code> on the y axis and <code>weight</code> of the x axis.</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">flowers</span><span class="op">$</span><span class="va">weight</span>, y <span class="op">=</span> <span class="va">flowers</span><span class="op">$</span><span class="va">shootarea</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+<p>There is an equivalent approach for these types of plots which often causes some confusion at first. You can also use the formula notation when using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. However, in contrast to the previous method the formula method requires you to specify the y axis variable first, then a <code>~</code>and then our x axis variable.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">shootarea</span> <span class="op">~</span> <span class="va">flowers</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
+</div>
+<div id="histogram" class="section level3 unnumbered">
+<h3>Histogram<a class="anchor" aria-label="anchor" href="#histogram"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brk</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">18</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">height</span>, breaks <span class="op">=</span> <span class="va">brk</span>, main <span class="op">=</span> <span class="st">"petunia height"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
+<p>You can also display the histogram as a proportion rather than a frequency by using the freq = FALSE argument.</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brk</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">18</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">height</span>, breaks <span class="op">=</span> <span class="va">brk</span>, main <span class="op">=</span> <span class="st">"petunia height"</span>,</span>
+<span>      freq <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
+<p>An alternative to plotting just a straight up histogram is to add a kernel density curve to the plot. You can superimpose a density curve onto the histogram by first using the density() function to compute the kernel density estimates and then use the low level function lines() to add these estimates onto the plot as a line.</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">height</span>, breaks <span class="op">=</span> <span class="va">brk</span>, main <span class="op">=</span> <span class="st">"petunia height"</span>,</span>
+<span>      freq <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">dens</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-16-1.png" width="672"></div>
+</div>
+</div>
+<div id="boxplot" class="section level2 unnumbered">
+<h2>Boxplot<a class="anchor" aria-label="anchor" href="#boxplot"><i class="fas fa-link"></i></a>
+</h2>
+<p>OK, we’ll just come and out and say it, we love boxplots and their close relation the violin plot. Boxplots (or box-and-whisker plots to give them their full name) are very useful when you want to graphically summarise the distribution of a variable, identify potential unusual values and compare distributions between different groups. The reason we love them is their ease of interpretation, transparency and relatively high data-to-ink ratio (i.e. they convey lots of information efficiently). We suggest that you try to use boxplots as much as possible when exploring your data and avoid the temptation to use the more ubiquitous bar plot (even with standard error or 95% confidence intervals bars). The problem with bar plots (aka dynamite plots) is that they hide important information from the reader such as the distribution of the data and assume that the error bars (or confidence intervals) are symmetric around the mean. Of course, it’s up to you what you do but if you’re tempted to use bar plots just Google ‘dynamite plots are evil’ <a href="http://users.stat.umn.edu/~rend0020/Teaching/STAT8801-2015Spring/handouts/24-dynamite.pdf">see here</a> or <a href="https://thenode.biologists.com/leaving-bar-five-steps/research/">here</a></p>
+<p>To create a boxplot in R we use the boxplot() function. For example, let’s create a boxplot of the variable weight from our flowers data frame. We can also include a y axis label using the ylab = argument.</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">weight</span>, ylab <span class="op">=</span> <span class="st">"weight (g)"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure">
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-17-1.png" width="672">
+The thick horizontal line in the middle of the box is the median value of weight (around 11 g). The upper line of the box is the upper quartile (75th percentile) and the lower line is the lower quartile (25th percentile). The distance between the upper and lower quartiles is known as the inter quartile range and represents the values of weight for 50% of the data. The dotted vertical lines are called the whiskers and their length is determined as 1.5 x the inter quartile range. Data points that are plotted outside the the whiskers represent potential unusual observations. This doesn’t mean they are unusual, just that they warrant a closer look. We recommend using boxplots in combination with Cleveland dotplots to identify potential unusual observations (see the next section of this Chapter for more details). The neat thing about boxplots is that they not only provide a measure of central tendency (the median value) they also give you an idea about the distribution of the data. If the median line is more or less in the middle of the box (between the upper and lower quartiles) and the whiskers are more or less the same length then you can be reasonably sure the distribution of your data is symmetrical.</div>
+<p>If we want examine how the distribution of a variable changes between different levels of a factor we need to use the formula notation with the boxplot() function. For example, let’s plot our weight variable again, but this time see how this changes with each level of nitrogen. When we use the formula notation with <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> we can use the data = argument to save some typing. We’ll also introduce an x axis label using the xlab = argument.</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">nitrogen</span>, data <span class="op">=</span> <span class="va">flowers</span>, </span>
+<span>         ylab <span class="op">=</span> <span class="st">"weight (g)"</span>, xlab <span class="op">=</span> <span class="st">"nitrogen level"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
+<p>The factor levels are plotted in the same order defined by our factor variable nitrogen (often alphabetically). To change the order we need to change the order of our levels of the nitrogen factor in our data frame using the factor() function and then re-plot the graph. Let’s plot our boxplot with our factor levels going from low to high.</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">flowers</span><span class="op">$</span><span class="va">nitrogen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">$</span><span class="va">nitrogen</span>, </span>
+<span>                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">nitrogen</span>, data <span class="op">=</span> <span class="va">flowers</span>, </span>
+<span>          ylab <span class="op">=</span> <span class="st">"weight (g)"</span>, xlab <span class="op">=</span> <span class="st">"nitrogen level"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-19-1.png" width="672"></div>
+<p>We can also group our variables by two factors in the same plot. Let’s plot our weight variable but this time plot a separate box for each nitrogen and treatment (treat) combination.</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">nitrogen</span> <span class="op">*</span> <span class="va">treat</span>, data <span class="op">=</span> <span class="va">flowers</span>, </span>
+<span>         ylab <span class="op">=</span> <span class="st">"weight (g)"</span>, xlab <span class="op">=</span> <span class="st">"nitrogen level"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
+<p>This plot looks OK, but some of the group labels are hidden as they’re too long to fit on the plot. There are a couple of ways to deal with this. Perhaps the easiest is to reduce the font size of the tick mark labels in the plot so they all fit using the <code>cex.axis =</code> argument. Let’s set the font size to be 30% smaller than the default with <code>cex.axis = 0.7</code></p>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">nitrogen</span> <span class="op">*</span> <span class="va">treat</span>, data <span class="op">=</span> <span class="va">flowers</span>, </span>
+<span>         ylab <span class="op">=</span> <span class="st">"weight (g)"</span>, xlab <span class="op">=</span> <span class="st">"nitrogen level"</span>, </span>
+<span>         cex.axis <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure">
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-21-1.png" width="672">
+## Violin Plots {-}</div>
+<p>Violin plots are like a combination of a boxplot and a kernel density plot (you saw an example of a kernel density plot in the histogram section above) all rolled into one figure. We can create a violin plot in R using the vioplot() function from the vioplot package. You’ll need to first install this package using install.packages(‘vioplot’) function as usual. The nice thing about the vioplot() function is that you use it in pretty much the same way you would use the boxplot() function. We’ll also use the argument col = “lightblue” to change the fill colour to light blue.</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("vioplot")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TomKellyGenetics/vioplot">vioplot</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: sm</span></span>
+<span><span class="co">#&gt; Package 'sm', version 2.2-6.0: type help(sm) for summary information</span></span>
+<span><span class="co">#&gt; Loading required package: zoo</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'zoo'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     as.Date, as.Date.numeric</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/vioplot/man/vioplot.html">vioplot</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">nitrogen</span>, data <span class="op">=</span> <span class="va">flowers</span>, </span>
+<span>         ylab <span class="op">=</span> <span class="st">"weight (g)"</span>, xlab <span class="op">=</span> <span class="st">"nitrogen level"</span>,</span>
+<span>         col <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
+</div>
+<div id="pairs-plot" class="section level2 unnumbered">
+<h2>Pairs plot<a class="anchor" aria-label="anchor" href="#pairs-plot"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">flowers</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"height"</span>, <span class="st">"weight"</span>, <span class="st">"leafarea"</span>, </span>
+<span>                <span class="st">"shootarea"</span>, <span class="st">"flowers"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-24-1.png" width="672"></div>
+</div>
+<div id="exercise-1-3" class="section level2 unnumbered">
+<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now, try creating your own visualization using the iris dataset. Here’s what you can do:</p>
 <ol style="list-style-type: decimal">
@@ -264,11 +416,20 @@ Include a legend that indicates which color corresponds to which iris species.</
 </ul>
 </li>
 <li><a class="nav-link" href="#example-1-simple-scatter-plot">Example 1 : Simple scatter plot</a></li>
+<li><a class="nav-link" href="#exercise-1-2">Exercise 1</a></li>
 <li><a class="nav-link" href="#example-2">Example 2</a></li>
 <li><a class="nav-link" href="#example-3">Example 3</a></li>
 <li><a class="nav-link" href="#example-4">Example 4</a></li>
 <li><a class="nav-link" href="#example-5">Example 5</a></li>
-<li><a class="nav-link" href="#exercise-1-2">Exercise 1</a></li>
+<li>
+<a class="nav-link" href="#example-6">Example 6</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#scatterplot">Scatterplot()</a></li>
+<li><a class="nav-link" href="#histogram">Histogram</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#boxplot">Boxplot</a></li>
+<li><a class="nav-link" href="#pairs-plot">Pairs plot</a></li>
+<li><a class="nav-link" href="#exercise-1-3">Exercise 1</a></li>
 </ul>
 
       <div class="book-extra">
@@ -286,7 +447,7 @@ Include a legend that indicates which color corresponds to which iris species.</
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

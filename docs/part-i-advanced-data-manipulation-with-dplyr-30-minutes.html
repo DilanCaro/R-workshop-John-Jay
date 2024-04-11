@@ -49,15 +49,17 @@
 <li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
 <li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
 <li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
-<li><a class="" href="part-iv-data-manipulation-30-minutes.html">Part IV: Data Manipulation (30 minutes)</a></li>
-<li><a class="" href="part-v-basic-data-visualization-20-minutes.html">Part V: Basic Data Visualization (20 minutes)</a></li>
+<li><a class="" href="part-iv-data-manipulation.html">Part IV: Data Manipulation</a></li>
+<li><a class="" href="part-v-basic-data-visualization.html">Part V: Basic Data Visualization</a></li>
 <li><a class="" href="intermediate-r.html">Intermediate R</a></li>
 <li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
 <li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
 <li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-i-advanced-data-visualization.html">Part I: Advanced Data Visualization</a></li>
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="active" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -76,7 +78,7 @@
 <div id="grouping-and-summarizing-data" class="section level2 unnumbered">
 <h2>Grouping and summarizing data<a class="anchor" aria-label="anchor" href="#grouping-and-summarizing-data"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Loading the dplyr package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -110,7 +112,7 @@
 <div id="joining-and-merging-datasets" class="section level2 unnumbered">
 <h2>Joining and merging datasets<a class="anchor" aria-label="anchor" href="#joining-and-merging-datasets"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creating a sample dataset to join with 'mtcars'</span></span>
 <span><span class="va">car_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>, car_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Type A"</span>, <span class="st">"Type B"</span>, <span class="st">"Type C"</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -141,7 +143,7 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></div>
+<div class="prev"><a href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></div>
 <div class="next"><a href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -166,7 +168,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-05.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

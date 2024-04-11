@@ -1,5 +1,5 @@
 
-# Part V: Basic Data Visualization (20 minutes) {-}
+# Part V: Basic Data Visualization {-}
 
 ## Creating simple plots using plot(), hist(), pie(),barplot(),boxplot() {-}
 
@@ -53,6 +53,42 @@ plot(x, y, main = "Simple Scatter Plot", xlab = "X Axis", ylab = "Y Axis", col =
 
 <img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 
+## Exercise  1 {-}
+
+Making a Scatter plot:
+
+- load the journals.txt data set and save as Journals data frame
+- Work through the following instructions
+
+
+
+```r
+plot(log(Journals$subs), log(Journals$price))
+rug(log(Journals$subs))
+rug(log(Journals$price), side = 2)
+```
+
+Now adjust the plotting instructions
+
+
+```r
+plot(log(Journals$price) ~ log(Journals$subs), pch = 19,
+     col = "blue", xlim = c(0, 7), ylim = c(3, 8),
+     main = "Library subscriptions")
+rug(log(Journals$subs))
+rug(log(Journals$price), side=2)
+
+```
+
+The `curve()` function draws a curve corresponding to a function over the interval [from, to].
+
+
+```r
+curve(dnorm, from = -5, to = 5, col = "red", lwd = 3,
+      main = "Density of the standard normal distribution")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ## Example 2 {-}
 
@@ -69,7 +105,7 @@ plot(mtcars$hp, mtcars$mpg, main="MPG vs. Horsepower",
      pch=19, col="blue")
 ```
 
-<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ## Example 3 {-}
@@ -88,7 +124,7 @@ plot(pressure$temperature, pressure$pressure, type="l",
      col="red", lwd=2)
 ```
 
-<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ## Example 4 {-}
 
@@ -107,7 +143,7 @@ plot(iris$Sepal.Length, iris$Sepal.Width, col=iris$Species,
 legend("topright", legend=levels(iris$Species), col=1:3, pch=19)
 ```
 
-<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Explanation:
 
@@ -141,7 +177,8 @@ legend("topright",
        pch=19, cex=0.8)
 ```
 
-<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
 - `plot()` is the generic function to create a scatter plot.
 mtcars$disp and mtcars$mpg are the x and y coordinates for the plot, representing the engine displacement in cubic inches and miles per gallon, respectively.
 - `col=as.factor(mtcars$cyl)` specifies the colors for the points on the plot. The cyl variable, which represents the number of cylinders in the car's engine, is converted into a factor. The levels of this factor (unique values of cyl) are automatically given different colors.
@@ -159,6 +196,191 @@ For the legend,
 - `pch=19` again specifies the plotting symbols used in the legend.
 - `cex=0.8` sets the size of the symbols in the legend.
 
+
+## Example 6 {-}
+
+### Scatterplot() {-}
+
+The most common high level function used to produce plots in `R` is (rather unsurprisingly) the `plot()` function. For example, let’s plot the weight of petunia plants from our flowers data frame from `flower.xls`
+
+Use the library `readxl`, and `read_excel()` function. 
+
+Alternatively , you can also use `flower.txt` and use read_ta
+
+
+
+
+```r
+
+library(readxl)
+flowers <- read_excel('./John Jay Workshop Data/flower.xls')
+
+plot(flowers$weight)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+
+
+```r
+flowers <- read.table(file = './John Jay Workshop Data/flower.txt', 
+                        header = TRUE, sep = "\t", 
+                        stringsAsFactors = TRUE)
+```
+
+To plot a scatterplot of one numeric variable against another numeric variable we just need to include both variables as arguments when using the `plot()` function. For example to plot `shootarea` on the y axis and `weight` of the x axis.
+
+
+```r
+plot(x = flowers$weight, y = flowers$shootarea)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+
+There is an equivalent approach for these types of plots which often causes some confusion at first. You can also use the formula notation when using the `plot()` function. However, in contrast to the previous method the formula method requires you to specify the y axis variable first, then a ` ~ `and then our x axis variable.
+
+
+```r
+plot(flowers$shootarea ~ flowers$weight)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+
+### Histogram {-}
+
+
+```r
+hist(flowers$height)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+
+
+```r
+brk <- seq(from = 0, to = 18, by = 1)
+hist(flowers$height, breaks = brk, main = "petunia height")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+You can also display the histogram as a proportion rather than a frequency by using the freq = FALSE argument.
+
+
+```r
+brk <- seq(from = 0, to = 18, by = 1)
+hist(flowers$height, breaks = brk, main = "petunia height",
+      freq = FALSE)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+An alternative to plotting just a straight up histogram is to add a kernel density curve to the plot. You can superimpose a density curve onto the histogram by first using the density() function to compute the kernel density estimates and then use the low level function lines() to add these estimates onto the plot as a line.
+
+
+```r
+dens <- density(flowers$height)
+hist(flowers$height, breaks = brk, main = "petunia height",
+      freq = FALSE)
+lines(dens)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+
+## Boxplot {-}
+
+OK, we’ll just come and out and say it, we love boxplots and their close relation the violin plot. Boxplots (or box-and-whisker plots to give them their full name) are very useful when you want to graphically summarise the distribution of a variable, identify potential unusual values and compare distributions between different groups. The reason we love them is their ease of interpretation, transparency and relatively high data-to-ink ratio (i.e. they convey lots of information efficiently). We suggest that you try to use boxplots as much as possible when exploring your data and avoid the temptation to use the more ubiquitous bar plot (even with standard error or 95% confidence intervals bars). The problem with bar plots (aka dynamite plots) is that they hide important information from the reader such as the distribution of the data and assume that the error bars (or confidence intervals) are symmetric around the mean. Of course, it’s up to you what you do but if you’re tempted to use bar plots just Google ‘dynamite plots are evil’ [see here](http://users.stat.umn.edu/~rend0020/Teaching/STAT8801-2015Spring/handouts/24-dynamite.pdf) or [here](https://thenode.biologists.com/leaving-bar-five-steps/research/)
+
+To create a boxplot in R we use the boxplot() function. For example, let’s create a boxplot of the variable weight from our flowers data frame. We can also include a y axis label using the ylab = argument.
+
+
+```r
+boxplot(flowers$weight, ylab = "weight (g)")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+The thick horizontal line in the middle of the box is the median value of weight (around 11 g). The upper line of the box is the upper quartile (75th percentile) and the lower line is the lower quartile (25th percentile). The distance between the upper and lower quartiles is known as the inter quartile range and represents the values of weight for 50% of the data. The dotted vertical lines are called the whiskers and their length is determined as 1.5 x the inter quartile range. Data points that are plotted outside the the whiskers represent potential unusual observations. This doesn’t mean they are unusual, just that they warrant a closer look. We recommend using boxplots in combination with Cleveland dotplots to identify potential unusual observations (see the next section of this Chapter for more details). The neat thing about boxplots is that they not only provide a measure of central tendency (the median value) they also give you an idea about the distribution of the data. If the median line is more or less in the middle of the box (between the upper and lower quartiles) and the whiskers are more or less the same length then you can be reasonably sure the distribution of your data is symmetrical.
+
+If we want examine how the distribution of a variable changes between different levels of a factor we need to use the formula notation with the boxplot() function. For example, let’s plot our weight variable again, but this time see how this changes with each level of nitrogen. When we use the formula notation with `boxplot()` we can use the data = argument to save some typing. We’ll also introduce an x axis label using the xlab = argument.
+
+
+```r
+boxplot(weight ~ nitrogen, data = flowers, 
+         ylab = "weight (g)", xlab = "nitrogen level")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+
+
+The factor levels are plotted in the same order defined by our factor variable nitrogen (often alphabetically). To change the order we need to change the order of our levels of the nitrogen factor in our data frame using the factor() function and then re-plot the graph. Let’s plot our boxplot with our factor levels going from low to high.
+
+
+```r
+flowers$nitrogen <- factor(flowers$nitrogen, 
+                            levels = c("low", "medium", "high"))
+boxplot(weight ~ nitrogen, data = flowers, 
+          ylab = "weight (g)", xlab = "nitrogen level")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+
+We can also group our variables by two factors in the same plot. Let’s plot our weight variable but this time plot a separate box for each nitrogen and treatment (treat) combination.
+
+
+```r
+boxplot(weight ~ nitrogen * treat, data = flowers, 
+         ylab = "weight (g)", xlab = "nitrogen level")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+
+This plot looks OK, but some of the group labels are hidden as they’re too long to fit on the plot. There are a couple of ways to deal with this. Perhaps the easiest is to reduce the font size of the tick mark labels in the plot so they all fit using the `cex.axis =` argument. Let’s set the font size to be 30% smaller than the default with `cex.axis = 0.7`
+
+
+```r
+boxplot(weight ~ nitrogen * treat, data = flowers, 
+         ylab = "weight (g)", xlab = "nitrogen level", 
+         cex.axis = 0.7)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+## Violin Plots {-}
+
+Violin plots are like a combination of a boxplot and a kernel density plot (you saw an example of a kernel density plot in the histogram section above) all rolled into one figure. We can create a violin plot in R using the vioplot() function from the vioplot package. You’ll need to first install this package using install.packages('vioplot') function as usual. The nice thing about the vioplot() function is that you use it in pretty much the same way you would use the boxplot() function. We’ll also use the argument col = "lightblue" to change the fill colour to light blue.
+
+
+```r
+#install.packages("vioplot")
+library(vioplot)
+#> Loading required package: sm
+#> Package 'sm', version 2.2-6.0: type help(sm) for summary information
+#> Loading required package: zoo
+#> 
+#> Attaching package: 'zoo'
+#> The following objects are masked from 'package:base':
+#> 
+#>     as.Date, as.Date.numeric
+vioplot(weight ~ nitrogen, data = flowers, 
+         ylab = "weight (g)", xlab = "nitrogen level",
+         col = "lightblue")
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+
+## Pairs plot {-}
+
+
+```r
+plot(flowers)
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+
+
+```r
+pairs(flowers[, c("height", "weight", "leafarea", 
+                "shootarea", "flowers")])
+```
+
+<img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ## Exercise 1 {-}
 Now, try creating your own visualization using the iris dataset. Here's what you can do:

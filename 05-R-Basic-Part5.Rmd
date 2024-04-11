@@ -1,5 +1,5 @@
 
-# Part V: Basic Data Visualization (20 minutes) {-}
+# Part V: Basic Data Visualization {-}
 
 ## Creating simple plots using plot(), hist(), pie(),barplot(),boxplot() {-}
 
@@ -51,6 +51,37 @@ plot(x, y, main = "Simple Scatter Plot", xlab = "X Axis", ylab = "Y Axis", col =
 
 ```
 
+## Exercise  1 {-}
+
+Making a Scatter plot:
+
+- load the journals.txt data set and save as Journals data frame
+- Work through the following instructions
+
+
+```{r eval=FALSE}
+plot(log(Journals$subs), log(Journals$price))
+rug(log(Journals$subs))
+rug(log(Journals$price), side = 2)
+```
+
+Now adjust the plotting instructions
+
+```{r eval=FALSE}
+plot(log(Journals$price) ~ log(Journals$subs), pch = 19,
+     col = "blue", xlim = c(0, 7), ylim = c(3, 8),
+     main = "Library subscriptions")
+rug(log(Journals$subs))
+rug(log(Journals$price), side=2)
+
+```
+
+The `curve()` function draws a curve corresponding to a function over the interval [from, to].
+
+```{r}
+curve(dnorm, from = -5, to = 5, col = "red", lwd = 3,
+      main = "Density of the standard normal distribution")
+```
 
 ## Example 2 {-}
 
@@ -131,6 +162,7 @@ legend("topright",
        col=unique(as.numeric(as.factor(mtcars$cyl))), 
        pch=19, cex=0.8)
 ```
+
 - `plot()` is the generic function to create a scatter plot.
 mtcars$disp and mtcars$mpg are the x and y coordinates for the plot, representing the engine displacement in cubic inches and miles per gallon, respectively.
 - `col=as.factor(mtcars$cyl)` specifies the colors for the points on the plot. The cyl variable, which represents the number of cylinders in the car's engine, is converted into a factor. The levels of this factor (unique values of cyl) are automatically given different colors.

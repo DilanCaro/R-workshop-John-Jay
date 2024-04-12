@@ -78,7 +78,7 @@
 <div id="grouping-and-summarizing-data" class="section level2 unnumbered">
 <h2>Grouping and summarizing data<a class="anchor" aria-label="anchor" href="#grouping-and-summarizing-data"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Loading the dplyr package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -112,7 +112,7 @@
 <div id="joining-and-merging-datasets" class="section level2 unnumbered">
 <h2>Joining and merging datasets<a class="anchor" aria-label="anchor" href="#joining-and-merging-datasets"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creating a sample dataset to join with 'mtcars'</span></span>
 <span><span class="va">car_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>, car_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Type A"</span>, <span class="st">"Type B"</span>, <span class="st">"Type C"</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>

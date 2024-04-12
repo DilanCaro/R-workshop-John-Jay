@@ -82,7 +82,7 @@
 <p><span class="math display">\[
 f(x) = x^2
 \]</span></p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">square_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
@@ -100,7 +100,7 @@ f(x) = x^2
 <p><strong>Hint:</strong> Use the structure of the square_function as a template.</p>
 <p>The reason why this is useful, is because functions are used for anything we want, R functions are just similar to the one we have just created, optimized for the specific tasks they were designed for .</p>
 <p>We now create a more complex function , one that takes a vector , finds the mean , standard deviation and the histogram</p>
-<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">analyze_vector</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">plot_title</span> <span class="op">=</span> <span class="st">"Histogram"</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># Check if the input is numeric</span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -139,7 +139,7 @@ f(x) = x^2
 <div id="if-statements-and-loops-for-and-while" class="section level2 unnumbered">
 <h2>If statements and loops (for and while)<a class="anchor" aria-label="anchor" href="#if-statements-and-loops-for-and-while"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example: Using if statement</span></span>
 <span><span class="va">number</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
@@ -156,11 +156,11 @@ f(x) = x^2
 <p><strong>Hint:</strong> Use an if statement followed by else if and else.</p>
 </div>
 </div>
-<div id="example-7" class="section level2 unnumbered">
-<h2>Example:<a class="anchor" aria-label="anchor" href="#example-7"><i class="fas fa-link"></i></a>
+<div id="example-6" class="section level2 unnumbered">
+<h2>Example:<a class="anchor" aria-label="anchor" href="#example-6"><i class="fas fa-link"></i></a>
 </h2>
 <p>For loop to calculate the factorial of a number</p>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">factorial_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
@@ -181,11 +181,11 @@ f(x) = x^2
 <p><strong>Hint:</strong> Iterate from 1 to n, and keep adding the square of each number to a result variable.</p>
 </div>
 </div>
-<div id="example-8" class="section level2 unnumbered">
-<h2>Example:<a class="anchor" aria-label="anchor" href="#example-8"><i class="fas fa-link"></i></a>
+<div id="example-7" class="section level2 unnumbered">
+<h2>Example:<a class="anchor" aria-label="anchor" href="#example-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>While loop to find the first square number greater than 100</p>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">number</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span><span class="kw">while</span> <span class="op">(</span><span class="va">number</span><span class="op">^</span><span class="fl">2</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
@@ -220,10 +220,10 @@ f(x) = x^2
 <a class="nav-link" href="#if-statements-and-loops-for-and-while">If statements and loops (for and while)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-3-1">Exercise 3</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#example-7">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-4-1">Exercise 4</a></li></ul>
+<a class="nav-link" href="#example-6">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-4-1">Exercise 4</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#example-8">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-5-1">Exercise 5</a></li></ul>
+<a class="nav-link" href="#example-7">Example:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-5-1">Exercise 5</a></li></ul>
 </li>
 </ul>
 

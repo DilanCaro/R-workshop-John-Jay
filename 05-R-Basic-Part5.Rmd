@@ -115,35 +115,8 @@ plot(pressure$temperature, pressure$pressure, type="l",
 
 ```
 
+
 ## Example 4 {-}
-
-
-
-```{r}
-
-data(iris)
-
-# Plot Sepal.Length vs. Sepal.Width colored by Species
-plot(iris$Sepal.Length, iris$Sepal.Width, col=iris$Species,
-     main="Iris Sepal Measurements",
-     xlab="Sepal Length", ylab="Sepal Width",
-     pch=19)
-legend("topright", legend=levels(iris$Species), col=1:3, pch=19)
-
-```
-
-Explanation:
-
-`iris$Sepal.Length`: This selects the Sepal.Length column from the iris dataset as the x-coordinates for the plot.
-`iris$Sepal.Width`: This selects the Sepal.Width column from the iris dataset as the y-coordinates for the plot.
-`col=iris$Species`: This assigns colors to the points based on the Species column, which means that each species will have a different color in the plot.
-`main`: Sets the title of the plot to "Iris Sepal Measurements".
-`xlab`: Sets the label for the x-axis to "Sepal Length".
-`ylab`: Sets the label for the y-axis to "Sepal Width".
-`pch=19`: Sets the plotting character (or point symbol) to a solid circle.
-
-
-## Example 5 {-}
 
 
 ```{r}
@@ -181,7 +154,7 @@ For the legend,
 - `cex=0.8` sets the size of the symbols in the legend.
 
 
-## Example 6 {-}
+## Example 5 {-}
 
 ### Scatterplot() {-}
 

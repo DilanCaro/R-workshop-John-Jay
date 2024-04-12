@@ -79,7 +79,7 @@
 <h2>Introduction to machine learning in R<a class="anchor" aria-label="anchor" href="#introduction-to-machine-learning-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>Brief overview of machine learning:</em> Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It encompasses a variety of techniques for classification, regression, clustering, and more.</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
 <span><span class="co">#install.packages("caret")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
@@ -101,7 +101,7 @@
 <div id="creating-predictive-models-with-caret" class="section level2 unnumbered">
 <h2>Creating predictive models with caret<a class="anchor" aria-label="anchor" href="#creating-predictive-models-with-caret"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Example: Building a predictive model for the iris dataset</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">Species</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">trainingData</span>, method <span class="op">=</span> <span class="st">"rpart"</span><span class="op">)</span></span>
@@ -196,7 +196,7 @@ library(shiny)</code></pre>
 <p><em>UI Component:</em> The UI has a sliderInput for selecting the mpg range and a tableOutput to display the filtered data.</p>
 <p><em>Server Logic:</em> The reactive function creates a reactive subset of mtcars based on the selected mpg range. The renderTable function then renders this filtered data as a table in the main panel.</p>
 <p><em>Running the App:</em> As with any Shiny app, shinyApp(ui = ui, server = server) runs the app.</p>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Example: A simple Shiny app for displaying a plot</span></span>
 <span></span>
@@ -226,7 +226,7 @@ library(shiny)</code></pre>
 <span><span class="co"># Run the application </span></span>
 <span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 <div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Define UI</span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>

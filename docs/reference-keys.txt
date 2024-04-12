@@ -1,4 +1,6 @@
 fig:unnamed-chunk-3
+seq-function
+rep-function
 difference-between-na-and-nan-in-r
 na-not-available
 nan-not-a-number

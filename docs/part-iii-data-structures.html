@@ -78,7 +78,7 @@
 <div id="vectors-creating-indexing-and-operations" class="section level2 unnumbered">
 <h2>Vectors: Creating, indexing, and operations<a class="anchor" aria-label="anchor" href="#vectors-creating-indexing-and-operations"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creating a vector</span></span>
 <span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span>
@@ -93,12 +93,12 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">v2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  2  4  6  8 10</span></span></code></pre></div>
 <p>You can give names to the columns of the vector</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Katrien Antonio"</span>, <span class="st">"teacher"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dilan Caro"</span>, <span class="st">"Instructor"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Profession"</span><span class="op">)</span></span>
 <span><span class="va">my_vector</span></span>
-<span><span class="co">#&gt;              Name        Profession </span></span>
-<span><span class="co">#&gt; "Katrien Antonio"         "teacher"</span></span></code></pre></div>
+<span><span class="co">#&gt;         Name   Profession </span></span>
+<span><span class="co">#&gt; "Dilan Caro" "Instructor"</span></span></code></pre></div>
 <div id="exercise-1-1" class="section level3 unnumbered">
 <h3>Exercise 1:<a class="anchor" aria-label="anchor" href="#exercise-1-1"><i class="fas fa-link"></i></a>
 </h3>
@@ -107,12 +107,12 @@
 <li>Access the third element in your vector.</li>
 <li>Create a new vector that is the square of each element in the original vector.</li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Katrien Antonio"</span>, <span class="st">"teacher"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dilan Caro"</span>, <span class="st">"Instructor"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Profession"</span><span class="op">)</span></span>
 <span><span class="va">my_vector</span></span>
-<span><span class="co">#&gt;              Name        Profession </span></span>
-<span><span class="co">#&gt; "Katrien Antonio"         "teacher"</span></span></code></pre></div>
+<span><span class="co">#&gt;         Name   Profession </span></span>
+<span><span class="co">#&gt; "Dilan Caro" "Instructor"</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Inspect my_vector using:
 the attributes(), the length() and the str() function</li>
@@ -124,14 +124,14 @@ the attributes(), the length() and the str() function</li>
 </h2>
 <p>Matrices are vectors with a dimension attribute. The dimension attribute is itself an integer vector of length 2 (number of rows, number of columns)</p>
 <p>Matrices are constructed column-wise, so entries can be thought of starting in the “upper left” corner and running down the columns.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> </span>
 <span><span class="va">m</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
 <span><span class="co">#&gt; [1,]    1    3    5</span></span>
 <span><span class="co">#&gt; [2,]    2    4    6</span></span></code></pre></div>
 <p>Another example</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">3</span>, <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">my_matrix</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
@@ -139,7 +139,7 @@ the attributes(), the length() and the str() function</li>
 <span><span class="co">#&gt; [2,]    5    6    7    8</span></span>
 <span><span class="co">#&gt; [3,]    9   10   11   12</span></span></code></pre></div>
 <p>Matrices can be created by column-binding or row-binding with the <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> and <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> functions.</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">:</span><span class="fl">12</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
@@ -151,6 +151,53 @@ the attributes(), the length() and the str() function</li>
 <span><span class="co">#&gt;   [,1] [,2] [,3]</span></span>
 <span><span class="co">#&gt; x    1    2    3</span></span>
 <span><span class="co">#&gt; y   10   11   12</span></span></code></pre></div>
+</div>
+<div id="seq-and-rep-functions" class="section level2 unnumbered">
+<h2>Seq and rep functions<a class="anchor" aria-label="anchor" href="#seq-and-rep-functions"><i class="fas fa-link"></i></a>
+</h2>
+<p>In R, seq and rep are two functions used to generate sequences and to replicate values, respectively.</p>
+<div id="seq-function" class="section level3" number="0.0.1">
+<h3>
+<span class="header-section-number">0.0.1</span> <code>seq</code> Function:<a class="anchor" aria-label="anchor" href="#seq-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>The seq function is used to create a sequence of numbers.</p>
+<p>Usage:</p>
+<ul>
+<li><p>seq(from, to): Generates a sequence from the ‘from’ value to the ‘to’ value with a default increment of 1.</p></li>
+<li><p>seq(from, to, by): Generates a sequence from the ‘from’ value to the ‘to’ value, with the increment specified by ‘by’.</p></li>
+<li><p>seq(from, to, length.out): Generates a sequence from the ‘from’ value to the ‘to’ value with a specified number of equally spaced points.</p></li>
+</ul>
+<div id="example" class="section level4 unnumbered">
+<h4>Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>         </span>
+<span><span class="co">#&gt; [1] 1 2 3 4 5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>    </span>
+<span><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, length.out <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; [1]  1  4  7 10</span></span></code></pre></div>
+</div>
+</div>
+<div id="rep-function" class="section level3" number="0.0.2">
+<h3>
+<span class="header-section-number">0.0.2</span> <code>rep</code> Function:<a class="anchor" aria-label="anchor" href="#rep-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>The rep function is used to replicate the values in a vector.</p>
+<p>Usage:</p>
+<ul>
+<li><p>rep(x, times): Replicates each element in ‘x’ a specified number of ‘times’.</p></li>
+<li><p>rep(x, each): Replicates each element in ‘x’ ‘each’ times before moving to the next element.</p></li>
+<li><p>rep(x, length.out): Replicates the values in ‘x’ up to the ‘length.out’ number of times in total.</p></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, times <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1 2 3 1 2 3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>       </span>
+<span><span class="co">#&gt; [1] 1 1 2 2 3 3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>   </span>
+<span><span class="co">#&gt; [1] 1 2 3 1 2 3 1</span></span></code></pre></div>
+</div>
 </div>
 <div id="lists" class="section level2 unnumbered">
 <h2>Lists<a class="anchor" aria-label="anchor" href="#lists"><i class="fas fa-link"></i></a>
@@ -171,12 +218,12 @@ the attributes(), the length() and the str() function</li>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[4]]</span></span>
 <span><span class="co">#&gt; [1] 1+4i</span></span></code></pre></div>
-<div id="example" class="section level3 unnumbered">
-<h3>Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
+<div id="example-1" class="section level3 unnumbered">
+<h3>Example<a class="anchor" aria-label="anchor" href="#example-1"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>one <span class="op">=</span> <span class="fl">1</span>, two <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, five <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span>, length<span class="op">=</span><span class="fl">5</span><span class="op">)</span>,</span>
-<span>          six <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Katrien"</span>, <span class="st">"Jan"</span><span class="op">)</span><span class="op">)</span></span>
+<span>          six <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dilan"</span>, <span class="st">"April"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "one"  "two"  "five" "six"</span></span></code></pre></div>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
@@ -185,7 +232,7 @@ the attributes(), the length() and the str() function</li>
 <span><span class="co">#&gt;  $ one : num 1</span></span>
 <span><span class="co">#&gt;  $ two : num [1:2] 1 2</span></span>
 <span><span class="co">#&gt;  $ five: num [1:5] 1 1.75 2.5 3.25 4</span></span>
-<span><span class="co">#&gt;  $ six : chr [1:2] "Katrien" "Jan"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ six : chr [1:2] "Dilan" "April"</span></span></code></pre></div>
 </div>
 </div>
 <div id="factors" class="section level2 unnumbered">
@@ -441,7 +488,13 @@ set of artists).</li>
 </li>
 <li><a class="nav-link" href="#matrices">Matrices</a></li>
 <li>
-<a class="nav-link" href="#lists">Lists</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example">Example</a></li></ul>
+<a class="nav-link" href="#seq-and-rep-functions">Seq and rep functions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#seq-function"><span class="header-section-number">0.0.1</span> seq Function:</a></li>
+<li><a class="nav-link" href="#rep-function"><span class="header-section-number">0.0.2</span> rep Function:</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#lists">Lists</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example-1">Example</a></li></ul>
 </li>
 <li><a class="nav-link" href="#factors">Factors</a></li>
 <li>
@@ -478,7 +531,7 @@ set of artists).</li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -24,11 +24,11 @@ You can give names to the columns of the vector
 
 
 ```r
-my_vector <- c("Katrien Antonio", "teacher")
+my_vector <- c("Dilan Caro", "Instructor")
 names(my_vector) <- c("Name", "Profession")
 my_vector
-#>              Name        Profession 
-#> "Katrien Antonio"         "teacher"
+#>         Name   Profession 
+#> "Dilan Caro" "Instructor"
 ```
 
 ### Exercise 1: {-}
@@ -39,11 +39,11 @@ my_vector
 
 
 ```r
-my_vector <- c("Katrien Antonio", "teacher")
+my_vector <- c("Dilan Caro", "Instructor")
 names(my_vector) <- c("Name", "Profession")
 my_vector
-#>              Name        Profession 
-#> "Katrien Antonio"         "teacher"
+#>         Name   Profession 
+#> "Dilan Caro" "Instructor"
 ```
 4. Inspect my_vector using: 
 the attributes(), the length() and the str() function 
@@ -92,6 +92,55 @@ rbind(x, y)
 #> y   10   11   12
 ```
 
+## Seq and rep functions {-}
+
+In R, seq and rep are two functions used to generate sequences and to replicate values, respectively.
+
+### `seq` Function:
+
+The seq function is used to create a sequence of numbers.
+
+Usage:
+
+- seq(from, to): Generates a sequence from the 'from' value to the 'to' value with a default increment of 1.
+
+- seq(from, to, by): Generates a sequence from the 'from' value to the 'to' value, with the increment specified by 'by'.
+
+- seq(from, to, length.out): Generates a sequence from the 'from' value to the 'to' value with a specified number of equally spaced points.
+
+#### Example {-}
+
+
+```r
+seq(1, 5)         
+#> [1] 1 2 3 4 5
+seq(1, 10, by = 2)    
+#> [1] 1 3 5 7 9
+seq(1, 10, length.out = 4) 
+#> [1]  1  4  7 10
+```
+
+### `rep` Function:
+The rep function is used to replicate the values in a vector.
+
+Usage:
+
+- rep(x, times): Replicates each element in 'x' a specified number of 'times'.
+
+- rep(x, each): Replicates each element in 'x' 'each' times before moving to the next element.
+
+- rep(x, length.out): Replicates the values in 'x' up to the 'length.out' number of times in total.
+
+
+```r
+rep(1:3, times = 2)
+#> [1] 1 2 3 1 2 3
+rep(1:3, each = 2)       
+#> [1] 1 1 2 2 3 3
+rep(1:3, length.out = 7)   
+#> [1] 1 2 3 1 2 3 1
+```
+
 ## Lists {-}
 
 Lists are a special type of vector that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well. Lists, in combination with the various “apply” functions discussed later, make for a powerful combination.
@@ -120,7 +169,7 @@ x
 
 ```r
 my_list <- list(one = 1, two = c(1, 2), five = seq(1, 4, length=5),
-          six = c("Katrien", "Jan"))
+          six = c("Dilan", "April"))
 names(my_list)
 #> [1] "one"  "two"  "five" "six"
 ```
@@ -132,7 +181,7 @@ str(my_list)
 #>  $ one : num 1
 #>  $ two : num [1:2] 1 2
 #>  $ five: num [1:5] 1 1.75 2.5 3.25 4
-#>  $ six : chr [1:2] "Katrien" "Jan"
+#>  $ six : chr [1:2] "Dilan" "April"
 ```
 
 ## Factors {-}

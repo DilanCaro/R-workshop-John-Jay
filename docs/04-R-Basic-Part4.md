@@ -543,3 +543,42 @@ boxplot(log(wage) ~ gender + occupation, data = CPS1985)
 detach(CPS1985) # now detach when work is done
 ```
 
+## Exercises {-}
+
+1. Subsetting Data Frames
+
+Create a data frame named student_info with the following columns and data:
+- student_id (1 to 5)
+- student_name ('Alice', 'Bob', 'Charlie', 'David', 'Eva')
+- student_age (25, 30, 22, 28, 24)
+- student_grade ('A', 'B', 'A', 'C', 'B')
+
+Write a command to subset this data frame to include only students older than 24.
+
+2. Using Conditional Filters
+
+- Use the subset() function to find all students with a grade of 'A'.
+- Display the names and ages of these students.
+
+3. Manipulating Data with dplyr
+
+- Load the dplyr package and convert student_info to a tibble.
+
+- Use filter() and select() to show the name and age of students who have a grade better than 'B'.
+
+4. Adding and Removing Columns
+
+- Add a new column student_major with values ('Math', 'Science', 'Arts', 'Math', 'Science') to student_info.
+- Then, remove the student_grade column using dplyr.
+
+5. Renaming Columns
+
+-  Rename the student_name column to name using base R functions and then using dplyr.
+
+6. Complex dplyr Operations
+
+- Create a new tibble from student_info that includes all students except those studying 'Arts', rename the student_id column to id, and arrange the students by age in descending order.
+
+7. Exploratory Data Analysis with dplyr
+
+- Calculate the average age of students grouped by their major using group_by() and summarize() in dplyr.

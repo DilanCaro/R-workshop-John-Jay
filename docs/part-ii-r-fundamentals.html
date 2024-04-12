@@ -298,22 +298,6 @@ This stores boolean values of <code>TRUE</code> and <code>FALSE</code></p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_boolean</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "logical"</span></span></code></pre></div>
 </div>
-</div>
-<div id="what-is-the-difference-between-typeof-and-class-1" class="section level3 unnumbered">
-<h3>2 What is the difference between typeof() and class()?<a class="anchor" aria-label="anchor" href="#what-is-the-difference-between-typeof-and-class-1"><i class="fas fa-link"></i></a>
-</h3>
-<p>Here we can see that <code>typeof(my_date)</code> is a double, and <code>class(my_date)</code> is <code>Date</code>. This is because <code>typeof</code> output the lowest level data type of the object. While <code>class</code> outputs the class of the object.</p>
-<p>If you are writing code that involves checking whether an element is of an specific data type , then you need to be careful on how you check that. Depending on the function , it may give you a true value when in reality you want a false value to be returned.</p>
-<p>For example, Imagine you are asked to check if all dates in a dateframe have the correct data type.</p>
-<p>In some cases it might be <code>"05/29/2018"</code> but in a rare case (maybe due to a data entry error), there is a <code>"42.5"</code></p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-<p>In the previous comparison , it returns true, meaning that the two data types are the same, maybe youu thought you are comparing if both are date type, but in reality , you are comparing the lowest level data types which are indeed equal (double)</p>
-<p>Instead, you should do.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_date</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_numeric</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <div id="converting-data-types" class="section level4 unnumbered">
 <h4>Converting Data types<a class="anchor" aria-label="anchor" href="#converting-data-types"><i class="fas fa-link"></i></a>
 </h4>
@@ -328,7 +312,7 @@ When converting</p>
 </li>
 </ul>
 <p>We can use <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> to check if a variable is numeric</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Complex</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">compl</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
@@ -369,7 +353,7 @@ When converting</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">number4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p><strong>Convert into integer</strong></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inte1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="st">"234"</span><span class="op">)</span></span>
 <span><span class="va">inte1</span></span>
 <span><span class="co">#&gt; [1] 234</span></span>
@@ -390,7 +374,7 @@ When converting</p>
 <span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
 <p><strong>Converting into Logical</strong></p>
 <p>Return <code>FALSE</code> for <code>0</code> , <code>TRUE</code> otherwise</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
@@ -412,7 +396,7 @@ When converting</p>
 </h3>
 <p>You can use the Plots and files pane (bottom left pane) to click on Help and then search for whichever function you need help with.</p>
 <p>You can also use the <code>?</code> before each function.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">mean</span></span></code></pre></div>
 <p>This will open the information about the function on the plots and files pane.</p>
 
@@ -428,7 +412,6 @@ When converting</p>
 <li><a class="nav-link" href="#r-as-a-calculator">R as a calculator</a></li>
 <li><a class="nav-link" href="#basic-arithmetic-operations">Basic arithmetic operations</a></li>
 <li><a class="nav-link" href="#variables-and-data-types-numericcharacter">Variables and data types (numeric,character)</a></li>
-<li><a class="nav-link" href="#what-is-the-difference-between-typeof-and-class-1">2 What is the difference between typeof() and class()?</a></li>
 <li><a class="nav-link" href="#getting-help">Getting help</a></li>
 </ul>
 </li></ul>
@@ -448,7 +431,7 @@ When converting</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

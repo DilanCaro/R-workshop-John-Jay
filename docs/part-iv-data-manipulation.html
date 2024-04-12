@@ -501,7 +501,58 @@ Visualize the distribution of <code>wage</code> per <code>gender</code></p>
 <div class="inline-figure"><img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-32-1.png" width="672"></div>
 <div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">CPS1985</span><span class="op">)</span> <span class="co"># now detach when work is done</span></span></code></pre></div>
-
+</div>
+<div id="exercises" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Subsetting Data Frames</li>
+</ol>
+<p>Create a data frame named student_info with the following columns and data:
+- student_id (1 to 5)
+- student_name (‘Alice’, ‘Bob’, ‘Charlie’, ‘David’, ‘Eva’)
+- student_age (25, 30, 22, 28, 24)
+- student_grade (‘A’, ‘B’, ‘A’, ‘C’, ‘B’)</p>
+<p>Write a command to subset this data frame to include only students older than 24.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Using Conditional Filters</li>
+</ol>
+<ul>
+<li>Use the subset() function to find all students with a grade of ‘A’.</li>
+<li>Display the names and ages of these students.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Manipulating Data with dplyr</li>
+</ol>
+<ul>
+<li><p>Load the dplyr package and convert student_info to a tibble.</p></li>
+<li><p>Use filter() and select() to show the name and age of students who have a grade better than ‘B’.</p></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Adding and Removing Columns</li>
+</ol>
+<ul>
+<li>Add a new column student_major with values (‘Math’, ‘Science’, ‘Arts’, ‘Math’, ‘Science’) to student_info.</li>
+<li>Then, remove the student_grade column using dplyr.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Renaming Columns</li>
+</ol>
+<ul>
+<li>Rename the student_name column to name using base R functions and then using dplyr.</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Complex dplyr Operations</li>
+</ol>
+<ul>
+<li>Create a new tibble from student_info that includes all students except those studying ‘Arts’, rename the student_id column to id, and arrange the students by age in descending order.</li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li>Exploratory Data Analysis with dplyr</li>
+</ol>
+<ul>
+<li>Calculate the average age of students grouped by their major using group_by() and summarize() in dplyr.</li>
+</ul>
 </div>
 </div>
   <div class="chapter-nav">
@@ -523,6 +574,7 @@ Visualize the distribution of <code>wage</code> per <code>gender</code></p>
 <li><a class="nav-link" href="#a-factor-variable">A factor variable</a></li>
 <li><a class="nav-link" href="#two-factor-variables">Two factor variables</a></li>
 <li><a class="nav-link" href="#a-factor-and-a-numeric-variable">A factor and a numeric variable</a></li>
+<li><a class="nav-link" href="#exercises">Exercises</a></li>
 </ul>
 
       <div class="book-extra">
@@ -540,7 +592,7 @@ Visualize the distribution of <code>wage</code> per <code>gender</code></p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-11.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -148,6 +148,7 @@ R has five basic or "atomic" classes of objects:
 - complex
 - logical (True/False)
 
+
 #### Exercise 1 {-}
 
 Run the following code, then use typeof(), class() functions to find out the data type and/or class object. 
@@ -292,32 +293,7 @@ typeof(my_boolean)
 #> [1] "logical"
 ```
 
-### 2  What is the difference between typeof() and class()? {-}
 
-
-Here we can see that `typeof(my_date)` is a double, and `class(my_date)` is `Date`. This is because `typeof` output the lowest level data type of the object. While `class` outputs the class of the object. 
-
-If you are writing code that involves checking whether an element is of an specific data type , then you need to be careful on how you check that. Depending on the function , it may give you a true value when in reality you want a false value to be returned. 
-
-For example, Imagine you are asked to check if all dates in a dateframe have the correct data type. 
-
-In some cases it might be `"05/29/2018"` but in a rare case (maybe due to a data entry error), there is a `"42.5"`
-
-
-```r
-typeof(my_date) == typeof(my_numeric)
-#> [1] TRUE
-```
-
-In the previous comparison , it returns true, meaning that the two data types are the same, maybe youu thought you are comparing if both are date type, but in reality , you are comparing the lowest level data types which are indeed equal (double)
-
-Instead, you should do.
-
-
-```r
-class(my_date) == class(my_numeric)
-#> [1] FALSE
-```
 
 #### Converting Data types {-}
 

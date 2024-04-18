@@ -207,19 +207,6 @@ head(diamonds)
 
 Can you list some differences?
 
-### Exercise 4 {-}
-
-1. Create a vector `fav_music` with the names of your favorite artists.
-2. Create a vector `num_records` with the number of records you have in
-your collection of each of those artists.
-3. Create a vector `num_concerts` with the number of times you attended a concert of these artists.
-4. Put everything together in a data frame, assign the name `my_music` to this data frame and change the labels of the information stored in the columns to `artist`, `records` and `concerts.`
-5. Extract the variable `num_records` from the data frame `my_music.`
-6. Calculate the total number of records in your collection (for the defined
-set of artists).
-7. Check the structure of the data frame, ask for a `summary.`
-
-
 ## Importing and exporting data (CSV files) {-}
 
 Exporting data to CSV
@@ -234,6 +221,18 @@ Importing data from CSV
 df_imported <- read.csv("my_data.csv")
 print(df_imported)
 ```
+
+### Exercise 4 {-}
+
+1. Create a vector `fav_music` with the names of your favorite artists.
+2. Create a vector `num_records` with the number of records you have in
+your collection of each of those artists.
+3. Create a vector `num_concerts` with the number of times you attended a concert of these artists.
+4. Put everything together in a data frame, assign the name `my_music` to this data frame and change the labels of the information stored in the columns to `artist`, `records` and `concerts.`
+5. Extract the variable `num_records` from the data frame `my_music.`
+6. Calculate the total number of records in your collection (for the defined
+set of artists).
+7. Check the structure of the data frame, ask for a `summary.`
 
 
 Previously, we exported the data and then imported it . Some of you may think, then what is the purpose if we already had the dataframe. The prior was just an example, in reality , you would not have the dataframe loaded in R . You would only have a csv or a data file that a coworker has shared with you or the data engineer has procured for you. 

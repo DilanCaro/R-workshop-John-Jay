@@ -1,0 +1,431 @@
+# Workshop 2 {-}
+
+
+## Exercise solutions {-}
+
+```{r}
+library(tidyverse)
+```
+## Part I {-}
+
+### Exercise 1{-}
+
+**Task:** Write and Use a Function
+**Objective:** Create a function that calculates the cube of a number and use this function to calculate the cube of 3.
+
+**Hint:** Use the structure of the square_function as a template.
+
+```{r}
+cube_function <- function(x) {
+  return(x^3)
+}
+
+# Using the function
+result <- cube_function(3)
+print(result)
+
+```
+
+### Exercise 2 {-}
+
+**Task:** Analyze a Numeric Vector
+**Objective:** Write a function named summarize_vector that takes a numeric vector as input and calculates the median, variance, and creates a boxplot. The function should print the median and variance, and return them as a list. Use the airquality$Ozone data for analysis.
+
+**Hint:** Similar to analyze_vector, check if the input is numeric and use median, var, and `boxplot` functions.
+
+```{r}
+summarize_vector <- function(x, plot_title = "Boxplot") {
+  if (!is.numeric(x)) {
+    stop("Input must be a numeric vector")
+  }
+  
+  median_value <- median(x, na.rm = TRUE)
+  variance_value <- var(x, na.rm = TRUE)
+  
+  cat("Median:", median_value, "\n")
+  cat("Variance:", variance_value, "\n")
+  
+  boxplot(x, main = plot_title, xlab = "Values", col = "coral", border = "darkred")
+  
+  return(list(median = median_value, variance = variance_value))
+}
+
+# Example usage with the airquality$Ozone vector
+result <- summarize_vector(airquality$Ozone, "Ozone Levels Boxplot")
+
+```
+
+### Exercise 3 {-}
+
+**Task:** Using if Statements
+**Objective:** Create an R script that checks if a number is negative, zero, or positive and prints an appropriate message. Test your script with the number -4.
+
+**Hint:** Use an if statement followed by else if and else.
+
+```{r}
+number <- -4
+if (number > 0) {
+  print("Positive number")
+} else if (number == 0) {
+  print("Zero")
+} else {
+  print("Negative number")
+}
+
+```
+
+
+### Exercise 4 {-}
+
+**Task:** For Loop
+**Objective:** Write a function using a for loop that calculates the sum of squares of numbers from 1 to n. Use this function to calculate the sum of squares for n=10.
+
+**Hint:** Iterate from 1 to n, and keep adding the square of each number to a result variable.
+
+```{r}
+sum_of_squares <- function(n) {
+  result <- 0
+  for (i in 1:n) {
+    result <- result + i^2
+  }
+  return(result)
+}
+
+sum_squares_of_10 <- sum_of_squares(10)
+print(sum_squares_of_10)
+
+```
+
+### Exercise 5 {-}
+
+**Task:** While Loop
+**Objective:** Write a script using a while loop that finds the smallest number whose cube is greater than 100. Print the number and its cube.
+
+**Hint:** Increment a number starting from 1, and check if its cube is greater than 100 in the while loop condition.
+
+```{r}
+number <- 1
+while (number^3 <= 100) {
+  number <- number + 1
+}
+print(paste("Smallest number whose cube is greater than 100 is:", number))
+print(paste("Cube of", number, "is:", number^3))
+```
+
+
+## Part II {-}
+
+### Exercise 1 {-}
+
+1. Load the data Parade2005.txt.
+2. Determine the mean earnings in California.
+3. Determine the number of individuals residing in Idaho.
+4. Determine the mean and the median earnings of celebrities.
+
+```{r}
+Parade2005 <- read.table(file = '/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/Parade2005.txt')
+head(Parade2005)
+```
+
+```{r}
+Parade2005 %>% filter(state == "CA") %>%
+              summarize(mean = mean(earnings))
+Parade2005 %>% group_by(state == "CA") %>%
+              summarize(mean = mean(earnings))
+```
+
+```{r}
+Parade2005 %>% 
+      filter(state == "ID") %>% 
+      summarize(number = n())
+```
+```{r}
+Parade2005 %>% 
+  group_by(celebrity) %>%
+  summarize(mean = mean(earnings), median = median(earnings))
+```
+
+```{r}
+Parade2005 %>% 
+  group_by(celebrity) %>%
+  ggplot(aes(x = celebrity, y = earnings)) + theme_bw() +
+  geom_boxplot(color = "blue")
+```
+```{r}
+boxplot(earnings~ celebrity , data= Parade2005)
+```
+
+
+### Exercise 2 {-}
+
+Use the skills you obtained in Part I.
+
+1. Inspect the top rows of the data set.
+2. How many observations does the data set contain?
+3. Calculate the total exposure (exposition) in each region (type_territoire).
+
+```{r}
+policy_data <- read.csv(file = '/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/PolicyData.csv', sep = ';')
+```
+
+```{r}
+head(policy_data)
+nrow(policy_data)
+```
+
+```{r}
+policy_data %>%
+  group_by(type_territoire) %>%
+  summarize(exposure = sum(exposition))
+```
+###  Exercise 3 {-}
+
+Use the skills obtained in Part I: 
+
+1. Inspect the top rows of the data.
+2. Select the data for countries in Asia.
+3. Which type of variable is `country`?
+
+
+```{r}
+library(gapminder)
+head(gapminder)
+asia <-  filter(gapminder, continent == "Asia")
+class(gapminder$country)
+```
+
+### Exercise 4 {-}
+
+The variable country in the gapminder data set is a factor variable. 
+
+1. What are the possible levels for country in the subset asia.
+2. Is this the result you expected?
+
+```{r}
+library(gapminder)
+gapminder
+# Subset data for Asian countries
+asia <- subset(gapminder, continent == "Asia")
+
+levels(asia$country)
+```
+```{r}
+#alternative
+library(dplyr)
+
+asia <- gapminder %>% 
+  filter(continent == "Asia")
+levels(asia$country)
+```
+
+`asia$country` allows the same outcomes as `gapminder$country`. This includes many countries outside of Asia.
+
+In some cases, even after filtering a dataset, the factor levels of the subset might still include all levels present in the original dataset. This is because subsetting the rows does not automatically drop unused factor levels. To see only the levels that are present in the subset, you might need to use `droplevels()`:
+
+```{r}
+asia$country <- droplevels(asia$country)
+
+```
+
+```{r}
+levels(asia$country)
+```
+
+## Exercise 5 {-}
+
+Bin the life expectancy in 2007 in a factor variable.
+1. Select the observations for year 2007.
+2. Bin the life expectancy in four bins of roughly equal size (hint: quantile). 
+3. How many observations are there in each bin?
+
+```{r}
+gapminder2007 <- filter(gapminder, year == 2007)
+breaks <- c(0, quantile(gapminder2007$lifeExp, c(0.25, 0.5, 0.75)), Inf)
+breaks
+```
+
+```{r}
+gapminder2007 <- gapminder2007 %>%
+                 mutate(life_expectancy_binned = cut(gapminder2007$lifeExp, breaks))
+```
+
+
+```{r}
+gapminder2007 %>%
+  group_by(life_expectancy_binned) %>%
+  summarise(frequency = n())
+```
+
+```{r}
+gapminder2007
+```
+
+```{r}
+plot(gapminder2007$life_expectancy_binned, col=c(gapminder2007$continent))
+```
+
+```{r}
+ggplot(gapminder2007) +
+  geom_bar(aes(life_expectancy_binned))
+```
+
+```{r}
+ggplot(gapminder2007) +
+  geom_bar(aes(life_expectancy_binned,
+               fill = continent))
+```
+
+```{r}
+ggplot(gapminder2007) +
+  geom_bar(aes(life_expectancy_binned,
+               fill = continent),
+           position = position_dodge())
+```
+
+```{r}
+ggplot(gapminder2007) +
+  geom_bar(aes(life_expectancy_binned,
+               fill = continent,
+               y = after_stat(prop), group = continent),
+           position = position_dodge())
+```
+
+y = `..prop..` and `group = continent` plot the proportion within each group instead of the absolute count.
+
+## Handling Missing Data {-}
+
+## Exercise 1: Explore Missingness {-}
+
+**Dataset:** ChickWeight
+
+**Task:** Determine if the ChickWeight dataset contains any missing values. Print a message stating whether the dataset has missing values or not.
+
+*Hint* Use the any() function combined with is.na() applied to the dataset.
+
+How to use any()
+
+```{r}
+e<- c(1,2,2,3,2,1,1)
+any(e==1)
+```
+
+```{r}
+data(ChickWeight)
+# Check for missing values in the ChickWeight dataset
+if (any(is.na(ChickWeight))) {
+  print("The dataset contains missing values.")
+} else {
+  print("The dataset does not contain missing values.")
+}
+
+```
+
+## Exercise 2: Calculate Summary Statistics Before Handling NA {-}
+
+**Dataset:** mtcars
+
+**Task:** The mtcars dataset is almost complete but let's pretend some values are missing in the mpg (miles per gallon) column. First, artificially introduce missing values into the mpg column (e.g., set the first three values of mpg to NA). Then, calculate and print the mean and standard deviation of mpg without removing or imputing the missing values.
+
+
+*Hint:* Modify the mtcars$mpg directly to introduce NAs. Use mean() and sd() functions with na.rm = FALSE to calculate statistics without handling NA.
+
+```{r}
+# Artificially introduce missing values into the mpg column of mtcars
+mtcars$mpg[1:3] <- NA
+
+# Calculate and print the mean and standard deviation without removing NA
+mean_mpg <- mean(mtcars$mpg, na.rm = FALSE)
+sd_mpg <- sd(mtcars$mpg, na.rm = FALSE)
+
+print(paste("Mean of mpg without handling NA:", mean_mpg))
+print(paste("Standard deviation of mpg without handling NA:", sd_mpg))
+
+
+```
+
+## Exercise 3: Impute Missing Values with Column Median {-}
+
+**Dataset:** mtcars with modified mpg
+
+**Task:** First Calculate the mean and standard deviation handling the missing values. 
+
+Then,Impute the artificially introduced missing values in the mpg column with the column's median (excluding the missing values). Print the first 6 rows of the modified mtcars dataset.
+
+Now, calculate the mean and standard deviation with the imputed values. 
+
+*Hint:* First, calculate the median of mpg excluding NAs. Then, use indexing to replace NAs with this median.
+
+```{r}
+
+mean_mpg <- mean(mtcars$mpg, na.rm = TRUE)
+sd_mpg <- sd(mtcars$mpg, na.rm = TRUE)
+
+print(paste("Mean of mpg  handling NA:", mean_mpg))
+print(paste("Standard deviation of mpg  handling NA:", sd_mpg))
+
+# Calculate the median of mpg excluding NAs
+median_mpg <- median(mtcars$mpg, na.rm = TRUE)
+median_mpg
+# Impute the missing values with the median
+mtcars$mpg[is.na(mtcars$mpg)] <- median_mpg
+
+# Print the first 6 rows of the modified mtcars dataset
+head(mtcars)
+##
+mean_mpg <- mean(mtcars$mpg)
+sd_mpg <- sd(mtcars$mpg)
+
+print(paste("Mean of mpg  imputed NA:", mean_mpg))
+print(paste("Standard deviation of mpg imputed NA:", sd_mpg))
+```
+
+## Exercise 4: Identifying Complete Rows {-}
+
+**Dataset:** Airquality
+
+**Task:** Before any analysis, you want to ensure that only complete cases are used. Create a new dataset from airquality that includes only the rows without any missing values. Print the number of rows in the original versus the cleaned dataset.
+
+
+*Hint* Use complete.cases() on the dataset and then subset it.
+
+```{r}
+data("airquality")
+# Create a new dataset from airquality that includes only rows without any missing values
+complete_Airquality<- airquality[complete.cases(airquality), ]
+
+# Print the number of rows in the original versus the cleaned dataset
+print(paste("Original dataset rows:", nrow(airquality)))
+print(paste("Cleaned dataset rows:", nrow(complete_Airquality)))
+
+```
+
+## Exercise 5: Advanced Imputation on a Subset {-}
+
+**Dataset:** mtcars
+
+**Task:** Create a subset of mtcars containing only the mpg, hp (horsepower), and wt (weight) columns. Introduce missing values in hp and wt columns (e.g., set first two values of each to NA). Perform multiple imputation using the mice package on this subset with 3 imputations, and extract the third completed dataset. Print the first 6 rows of this completed dataset.
+
+*Hint:* Subset mtcars first, then modify to add NAs. Use mice() for imputation and complete() to extract the desired imputed dataset.
+
+```{r}
+# Load the necessary package
+library(mice)
+
+# Create a subset of mtcars
+mtcars_subset <- mtcars[, c("mpg", "hp", "wt")]
+
+# Introduce missing values
+mtcars_subset$hp[1:2] <- NA
+mtcars_subset$wt[1:2] <- NA
+
+# Perform multiple imputation
+imputed_data_subset <- mice(mtcars_subset, m=3, method='pmm', seed = 123)
+
+# Extract the third completed dataset
+completed_data_subset <- complete(imputed_data_subset, 3)
+
+# Print the first 6 rows of the completed data
+head(completed_data_subset)
+
+```
+

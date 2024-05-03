@@ -127,10 +127,10 @@ data <- data.frame(
 
 ```{r}
 data$salary <- c(55000, 50000, 60000, 52000, 58000)
-subsetting_data <- rename(select(
-                          filter(data, age < 30), -salary),
-                          first_name = name)
+subsetting_data <- within(data[data$age < 30, -which(names(data) == "salary")], names(name) <- "first_name")
 subsetting_data
+
+
 ```
 
 Now, doing it using dplyr
@@ -145,6 +145,25 @@ data <- data %>%
   select(-salary) %>%
   rename(first_name = name)
 data
+```
+
+
+Without using the pipe operator , it looks not so clear.
+
+```{r}
+data <- data.frame(
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva"),
+  age = c(25, 30, 22, 28, 24)
+)
+data <- data %>%
+  mutate(salary = c(55000, 50000, 60000, 52000, 58000))
+
+
+subsetting_data <- rename(select(
+                          filter(data, age < 30), -salary),
+                          first_name = name)
+subsetting_data
 ```
 
 

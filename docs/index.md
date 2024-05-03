@@ -1,7 +1,7 @@
 --- 
 title: "R Workshop"
 author: "Dilan Morales Caro"
-date: "2024-04-12"
+date: "2024-05-03"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

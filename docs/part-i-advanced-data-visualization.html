@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Part I: Advanced Data Visualization | R Workshop</title>
-<meta name="author" content="Dilan Morales Caro">
+<title>Part I: Advanced Data Visualization | Non-parametric Test of Bolts</title>
+<meta name="author" content="Dilan Caro">
 <meta name="description" content="The aim of the ggplot2 package is to create elegant data visualizations using the grammar of graphics. Here are the basic steps: begin a plot with the function ggplot() creating a coordinate...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
-<meta property="og:title" content="Part I: Advanced Data Visualization | R Workshop">
+<meta property="og:title" content="Part I: Advanced Data Visualization | Non-parametric Test of Bolts">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-i-advanced-data-visualization.html">
 <meta property="og:description" content="The aim of the ggplot2 package is to create elegant data visualizations using the grammar of graphics. Here are the basic steps: begin a plot with the function ggplot() creating a coordinate...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Part I: Advanced Data Visualization | R Workshop">
+<meta name="twitter:title" content="Part I: Advanced Data Visualization | Non-parametric Test of Bolts">
 <meta name="twitter:description" content="The aim of the ggplot2 package is to create elegant data visualizations using the grammar of graphics. Here are the basic steps: begin a plot with the function ggplot() creating a coordinate...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">R Workshop</a>
+        <a href="index.html" title="">Non-parametric Test of Bolts</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -63,7 +63,10 @@
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="workshop-1.html">Workshop 1</a></li>
 <li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-solved.html">Workshop 1: Suplementary Exercises Solved</a></li>
+<li><a class="" href="workshop-2.html">Workshop 2</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -82,7 +85,7 @@
 </ul>
 <p>-the first argument of <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> is the dataset to use in the graph</p>
 <p>We will use the mpg dataset from <code>ggplot2</code></p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 11</span></span>
@@ -97,11 +100,11 @@
 <span><span class="co">#&gt; # ℹ 3 more variables: hwy &lt;int&gt;, fl &lt;chr&gt;, class &lt;chr&gt;</span></span></code></pre></div>
 <p>Run the following code,</p>
 <p>What do you obtain ?</p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-2-2.png" width="672">
@@ -114,63 +117,63 @@ You create an empty graph.</div>
 <p>Each geom function in ggplot2 takes a mapping argument:
 - how variables in your dataset are mapped to visual properties
 - always paired with <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> and the and arguments of <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> specify which variables to map to the and axes.</p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <p>Compare the following set of instructions:</p>
 <ul>
 <li>inside of aesthetics</li>
 </ul>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <ul>
 <li>inside of aesthetics, not mapped to a variable</li>
 </ul>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <ul>
 <li>outside of aesthetics</li>
 </ul>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <ul>
 <li>Scatterplot</li>
 </ul>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
 <ul>
 <li>boxplot</li>
 </ul>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <ul>
 <li>histogram</li>
 </ul>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with</span></span>
 <span><span class="co">#&gt; `binwidth`.</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>Now you will add multiple geoms to the same plot.
 Predict what the following code does:</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span>
@@ -178,7 +181,7 @@ Predict what the following code does:</p>
 <span><span class="co">#&gt; x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
 <p>Mappings and data can be specified global (in <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>) or local.</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>       <span class="co"># adjust theme</span></span>
@@ -186,14 +189,14 @@ Predict what the following code does:</p>
 <span><span class="co">#&gt; x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
 <p><strong>local.</strong></p>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula = 'y ~</span></span>
 <span><span class="co">#&gt; x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -209,8 +212,8 @@ Predict what the following code does:</p>
 <span><span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula = 'y ~</span></span>
 <span><span class="co">#&gt; x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="08-Intermediate-R-II-Part1_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
-<div id="exercise-1-7" class="section level2 unnumbered">
-<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-7"><i class="fas fa-link"></i></a>
+<div id="exercise-1-6" class="section level2 unnumbered">
+<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-6"><i class="fas fa-link"></i></a>
 </h2>
 <p>Use the Danish fire insurance losses. Plot the arrival of losses over time.</p>
 <ol style="list-style-type: decimal">
@@ -218,8 +221,8 @@ Predict what the following code does:</p>
 <li>Do the same with instructions from ggplot2. Use geom_line() to create the line plot.</li>
 </ol>
 </div>
-<div id="exercise-2-4" class="section level2 unnumbered">
-<h2>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-4"><i class="fas fa-link"></i></a>
+<div id="exercise-2-5" class="section level2 unnumbered">
+<h2>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-5"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>Use the data set car_price.csv available in the documentation. Import the data in R.</p></li>
@@ -232,7 +235,7 @@ and use ggplot2.</p></li>
 <div id="creating-customized-plots-with-ggplot2" class="section level2 unnumbered">
 <h2>Creating customized plots with ggplot2<a class="anchor" aria-label="anchor" href="#creating-customized-plots-with-ggplot2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Load ggplot2 package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
@@ -249,7 +252,7 @@ and use ggplot2.</p></li>
 <div id="adding-titles-labels-and-themes-to-plots" class="section level2 unnumbered">
 <h2>Adding titles, labels, and themes to plots<a class="anchor" aria-label="anchor" href="#adding-titles-labels-and-themes-to-plots"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example: Enhanced bar plot with titles, labels, and a custom theme</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  category <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span>,</span>
@@ -275,8 +278,8 @@ and use ggplot2.</p></li>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#part-i-advanced-data-visualization">Part I: Advanced Data Visualization</a></li>
-<li><a class="nav-link" href="#exercise-1-7">Exercise 1</a></li>
-<li><a class="nav-link" href="#exercise-2-4">Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-1-6">Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-5">Exercise 2</a></li>
 <li><a class="nav-link" href="#creating-customized-plots-with-ggplot2">Creating customized plots with ggplot2</a></li>
 <li><a class="nav-link" href="#adding-titles-labels-and-themes-to-plots">Adding titles, labels, and themes to plots</a></li>
 </ul>
@@ -296,7 +299,7 @@ and use ggplot2.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-04-12.</p>
+    <p>"<strong>Non-parametric Test of Bolts</strong>" was written by Dilan Caro. It was last built on 2024-05-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

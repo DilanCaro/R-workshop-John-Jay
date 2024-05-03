@@ -282,19 +282,6 @@ head(diamonds)
 
 Can you list some differences?
 
-### Exercise 4 {-}
-
-1. Create a vector `fav_music` with the names of your favorite artists.
-2. Create a vector `num_records` with the number of records you have in
-your collection of each of those artists.
-3. Create a vector `num_concerts` with the number of times you attended a concert of these artists.
-4. Put everything together in a data frame, assign the name `my_music` to this data frame and change the labels of the information stored in the columns to `artist`, `records` and `concerts.`
-5. Extract the variable `num_records` from the data frame `my_music.`
-6. Calculate the total number of records in your collection (for the defined
-set of artists).
-7. Check the structure of the data frame, ask for a `summary.`
-
-
 ## Importing and exporting data (CSV files) {-}
 
 Exporting data to CSV
@@ -315,6 +302,18 @@ print(df_imported)
 #> 2     Bob  30  60000
 #> 3 Charlie  35  70000
 ```
+
+### Exercise 4 {-}
+
+1. Create a vector `fav_music` with the names of your favorite artists.
+2. Create a vector `num_records` with the number of records you have in
+your collection of each of those artists.
+3. Create a vector `num_concerts` with the number of times you attended a concert of these artists.
+4. Put everything together in a data frame, assign the name `my_music` to this data frame and change the labels of the information stored in the columns to `artist`, `records` and `concerts.`
+5. Extract the variable `num_records` from the data frame `my_music.`
+6. Calculate the total number of records in your collection (for the defined
+set of artists).
+7. Check the structure of the data frame, ask for a `summary.`
 
 
 Previously, we exported the data and then imported it . Some of you may think, then what is the purpose if we already had the dataframe. The prior was just an example, in reality , you would not have the dataframe loaded in R . You would only have a csv or a data file that a coworker has shared with you or the data engineer has procured for you. 
@@ -419,6 +418,8 @@ str(pools)
 #>  $ Longitude: num  153 153 153 153 153 ...
 ```
 
+
+
 ## Import .xlsx file {-}
 
 The package to read excel data into R is `readxl`:
@@ -468,6 +469,20 @@ It supports:
 - SAS: `read_sas()` reads .sas7bdat and .sas7bcat files and `read_xpt()` reads SAS transport files. write_sas() writes .sas7bdat files.
 - SPSS: `read_sav()` reads .sav files and `read_por()` reads the older .por files. write_sav() writes .sav files.
 - Stata: `read_dta()` reads .dta files. `write_dta()` writes .dta files.
+
+## Create and format dates
+
+To create a Date object from a simple character string in R, you can use the as.Date() function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):
+
+`%Y`: 4-digit year (1982)
+`%y`: 2-digit year (82)
+`%m`: 2-digit month (01)
+`%d`: 2-digit day of the month (13)
+`%A`: weekday (Wednesday)
+`%a`: abbreviated weekday (Wed)
+`%B`: month (January)
+`%b`: abbreviated month (Jan)
+
 
 ### Exercise 5 {-}
 

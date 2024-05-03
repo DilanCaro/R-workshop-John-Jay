@@ -161,7 +161,7 @@ The most common high level function used to produce plots in `R` is (rather unsu
 
 Use the library `readxl`, and `read_excel()` function. 
 
-Alternatively , you can also use `flower.txt` and use read_ta
+Alternatively , you can also use `flower.txt` and use read_table
 
 
 
@@ -284,7 +284,7 @@ pairs(flowers[, c("height", "weight", "leafarea",
                 "shootarea", "flowers")])
 ```
 
-## Exercise 1 {-}
+## Exercise 2 {-}
 Now, try creating your own visualization using the iris dataset. Here's what you can do:
 
 1. Create a scatter plot using Petal.Length and Petal.Width from the iris dataset.

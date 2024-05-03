@@ -182,15 +182,13 @@ Let's just add salary column again.
 
 ```r
 data$salary <- c(55000, 50000, 60000, 52000, 58000)
-subsetting_data <- rename(select(
-                          filter(data, age < 30), -salary),
-                          first_name = name)
+subsetting_data <- within(data[data$age < 30, -which(names(data) == "salary")], names(name) <- "first_name")
 subsetting_data
-#>   id first_name age
-#> 1  1      Alice  25
-#> 2  3    Charlie  22
-#> 3  4      David  28
-#> 4  5        Eva  24
+#>   id    name age
+#> 1  1   Alice  25
+#> 3  3 Charlie  22
+#> 4  4   David  28
+#> 5  5     Eva  24
 ```
 
 Now, doing it using dplyr
@@ -214,6 +212,31 @@ data
 ```
 
 
+Without using the pipe operator , it looks not so clear.
+
+
+```r
+data <- data.frame(
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva"),
+  age = c(25, 30, 22, 28, 24)
+)
+data <- data %>%
+  mutate(salary = c(55000, 50000, 60000, 52000, 58000))
+
+
+subsetting_data <- rename(select(
+                          filter(data, age < 30), -salary),
+                          first_name = name)
+subsetting_data
+#>   id first_name age
+#> 1  1      Alice  25
+#> 2  3    Charlie  22
+#> 3  4      David  28
+#> 4  5        Eva  24
+```
+
+
 ## Basic data summary and exploration {-}
 
 A very brief summary and data exploration is given below.
@@ -223,13 +246,20 @@ A very brief summary and data exploration is given below.
 
 ```r
 summary(data)
-#>        id        first_name             age       
-#>  Min.   :1.00   Length:4           Min.   :22.00  
-#>  1st Qu.:2.50   Class :character   1st Qu.:23.50  
-#>  Median :3.50   Mode  :character   Median :24.50  
-#>  Mean   :3.25                      Mean   :24.75  
-#>  3rd Qu.:4.25                      3rd Qu.:25.75  
-#>  Max.   :5.00                      Max.   :28.00
+#>        id        name                age      
+#>  Min.   :1   Length:5           Min.   :22.0  
+#>  1st Qu.:2   Class :character   1st Qu.:24.0  
+#>  Median :3   Mode  :character   Median :25.0  
+#>  Mean   :3                      Mean   :25.8  
+#>  3rd Qu.:4                      3rd Qu.:28.0  
+#>  Max.   :5                      Max.   :30.0  
+#>      salary     
+#>  Min.   :50000  
+#>  1st Qu.:52000  
+#>  Median :55000  
+#>  Mean   :55000  
+#>  3rd Qu.:58000  
+#>  Max.   :60000
 ```
 
 2. Structure of the data frame
@@ -237,10 +267,11 @@ summary(data)
 
 ```r
 str(data)
-#> 'data.frame':	4 obs. of  3 variables:
-#>  $ id        : int  1 3 4 5
-#>  $ first_name: chr  "Alice" "Charlie" "David" "Eva"
-#>  $ age       : num  25 22 28 24
+#> 'data.frame':	5 obs. of  4 variables:
+#>  $ id    : int  1 2 3 4 5
+#>  $ name  : chr  "Alice" "Bob" "Charlie" "David" ...
+#>  $ age   : num  25 30 22 28 24
+#>  $ salary: num  55000 50000 60000 52000 58000
 ```
 
 3. Average age of the individuals in the data frame
@@ -249,7 +280,7 @@ str(data)
 ```r
 average_age <- mean(data$age)
 print(average_age)
-#> [1] 24.75
+#> [1] 25.8
 ```
 
 4. Count of unique names in the data frame
@@ -258,7 +289,7 @@ print(average_age)
 ```r
 unique_names_count <- length(unique(data$first_name))
 print(unique_names_count)
-#> [1] 4
+#> [1] 0
 ```
 
 
@@ -378,7 +409,7 @@ hist(log(CPS1985$wage), freq = FALSE, nclass = 20, col = "light blue")
 lines(density(log(CPS1985$wage)), col = "red")
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 ## A factor variable {-}
 
@@ -417,13 +448,13 @@ prop.table(tab)
 barplot(tab)
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ```r
 pie(tab, col = gray(seq(0.4, 1.0, length = 6)))
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-24-2.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-25-2.png" width="672" />
 
 ## Two factor variables {-}
 
@@ -487,7 +518,7 @@ A mosaic plot, also known as a Marimekko diagram or a mosaic chart, is a graphic
 plot(gender ~ occupation, data = CPS1985)
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-29-1.png" width="672" />
  
 Now explore the factor gender and the numeric variable wage.
  
@@ -527,7 +558,7 @@ Visualize the distribution of `wage` per `gender`
 boxplot(log(wage) ~ gender, data = CPS1985)
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-32-1.png" width="672" />
 
  Now try with
  
@@ -536,7 +567,7 @@ boxplot(log(wage) ~ gender, data = CPS1985)
 boxplot(log(wage) ~ gender + occupation, data = CPS1985)
 ```
 
-<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+<img src="04-R-Basic-Part4_files/figure-html/unnamed-chunk-33-1.png" width="672" />
  
 
 ```r

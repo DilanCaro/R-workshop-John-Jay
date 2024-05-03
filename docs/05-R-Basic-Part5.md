@@ -167,7 +167,6 @@ For the legend,
 - `pch=19` again specifies the plotting symbols used in the legend.
 - `cex=0.8` sets the size of the symbols in the legend.
 
-
 ## Example 5 {-}
 
 ### Scatterplot() {-}
@@ -176,7 +175,7 @@ The most common high level function used to produce plots in `R` is (rather unsu
 
 Use the library `readxl`, and `read_excel()` function. 
 
-Alternatively , you can also use `flower.txt` and use read_ta
+Alternatively , you can also use `flower.txt` and use read_table
 
 
 
@@ -353,7 +352,7 @@ pairs(flowers[, c("height", "weight", "leafarea",
 
 <img src="05-R-Basic-Part5_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
-## Exercise 1 {-}
+## Exercise 2 {-}
 Now, try creating your own visualization using the iris dataset. Here's what you can do:
 
 1. Create a scatter plot using Petal.Length and Petal.Width from the iris dataset.

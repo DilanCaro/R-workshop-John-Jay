@@ -163,7 +163,6 @@ While loop to find the first square number greater than 100
 
 
 ```r
-
 number <- 1
 while (number^2 <= 100) {
   number <- number + 1

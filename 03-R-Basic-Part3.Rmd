@@ -326,6 +326,18 @@ pools <- read.csv(path.pools)
 str(pools)
 ```
 
+```{r , eval=FALSE, echo=FALSE}
+#install.packages("leaflet")
+library(leaflet)
+
+map <- leaflet(data = pools) %>%
+  addTiles() %>%
+  addMarkers(~Longitude, ~Latitude, popup = ~Name)
+
+# Print the map to view it in an RStudio Viewer or web browser
+map
+```
+
 ## Import .xlsx file {-}
 
 The package to read excel data into R is `readxl`:
@@ -362,6 +374,20 @@ It supports:
 - SAS: `read_sas()` reads .sas7bdat and .sas7bcat files and `read_xpt()` reads SAS transport files. write_sas() writes .sas7bdat files.
 - SPSS: `read_sav()` reads .sav files and `read_por()` reads the older .por files. write_sav() writes .sav files.
 - Stata: `read_dta()` reads .dta files. `write_dta()` writes .dta files.
+
+## Create and format dates
+
+To create a Date object from a simple character string in R, you can use the as.Date() function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):
+
+`%Y`: 4-digit year (1982)
+`%y`: 2-digit year (82)
+`%m`: 2-digit month (01)
+`%d`: 2-digit day of the month (13)
+`%A`: weekday (Wednesday)
+`%a`: abbreviated weekday (Wed)
+`%B`: month (January)
+`%b`: abbreviated month (Jan)
+
 
 ### Exercise 5 {-}
 

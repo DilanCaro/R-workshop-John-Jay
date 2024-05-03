@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Workshop 2 | Non-parametric Test of Bolts</title>
+<meta name="author" content="Dilan Caro">
+<meta name="description" content="Exercise solutions library(tidyverse) #&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ── #&gt; ✔ dplyr   1.1.4   ✔ readr   2.1.4 #&gt; ✔ forcats  1.0.0   ✔ stringr  1.5.1 #&gt; ✔ ggplot2 ...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Workshop 2 | Non-parametric Test of Bolts">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/workshop-2.html">
+<meta property="og:description" content="Exercise solutions library(tidyverse) #&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ── #&gt; ✔ dplyr   1.1.4   ✔ readr   2.1.4 #&gt; ✔ forcats  1.0.0   ✔ stringr  1.5.1 #&gt; ✔ ggplot2 ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Workshop 2 | Non-parametric Test of Bolts">
+<meta name="twitter:description" content="Exercise solutions library(tidyverse) #&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ── #&gt; ✔ dplyr   1.1.4   ✔ readr   2.1.4 #&gt; ✔ forcats  1.0.0   ✔ stringr  1.5.1 #&gt; ✔ ggplot2 ...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.0/transition.js"></script><script src="libs/bs3compat-0.6.0/tabs.js"></script><script src="libs/bs3compat-0.6.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Non-parametric Test of Bolts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="r-basics.html">R Basics</a></li>
+<li><a class="" href="part-i-introduction-to-r.html">Part I: Introduction to R</a></li>
+<li><a class="" href="part-ii-r-fundamentals.html">Part II: R Fundamentals</a></li>
+<li><a class="" href="part-iii-data-structures.html">Part III: Data Structures</a></li>
+<li><a class="" href="part-iv-data-manipulation.html">Part IV: Data Manipulation</a></li>
+<li><a class="" href="part-v-basic-data-visualization.html">Part V: Basic Data Visualization</a></li>
+<li><a class="" href="intermediate-r.html">Intermediate R</a></li>
+<li><a class="" href="part-i-functions-and-control-structures.html">Part I: Functions and Control Structures</a></li>
+<li><a class="" href="part-ii-data-wrangling.html">Part II: Data Wrangling</a></li>
+<li><a class="" href="intermediate-r-ii.html">Intermediate R II</a></li>
+<li><a class="" href="part-i-advanced-data-visualization.html">Part I: Advanced Data Visualization</a></li>
+<li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
+<li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
+<li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
+<li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
+<li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
+<li><a class="" href="workshop-1.html">Workshop 1</a></li>
+<li><a class="" href="optional-part-v-version-control-and-collaboration-10-minutes.html">(Optional) Part V: Version Control and Collaboration (10 minutes)</a></li>
+<li><a class="" href="workshop-1-suplementary-exercises-solved.html">Workshop 1: Suplementary Exercises Solved</a></li>
+<li><a class="active" href="workshop-2.html">Workshop 2</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/DilanCaro/R-workshop-John-Jay">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="workshop-2" class="section level1 unnumbered">
+<h1>Workshop 2<a class="anchor" aria-label="anchor" href="#workshop-2"><i class="fas fa-link"></i></a>
+</h1>
+<div id="exercise-solutions-1" class="section level2 unnumbered">
+<h2>Exercise solutions<a class="anchor" aria-label="anchor" href="#exercise-solutions-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.4</span></span>
+<span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
+<span><span class="co">#&gt; ✔ ggplot2   3.5.0     ✔ tibble    3.2.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.0</span></span>
+<span><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
+<span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span></code></pre></div>
+</div>
+<div id="part-i" class="section level2 unnumbered">
+<h2>Part I<a class="anchor" aria-label="anchor" href="#part-i"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercise-1-11" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-11"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Write and Use a Function
+<strong>Objective:</strong> Create a function that calculates the cube of a number and use this function to calculate the cube of 3.</p>
+<p><strong>Hint:</strong> Use the structure of the square_function as a template.</p>
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cube_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Using the function</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">cube_function</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 27</span></span></code></pre></div>
+</div>
+<div id="exercise-2-9" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-9"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Analyze a Numeric Vector
+<strong>Objective:</strong> Write a function named summarize_vector that takes a numeric vector as input and calculates the median, variance, and creates a boxplot. The function should print the median and variance, and return them as a list. Use the airquality$Ozone data for analysis.</p>
+<p><strong>Hint:</strong> Similar to analyze_vector, check if the input is numeric and use median, var, and <code>boxplot</code> functions.</p>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">summarize_vector</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">plot_title</span> <span class="op">=</span> <span class="st">"Boxplot"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Input must be a numeric vector"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="va">median_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">variance_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Median:"</span>, <span class="va">median_value</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Variance:"</span>, <span class="va">variance_value</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span>, main <span class="op">=</span> <span class="va">plot_title</span>, xlab <span class="op">=</span> <span class="st">"Values"</span>, col <span class="op">=</span> <span class="st">"coral"</span>, border <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>median <span class="op">=</span> <span class="va">median_value</span>, variance <span class="op">=</span> <span class="va">variance_value</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Example usage with the airquality$Ozone vector</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">summarize_vector</span><span class="op">(</span><span class="va">airquality</span><span class="op">$</span><span class="va">Ozone</span>, <span class="st">"Ozone Levels Boxplot"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Median: 31.5 </span></span>
+<span><span class="co">#&gt; Variance: 1088.201</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
+</div>
+<div id="exercise-3-3" class="section level3 unnumbered">
+<h3>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-3"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> Using if Statements
+<strong>Objective:</strong> Create an R script that checks if a number is negative, zero, or positive and prints an appropriate message. Test your script with the number -4.</p>
+<p><strong>Hint:</strong> Use an if statement followed by else if and else.</p>
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">number</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">4</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Positive number"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Zero"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Negative number"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co">#&gt; [1] "Negative number"</span></span></code></pre></div>
+</div>
+<div id="exercise-4-4" class="section level3 unnumbered">
+<h3>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-4"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> For Loop
+<strong>Objective:</strong> Write a function using a for loop that calculates the sum of squares of numbers from 1 to n. Use this function to calculate the sum of squares for n=10.</p>
+<p><strong>Hint:</strong> Iterate from 1 to n, and keep adding the square of each number to a result variable.</p>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sum_of_squares</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="va">result</span> <span class="op">+</span> <span class="va">i</span><span class="op">^</span><span class="fl">2</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">sum_squares_of_10</span> <span class="op">&lt;-</span> <span class="fu">sum_of_squares</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sum_squares_of_10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 385</span></span></code></pre></div>
+</div>
+<div id="exercise-5-4" class="section level3 unnumbered">
+<h3>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-4"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Task:</strong> While Loop
+<strong>Objective:</strong> Write a script using a while loop that finds the smallest number whose cube is greater than 100. Print the number and its cube.</p>
+<p><strong>Hint:</strong> Increment a number starting from 1, and check if its cube is greater than 100 in the while loop condition.</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">number</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="kw">while</span> <span class="op">(</span><span class="va">number</span><span class="op">^</span><span class="fl">3</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">number</span> <span class="op">&lt;-</span> <span class="va">number</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Smallest number whose cube is greater than 100 is:"</span>, <span class="va">number</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Smallest number whose cube is greater than 100 is: 5"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Cube of"</span>, <span class="va">number</span>, <span class="st">"is:"</span>, <span class="va">number</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Cube of 5 is: 125"</span></span></code></pre></div>
+</div>
+</div>
+<div id="part-ii" class="section level2 unnumbered">
+<h2>Part II<a class="anchor" aria-label="anchor" href="#part-ii"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercise-1-12" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-12"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Load the data Parade2005.txt.</li>
+<li>Determine the mean earnings in California.</li>
+<li>Determine the number of individuals residing in Idaho.</li>
+<li>Determine the mean and the median earnings of celebrities.</li>
+</ol>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Parade2005</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/Parade2005.txt'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Parade2005</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   earnings age gender state celebrity</span></span>
+<span><span class="co">#&gt; 1    10000  26   male    ND        no</span></span>
+<span><span class="co">#&gt; 2 10000000  18 female    CA       yes</span></span>
+<span><span class="co">#&gt; 3    85000  39   male    NE        no</span></span>
+<span><span class="co">#&gt; 4    75000  50 female    NC        no</span></span>
+<span><span class="co">#&gt; 5    91500  61   male    DE        no</span></span>
+<span><span class="co">#&gt; 6    49500  39 female    SD        no</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Parade2005</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"CA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">earnings</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      mean</span></span>
+<span><span class="co">#&gt; 1 6241430</span></span>
+<span><span class="va">Parade2005</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"CA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">earnings</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   `state == "CA"`     mean</span></span>
+<span><span class="co">#&gt;   &lt;lgl&gt;              &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 FALSE           1108577.</span></span>
+<span><span class="co">#&gt; 2 TRUE            6241430</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Parade2005</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"ID"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   number</span></span>
+<span><span class="co">#&gt; 1      5</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Parade2005</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">celebrity</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">earnings</span><span class="op">)</span>, median <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">earnings</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span><span class="co">#&gt;   celebrity      mean   median</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 no           61038.    49500</span></span>
+<span><span class="co">#&gt; 2 yes       17107273. 19000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Parade2005</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">celebrity</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">celebrity</span>, y <span class="op">=</span> <span class="va">earnings</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">earnings</span><span class="op">~</span> <span class="va">celebrity</span> , data<span class="op">=</span> <span class="va">Parade2005</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
+</div>
+<div id="exercise-2-10" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-10"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use the skills you obtained in Part I.</p>
+<ol style="list-style-type: decimal">
+<li>Inspect the top rows of the data set.</li>
+<li>How many observations does the data set contain?</li>
+<li>Calculate the total exposure (exposition) in each region (type_territoire).</li>
+</ol>
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/PolicyData.csv'</span>, sep <span class="op">=</span> <span class="st">';'</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">policy_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   numeropol  debut_pol    fin_pol freq_paiement langue</span></span>
+<span><span class="co">#&gt; 1         3 14/09/1995 24/04/1996       mensuel      F</span></span>
+<span><span class="co">#&gt; 2         3 25/04/1996 23/12/1996       mensuel      F</span></span>
+<span><span class="co">#&gt; 3         6  1/03/1995 27/02/1996        annuel      A</span></span>
+<span><span class="co">#&gt; 4         6  1/03/1996 14/01/1997        annuel      A</span></span>
+<span><span class="co">#&gt; 5         6 15/01/1997 31/01/1997        annuel      A</span></span>
+<span><span class="co">#&gt; 6         6  1/02/1997 28/02/1997        annuel      A</span></span>
+<span><span class="co">#&gt;    type_prof     alimentation type_territoire</span></span>
+<span><span class="co">#&gt; 1 Technicien V\xe9g\xe9tarien          Urbain</span></span>
+<span><span class="co">#&gt; 2 Technicien V\xe9g\xe9tarien          Urbain</span></span>
+<span><span class="co">#&gt; 3 Technicien        Carnivore          Urbain</span></span>
+<span><span class="co">#&gt; 4 Technicien        Carnivore          Urbain</span></span>
+<span><span class="co">#&gt; 5 Technicien        Carnivore          Urbain</span></span>
+<span><span class="co">#&gt; 6 Technicien        Carnivore          Urbain</span></span>
+<span><span class="co">#&gt;           utilisation presence_alarme marque_voiture sexe</span></span>
+<span><span class="co">#&gt; 1   Travail-quotidien             non     VOLKSWAGEN    F</span></span>
+<span><span class="co">#&gt; 2   Travail-quotidien             non     VOLKSWAGEN    F</span></span>
+<span><span class="co">#&gt; 3 Travail-occasionnel             oui         NISSAN    M</span></span>
+<span><span class="co">#&gt; 4 Travail-occasionnel             oui         NISSAN    M</span></span>
+<span><span class="co">#&gt; 5 Travail-occasionnel             oui         NISSAN    M</span></span>
+<span><span class="co">#&gt; 6 Travail-occasionnel             oui         NISSAN    M</span></span>
+<span><span class="co">#&gt;      cout1 cout2 cout3 cout4 nbsin exposition   cout age</span></span>
+<span><span class="co">#&gt; 1       NA    NA    NA    NA     0 0.61095890     NA  29</span></span>
+<span><span class="co">#&gt; 2       NA    NA    NA    NA     0 0.66301370     NA  30</span></span>
+<span><span class="co">#&gt; 3 279.5839    NA    NA    NA     1 0.99452055 279.58  42</span></span>
+<span><span class="co">#&gt; 4       NA    NA    NA    NA     0 0.87397260     NA  43</span></span>
+<span><span class="co">#&gt; 5       NA    NA    NA    NA     0 0.04383562     NA  44</span></span>
+<span><span class="co">#&gt; 6       NA    NA    NA    NA     0 0.07397260     NA  44</span></span>
+<span><span class="co">#&gt;   duree_permis annee_vehicule</span></span>
+<span><span class="co">#&gt; 1           10           1989</span></span>
+<span><span class="co">#&gt; 2           11           1989</span></span>
+<span><span class="co">#&gt; 3           21           1994</span></span>
+<span><span class="co">#&gt; 4           22           1994</span></span>
+<span><span class="co">#&gt; 5           23           1994</span></span>
+<span><span class="co">#&gt; 6           23           1994</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">policy_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 39075</span></span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">type_territoire</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>exposure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">exposition</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span><span class="co">#&gt;   type_territoire exposure</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 Rural               684.</span></span>
+<span><span class="co">#&gt; 2 Semi-urbain       16944.</span></span>
+<span><span class="co">#&gt; 3 Urbain            11050.</span></span></code></pre></div>
+</div>
+<div id="exercise-3-4" class="section level3 unnumbered">
+<h3>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use the skills obtained in Part I:</p>
+<ol style="list-style-type: decimal">
+<li>Inspect the top rows of the data.</li>
+<li>Select the data for countries in Asia.</li>
+<li>Which type of variable is <code>country</code>?</li>
+</ol>
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 6</span></span>
+<span><span class="co">#&gt;   country     continent  year lifeExp      pop gdpPercap</span></span>
+<span><span class="co">#&gt;   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 Afghanistan Asia       1952    28.8  8425333      779.</span></span>
+<span><span class="co">#&gt; 2 Afghanistan Asia       1957    30.3  9240934      821.</span></span>
+<span><span class="co">#&gt; 3 Afghanistan Asia       1962    32.0 10267083      853.</span></span>
+<span><span class="co">#&gt; 4 Afghanistan Asia       1967    34.0 11537966      836.</span></span>
+<span><span class="co">#&gt; 5 Afghanistan Asia       1972    36.1 13079460      740.</span></span>
+<span><span class="co">#&gt; 6 Afghanistan Asia       1977    38.4 14880372      786.</span></span>
+<span><span class="va">asia</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">continent</span> <span class="op">==</span> <span class="st">"Asia"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "factor"</span></span></code></pre></div>
+</div>
+<div id="exercise-4-5" class="section level3 unnumbered">
+<h3>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>The variable country in the gapminder data set is a factor variable.</p>
+<ol style="list-style-type: decimal">
+<li>What are the possible levels for country in the subset asia.</li>
+<li>Is this the result you expected?</li>
+</ol>
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span>
+<span><span class="va">gapminder</span></span>
+<span><span class="co">#&gt; # A tibble: 1,704 × 6</span></span>
+<span><span class="co">#&gt;    country     continent  year lifeExp      pop gdpPercap</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.</span></span>
+<span><span class="co">#&gt;  2 Afghanistan Asia       1957    30.3  9240934      821.</span></span>
+<span><span class="co">#&gt;  3 Afghanistan Asia       1962    32.0 10267083      853.</span></span>
+<span><span class="co">#&gt;  4 Afghanistan Asia       1967    34.0 11537966      836.</span></span>
+<span><span class="co">#&gt;  5 Afghanistan Asia       1972    36.1 13079460      740.</span></span>
+<span><span class="co">#&gt;  6 Afghanistan Asia       1977    38.4 14880372      786.</span></span>
+<span><span class="co">#&gt;  7 Afghanistan Asia       1982    39.9 12881816      978.</span></span>
+<span><span class="co">#&gt;  8 Afghanistan Asia       1987    40.8 13867957      852.</span></span>
+<span><span class="co">#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.</span></span>
+<span><span class="co">#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.</span></span>
+<span><span class="co">#&gt; # ℹ 1,694 more rows</span></span>
+<span><span class="co"># Subset data for Asian countries</span></span>
+<span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">continent</span> <span class="op">==</span> <span class="st">"Asia"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">asia</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   [1] "Afghanistan"              "Albania"                 </span></span>
+<span><span class="co">#&gt;   [3] "Algeria"                  "Angola"                  </span></span>
+<span><span class="co">#&gt;   [5] "Argentina"                "Australia"               </span></span>
+<span><span class="co">#&gt;   [7] "Austria"                  "Bahrain"                 </span></span>
+<span><span class="co">#&gt;   [9] "Bangladesh"               "Belgium"                 </span></span>
+<span><span class="co">#&gt;  [11] "Benin"                    "Bolivia"                 </span></span>
+<span><span class="co">#&gt;  [13] "Bosnia and Herzegovina"   "Botswana"                </span></span>
+<span><span class="co">#&gt;  [15] "Brazil"                   "Bulgaria"                </span></span>
+<span><span class="co">#&gt;  [17] "Burkina Faso"             "Burundi"                 </span></span>
+<span><span class="co">#&gt;  [19] "Cambodia"                 "Cameroon"                </span></span>
+<span><span class="co">#&gt;  [21] "Canada"                   "Central African Republic"</span></span>
+<span><span class="co">#&gt;  [23] "Chad"                     "Chile"                   </span></span>
+<span><span class="co">#&gt;  [25] "China"                    "Colombia"                </span></span>
+<span><span class="co">#&gt;  [27] "Comoros"                  "Congo, Dem. Rep."        </span></span>
+<span><span class="co">#&gt;  [29] "Congo, Rep."              "Costa Rica"              </span></span>
+<span><span class="co">#&gt;  [31] "Cote d'Ivoire"            "Croatia"                 </span></span>
+<span><span class="co">#&gt;  [33] "Cuba"                     "Czech Republic"          </span></span>
+<span><span class="co">#&gt;  [35] "Denmark"                  "Djibouti"                </span></span>
+<span><span class="co">#&gt;  [37] "Dominican Republic"       "Ecuador"                 </span></span>
+<span><span class="co">#&gt;  [39] "Egypt"                    "El Salvador"             </span></span>
+<span><span class="co">#&gt;  [41] "Equatorial Guinea"        "Eritrea"                 </span></span>
+<span><span class="co">#&gt;  [43] "Ethiopia"                 "Finland"                 </span></span>
+<span><span class="co">#&gt;  [45] "France"                   "Gabon"                   </span></span>
+<span><span class="co">#&gt;  [47] "Gambia"                   "Germany"                 </span></span>
+<span><span class="co">#&gt;  [49] "Ghana"                    "Greece"                  </span></span>
+<span><span class="co">#&gt;  [51] "Guatemala"                "Guinea"                  </span></span>
+<span><span class="co">#&gt;  [53] "Guinea-Bissau"            "Haiti"                   </span></span>
+<span><span class="co">#&gt;  [55] "Honduras"                 "Hong Kong, China"        </span></span>
+<span><span class="co">#&gt;  [57] "Hungary"                  "Iceland"                 </span></span>
+<span><span class="co">#&gt;  [59] "India"                    "Indonesia"               </span></span>
+<span><span class="co">#&gt;  [61] "Iran"                     "Iraq"                    </span></span>
+<span><span class="co">#&gt;  [63] "Ireland"                  "Israel"                  </span></span>
+<span><span class="co">#&gt;  [65] "Italy"                    "Jamaica"                 </span></span>
+<span><span class="co">#&gt;  [67] "Japan"                    "Jordan"                  </span></span>
+<span><span class="co">#&gt;  [69] "Kenya"                    "Korea, Dem. Rep."        </span></span>
+<span><span class="co">#&gt;  [71] "Korea, Rep."              "Kuwait"                  </span></span>
+<span><span class="co">#&gt;  [73] "Lebanon"                  "Lesotho"                 </span></span>
+<span><span class="co">#&gt;  [75] "Liberia"                  "Libya"                   </span></span>
+<span><span class="co">#&gt;  [77] "Madagascar"               "Malawi"                  </span></span>
+<span><span class="co">#&gt;  [79] "Malaysia"                 "Mali"                    </span></span>
+<span><span class="co">#&gt;  [81] "Mauritania"               "Mauritius"               </span></span>
+<span><span class="co">#&gt;  [83] "Mexico"                   "Mongolia"                </span></span>
+<span><span class="co">#&gt;  [85] "Montenegro"               "Morocco"                 </span></span>
+<span><span class="co">#&gt;  [87] "Mozambique"               "Myanmar"                 </span></span>
+<span><span class="co">#&gt;  [89] "Namibia"                  "Nepal"                   </span></span>
+<span><span class="co">#&gt;  [91] "Netherlands"              "New Zealand"             </span></span>
+<span><span class="co">#&gt;  [93] "Nicaragua"                "Niger"                   </span></span>
+<span><span class="co">#&gt;  [95] "Nigeria"                  "Norway"                  </span></span>
+<span><span class="co">#&gt;  [97] "Oman"                     "Pakistan"                </span></span>
+<span><span class="co">#&gt;  [99] "Panama"                   "Paraguay"                </span></span>
+<span><span class="co">#&gt; [101] "Peru"                     "Philippines"             </span></span>
+<span><span class="co">#&gt; [103] "Poland"                   "Portugal"                </span></span>
+<span><span class="co">#&gt; [105] "Puerto Rico"              "Reunion"                 </span></span>
+<span><span class="co">#&gt; [107] "Romania"                  "Rwanda"                  </span></span>
+<span><span class="co">#&gt; [109] "Sao Tome and Principe"    "Saudi Arabia"            </span></span>
+<span><span class="co">#&gt; [111] "Senegal"                  "Serbia"                  </span></span>
+<span><span class="co">#&gt; [113] "Sierra Leone"             "Singapore"               </span></span>
+<span><span class="co">#&gt; [115] "Slovak Republic"          "Slovenia"                </span></span>
+<span><span class="co">#&gt; [117] "Somalia"                  "South Africa"            </span></span>
+<span><span class="co">#&gt; [119] "Spain"                    "Sri Lanka"               </span></span>
+<span><span class="co">#&gt; [121] "Sudan"                    "Swaziland"               </span></span>
+<span><span class="co">#&gt; [123] "Sweden"                   "Switzerland"             </span></span>
+<span><span class="co">#&gt; [125] "Syria"                    "Taiwan"                  </span></span>
+<span><span class="co">#&gt; [127] "Tanzania"                 "Thailand"                </span></span>
+<span><span class="co">#&gt; [129] "Togo"                     "Trinidad and Tobago"     </span></span>
+<span><span class="co">#&gt; [131] "Tunisia"                  "Turkey"                  </span></span>
+<span><span class="co">#&gt; [133] "Uganda"                   "United Kingdom"          </span></span>
+<span><span class="co">#&gt; [135] "United States"            "Uruguay"                 </span></span>
+<span><span class="co">#&gt; [137] "Venezuela"                "Vietnam"                 </span></span>
+<span><span class="co">#&gt; [139] "West Bank and Gaza"       "Yemen, Rep."             </span></span>
+<span><span class="co">#&gt; [141] "Zambia"                   "Zimbabwe"</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#alternative</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">continent</span> <span class="op">==</span> <span class="st">"Asia"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">asia</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   [1] "Afghanistan"              "Albania"                 </span></span>
+<span><span class="co">#&gt;   [3] "Algeria"                  "Angola"                  </span></span>
+<span><span class="co">#&gt;   [5] "Argentina"                "Australia"               </span></span>
+<span><span class="co">#&gt;   [7] "Austria"                  "Bahrain"                 </span></span>
+<span><span class="co">#&gt;   [9] "Bangladesh"               "Belgium"                 </span></span>
+<span><span class="co">#&gt;  [11] "Benin"                    "Bolivia"                 </span></span>
+<span><span class="co">#&gt;  [13] "Bosnia and Herzegovina"   "Botswana"                </span></span>
+<span><span class="co">#&gt;  [15] "Brazil"                   "Bulgaria"                </span></span>
+<span><span class="co">#&gt;  [17] "Burkina Faso"             "Burundi"                 </span></span>
+<span><span class="co">#&gt;  [19] "Cambodia"                 "Cameroon"                </span></span>
+<span><span class="co">#&gt;  [21] "Canada"                   "Central African Republic"</span></span>
+<span><span class="co">#&gt;  [23] "Chad"                     "Chile"                   </span></span>
+<span><span class="co">#&gt;  [25] "China"                    "Colombia"                </span></span>
+<span><span class="co">#&gt;  [27] "Comoros"                  "Congo, Dem. Rep."        </span></span>
+<span><span class="co">#&gt;  [29] "Congo, Rep."              "Costa Rica"              </span></span>
+<span><span class="co">#&gt;  [31] "Cote d'Ivoire"            "Croatia"                 </span></span>
+<span><span class="co">#&gt;  [33] "Cuba"                     "Czech Republic"          </span></span>
+<span><span class="co">#&gt;  [35] "Denmark"                  "Djibouti"                </span></span>
+<span><span class="co">#&gt;  [37] "Dominican Republic"       "Ecuador"                 </span></span>
+<span><span class="co">#&gt;  [39] "Egypt"                    "El Salvador"             </span></span>
+<span><span class="co">#&gt;  [41] "Equatorial Guinea"        "Eritrea"                 </span></span>
+<span><span class="co">#&gt;  [43] "Ethiopia"                 "Finland"                 </span></span>
+<span><span class="co">#&gt;  [45] "France"                   "Gabon"                   </span></span>
+<span><span class="co">#&gt;  [47] "Gambia"                   "Germany"                 </span></span>
+<span><span class="co">#&gt;  [49] "Ghana"                    "Greece"                  </span></span>
+<span><span class="co">#&gt;  [51] "Guatemala"                "Guinea"                  </span></span>
+<span><span class="co">#&gt;  [53] "Guinea-Bissau"            "Haiti"                   </span></span>
+<span><span class="co">#&gt;  [55] "Honduras"                 "Hong Kong, China"        </span></span>
+<span><span class="co">#&gt;  [57] "Hungary"                  "Iceland"                 </span></span>
+<span><span class="co">#&gt;  [59] "India"                    "Indonesia"               </span></span>
+<span><span class="co">#&gt;  [61] "Iran"                     "Iraq"                    </span></span>
+<span><span class="co">#&gt;  [63] "Ireland"                  "Israel"                  </span></span>
+<span><span class="co">#&gt;  [65] "Italy"                    "Jamaica"                 </span></span>
+<span><span class="co">#&gt;  [67] "Japan"                    "Jordan"                  </span></span>
+<span><span class="co">#&gt;  [69] "Kenya"                    "Korea, Dem. Rep."        </span></span>
+<span><span class="co">#&gt;  [71] "Korea, Rep."              "Kuwait"                  </span></span>
+<span><span class="co">#&gt;  [73] "Lebanon"                  "Lesotho"                 </span></span>
+<span><span class="co">#&gt;  [75] "Liberia"                  "Libya"                   </span></span>
+<span><span class="co">#&gt;  [77] "Madagascar"               "Malawi"                  </span></span>
+<span><span class="co">#&gt;  [79] "Malaysia"                 "Mali"                    </span></span>
+<span><span class="co">#&gt;  [81] "Mauritania"               "Mauritius"               </span></span>
+<span><span class="co">#&gt;  [83] "Mexico"                   "Mongolia"                </span></span>
+<span><span class="co">#&gt;  [85] "Montenegro"               "Morocco"                 </span></span>
+<span><span class="co">#&gt;  [87] "Mozambique"               "Myanmar"                 </span></span>
+<span><span class="co">#&gt;  [89] "Namibia"                  "Nepal"                   </span></span>
+<span><span class="co">#&gt;  [91] "Netherlands"              "New Zealand"             </span></span>
+<span><span class="co">#&gt;  [93] "Nicaragua"                "Niger"                   </span></span>
+<span><span class="co">#&gt;  [95] "Nigeria"                  "Norway"                  </span></span>
+<span><span class="co">#&gt;  [97] "Oman"                     "Pakistan"                </span></span>
+<span><span class="co">#&gt;  [99] "Panama"                   "Paraguay"                </span></span>
+<span><span class="co">#&gt; [101] "Peru"                     "Philippines"             </span></span>
+<span><span class="co">#&gt; [103] "Poland"                   "Portugal"                </span></span>
+<span><span class="co">#&gt; [105] "Puerto Rico"              "Reunion"                 </span></span>
+<span><span class="co">#&gt; [107] "Romania"                  "Rwanda"                  </span></span>
+<span><span class="co">#&gt; [109] "Sao Tome and Principe"    "Saudi Arabia"            </span></span>
+<span><span class="co">#&gt; [111] "Senegal"                  "Serbia"                  </span></span>
+<span><span class="co">#&gt; [113] "Sierra Leone"             "Singapore"               </span></span>
+<span><span class="co">#&gt; [115] "Slovak Republic"          "Slovenia"                </span></span>
+<span><span class="co">#&gt; [117] "Somalia"                  "South Africa"            </span></span>
+<span><span class="co">#&gt; [119] "Spain"                    "Sri Lanka"               </span></span>
+<span><span class="co">#&gt; [121] "Sudan"                    "Swaziland"               </span></span>
+<span><span class="co">#&gt; [123] "Sweden"                   "Switzerland"             </span></span>
+<span><span class="co">#&gt; [125] "Syria"                    "Taiwan"                  </span></span>
+<span><span class="co">#&gt; [127] "Tanzania"                 "Thailand"                </span></span>
+<span><span class="co">#&gt; [129] "Togo"                     "Trinidad and Tobago"     </span></span>
+<span><span class="co">#&gt; [131] "Tunisia"                  "Turkey"                  </span></span>
+<span><span class="co">#&gt; [133] "Uganda"                   "United Kingdom"          </span></span>
+<span><span class="co">#&gt; [135] "United States"            "Uruguay"                 </span></span>
+<span><span class="co">#&gt; [137] "Venezuela"                "Vietnam"                 </span></span>
+<span><span class="co">#&gt; [139] "West Bank and Gaza"       "Yemen, Rep."             </span></span>
+<span><span class="co">#&gt; [141] "Zambia"                   "Zimbabwe"</span></span></code></pre></div>
+<p><code>asia$country</code> allows the same outcomes as <code>gapminder$country</code>. This includes many countries outside of Asia.</p>
+<p>In some cases, even after filtering a dataset, the factor levels of the subset might still include all levels present in the original dataset. This is because subsetting the rows does not automatically drop unused factor levels. To see only the levels that are present in the subset, you might need to use <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code>:</p>
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">asia</span><span class="op">$</span><span class="va">country</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="va">asia</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">asia</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "Afghanistan"        "Bahrain"           </span></span>
+<span><span class="co">#&gt;  [3] "Bangladesh"         "Cambodia"          </span></span>
+<span><span class="co">#&gt;  [5] "China"              "Hong Kong, China"  </span></span>
+<span><span class="co">#&gt;  [7] "India"              "Indonesia"         </span></span>
+<span><span class="co">#&gt;  [9] "Iran"               "Iraq"              </span></span>
+<span><span class="co">#&gt; [11] "Israel"             "Japan"             </span></span>
+<span><span class="co">#&gt; [13] "Jordan"             "Korea, Dem. Rep."  </span></span>
+<span><span class="co">#&gt; [15] "Korea, Rep."        "Kuwait"            </span></span>
+<span><span class="co">#&gt; [17] "Lebanon"            "Malaysia"          </span></span>
+<span><span class="co">#&gt; [19] "Mongolia"           "Myanmar"           </span></span>
+<span><span class="co">#&gt; [21] "Nepal"              "Oman"              </span></span>
+<span><span class="co">#&gt; [23] "Pakistan"           "Philippines"       </span></span>
+<span><span class="co">#&gt; [25] "Saudi Arabia"       "Singapore"         </span></span>
+<span><span class="co">#&gt; [27] "Sri Lanka"          "Syria"             </span></span>
+<span><span class="co">#&gt; [29] "Taiwan"             "Thailand"          </span></span>
+<span><span class="co">#&gt; [31] "Vietnam"            "West Bank and Gaza"</span></span>
+<span><span class="co">#&gt; [33] "Yemen, Rep."</span></span></code></pre></div>
+</div>
+</div>
+<div id="exercise-5-5" class="section level2 unnumbered">
+<h2>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bin the life expectancy in 2007 in a factor variable.
+1. Select the observations for year 2007.
+2. Bin the life expectancy in four bins of roughly equal size (hint: quantile).
+3. How many observations are there in each bin?</p>
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder2007</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">year</span> <span class="op">==</span> <span class="fl">2007</span><span class="op">)</span></span>
+<span><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">$</span><span class="va">lifeExp</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>, <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="va">breaks</span></span>
+<span><span class="co">#&gt;               25%      50%      75%          </span></span>
+<span><span class="co">#&gt;  0.00000 57.16025 71.93550 76.41325      Inf</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder2007</span> <span class="op">&lt;-</span> <span class="va">gapminder2007</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>life_expectancy_binned <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">$</span><span class="va">lifeExp</span>, <span class="va">breaks</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder2007</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">life_expectancy_binned</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>frequency <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span><span class="co">#&gt;   life_expectancy_binned frequency</span></span>
+<span><span class="co">#&gt;   &lt;fct&gt;                      &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 (0,57.2]                      36</span></span>
+<span><span class="co">#&gt; 2 (57.2,71.9]                   35</span></span>
+<span><span class="co">#&gt; 3 (71.9,76.4]                   35</span></span>
+<span><span class="co">#&gt; 4 (76.4,Inf]                    36</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gapminder2007</span></span>
+<span><span class="co">#&gt; # A tibble: 142 × 7</span></span>
+<span><span class="co">#&gt;    country     continent  year lifeExp       pop gdpPercap</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Afghanistan Asia       2007    43.8  31889923      975.</span></span>
+<span><span class="co">#&gt;  2 Albania     Europe     2007    76.4   3600523     5937.</span></span>
+<span><span class="co">#&gt;  3 Algeria     Africa     2007    72.3  33333216     6223.</span></span>
+<span><span class="co">#&gt;  4 Angola      Africa     2007    42.7  12420476     4797.</span></span>
+<span><span class="co">#&gt;  5 Argentina   Americas   2007    75.3  40301927    12779.</span></span>
+<span><span class="co">#&gt;  6 Australia   Oceania    2007    81.2  20434176    34435.</span></span>
+<span><span class="co">#&gt;  7 Austria     Europe     2007    79.8   8199783    36126.</span></span>
+<span><span class="co">#&gt;  8 Bahrain     Asia       2007    75.6    708573    29796.</span></span>
+<span><span class="co">#&gt;  9 Bangladesh  Asia       2007    64.1 150448339     1391.</span></span>
+<span><span class="co">#&gt; 10 Belgium     Europe     2007    79.4  10392226    33693.</span></span>
+<span><span class="co">#&gt; # ℹ 132 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: life_expectancy_binned &lt;fct&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">$</span><span class="va">life_expectancy_binned</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">$</span><span class="va">continent</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">life_expectancy_binned</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-26-1.png" width="672"></div>
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">life_expectancy_binned</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">continent</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-27-1.png" width="672"></div>
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">life_expectancy_binned</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">continent</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-28-1.png" width="672"></div>
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gapminder2007</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">life_expectancy_binned</span>,</span>
+<span>               fill <span class="op">=</span> <span class="va">continent</span>,</span>
+<span>               y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span>, group <span class="op">=</span> <span class="va">continent</span><span class="op">)</span>,</span>
+<span>           position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="151_SOLVED_Workshop2_files/figure-html/unnamed-chunk-29-1.png" width="672"></div>
+<p>y = <code>..prop..</code> and <code>group = continent</code> plot the proportion within each group instead of the absolute count.</p>
+</div>
+<div id="handling-missing-data-1" class="section level2 unnumbered">
+<h2>Handling Missing Data<a class="anchor" aria-label="anchor" href="#handling-missing-data-1"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="exercise-1-explore-missingness-1" class="section level2 unnumbered">
+<h2>Exercise 1: Explore Missingness<a class="anchor" aria-label="anchor" href="#exercise-1-explore-missingness-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> ChickWeight</p>
+<p><strong>Task:</strong> Determine if the ChickWeight dataset contains any missing values. Print a message stating whether the dataset has missing values or not.</p>
+<p><em>Hint</em> Use the any() function combined with is.na() applied to the dataset.</p>
+<p>How to use any()</p>
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">e</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">e</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ChickWeight</span><span class="op">)</span></span>
+<span><span class="co"># Check for missing values in the ChickWeight dataset</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ChickWeight</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"The dataset contains missing values."</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"The dataset does not contain missing values."</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co">#&gt; [1] "The dataset does not contain missing values."</span></span></code></pre></div>
+</div>
+<div id="exercise-2-calculate-summary-statistics-before-handling-na-1" class="section level2 unnumbered">
+<h2>Exercise 2: Calculate Summary Statistics Before Handling NA<a class="anchor" aria-label="anchor" href="#exercise-2-calculate-summary-statistics-before-handling-na-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> mtcars</p>
+<p><strong>Task:</strong> The mtcars dataset is almost complete but let’s pretend some values are missing in the mpg (miles per gallon) column. First, artificially introduce missing values into the mpg column (e.g., set the first three values of mpg to NA). Then, calculate and print the mean and standard deviation of mpg without removing or imputing the missing values.</p>
+<p><em>Hint:</em> Modify the mtcars$mpg directly to introduce NAs. Use mean() and sd() functions with na.rm = FALSE to calculate statistics without handling NA.</p>
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Artificially introduce missing values into the mpg column of mtcars</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span></span>
+<span><span class="co"># Calculate and print the mean and standard deviation without removing NA</span></span>
+<span><span class="va">mean_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">sd_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Mean of mpg without handling NA:"</span>, <span class="va">mean_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Mean of mpg without handling NA: NA"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Standard deviation of mpg without handling NA:"</span>, <span class="va">sd_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Standard deviation of mpg without handling NA: NA"</span></span></code></pre></div>
+</div>
+<div id="exercise-3-impute-missing-values-with-column-median-1" class="section level2 unnumbered">
+<h2>Exercise 3: Impute Missing Values with Column Median<a class="anchor" aria-label="anchor" href="#exercise-3-impute-missing-values-with-column-median-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> mtcars with modified mpg</p>
+<p><strong>Task:</strong> First Calculate the mean and standard deviation handling the missing values.</p>
+<p>Then,Impute the artificially introduced missing values in the mpg column with the column’s median (excluding the missing values). Print the first 6 rows of the modified mtcars dataset.</p>
+<p>Now, calculate the mean and standard deviation with the imputed values.</p>
+<p><em>Hint:</em> First, calculate the median of mpg excluding NAs. Then, use indexing to replace NAs with this median.</p>
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">mean_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">sd_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Mean of mpg  handling NA:"</span>, <span class="va">mean_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Mean of mpg  handling NA: 19.9344827586207"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Standard deviation of mpg  handling NA:"</span>, <span class="va">sd_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Standard deviation of mpg  handling NA: 6.31422859568932"</span></span>
+<span></span>
+<span><span class="co"># Calculate the median of mpg excluding NAs</span></span>
+<span><span class="va">median_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">median_mpg</span></span>
+<span><span class="co">#&gt; [1] 18.7</span></span>
+<span><span class="co"># Impute the missing values with the median</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">median_mpg</span></span>
+<span></span>
+<span><span class="co"># Print the first 6 rows of the modified mtcars dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am</span></span>
+<span><span class="co">#&gt; Mazda RX4         18.7   6  160 110 3.90 2.620 16.46  0  1</span></span>
+<span><span class="co">#&gt; Mazda RX4 Wag     18.7   6  160 110 3.90 2.875 17.02  0  1</span></span>
+<span><span class="co">#&gt; Datsun 710        18.7   4  108  93 3.85 2.320 18.61  1  1</span></span>
+<span><span class="co">#&gt; Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0</span></span>
+<span><span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0</span></span>
+<span><span class="co">#&gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0</span></span>
+<span><span class="co">#&gt;                   gear carb</span></span>
+<span><span class="co">#&gt; Mazda RX4            4    4</span></span>
+<span><span class="co">#&gt; Mazda RX4 Wag        4    4</span></span>
+<span><span class="co">#&gt; Datsun 710           4    1</span></span>
+<span><span class="co">#&gt; Hornet 4 Drive       3    1</span></span>
+<span><span class="co">#&gt; Hornet Sportabout    3    2</span></span>
+<span><span class="co">#&gt; Valiant              3    1</span></span>
+<span><span class="co">##</span></span>
+<span><span class="va">mean_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></span>
+<span><span class="va">sd_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Mean of mpg  imputed NA:"</span>, <span class="va">mean_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Mean of mpg  imputed NA: 19.81875"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Standard deviation of mpg imputed NA:"</span>, <span class="va">sd_mpg</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Standard deviation of mpg imputed NA: 6.01205442316491"</span></span></code></pre></div>
+</div>
+<div id="exercise-4-identifying-complete-rows-1" class="section level2 unnumbered">
+<h2>Exercise 4: Identifying Complete Rows<a class="anchor" aria-label="anchor" href="#exercise-4-identifying-complete-rows-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> Airquality</p>
+<p><strong>Task:</strong> Before any analysis, you want to ensure that only complete cases are used. Create a new dataset from airquality that includes only the rows without any missing values. Print the number of rows in the original versus the cleaned dataset.</p>
+<p><em>Hint</em> Use complete.cases() on the dataset and then subset it.</p>
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"airquality"</span><span class="op">)</span></span>
+<span><span class="co"># Create a new dataset from airquality that includes only rows without any missing values</span></span>
+<span><span class="va">complete_Airquality</span><span class="op">&lt;-</span> <span class="va">airquality</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Print the number of rows in the original versus the cleaned dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Original dataset rows:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Original dataset rows: 153"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Cleaned dataset rows:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">complete_Airquality</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Cleaned dataset rows: 111"</span></span></code></pre></div>
+</div>
+<div id="exercise-5-advanced-imputation-on-a-subset-1" class="section level2 unnumbered">
+<h2>Exercise 5: Advanced Imputation on a Subset<a class="anchor" aria-label="anchor" href="#exercise-5-advanced-imputation-on-a-subset-1"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset:</strong> mtcars</p>
+<p><strong>Task:</strong> Create a subset of mtcars containing only the mpg, hp (horsepower), and wt (weight) columns. Introduce missing values in hp and wt columns (e.g., set first two values of each to NA). Perform multiple imputation using the mice package on this subset with 3 imputations, and extract the third completed dataset. Print the first 6 rows of this completed dataset.</p>
+<p><em>Hint:</em> Subset mtcars first, then modify to add NAs. Use mice() for imputation and complete() to extract the desired imputed dataset.</p>
+<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load the necessary package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'mice'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     cbind, rbind</span></span>
+<span></span>
+<span><span class="co"># Create a subset of mtcars</span></span>
+<span><span class="va">mtcars_subset</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mpg"</span>, <span class="st">"hp"</span>, <span class="st">"wt"</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Introduce missing values</span></span>
+<span><span class="va">mtcars_subset</span><span class="op">$</span><span class="va">hp</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span><span class="va">mtcars_subset</span><span class="op">$</span><span class="va">wt</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span></span>
+<span><span class="co"># Perform multiple imputation</span></span>
+<span><span class="va">imputed_data_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/mice.html">mice</a></span><span class="op">(</span><span class="va">mtcars_subset</span>, m<span class="op">=</span><span class="fl">3</span>, method<span class="op">=</span><span class="st">'pmm'</span>, seed <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  iter imp variable</span></span>
+<span><span class="co">#&gt;   1   1  hp  wt</span></span>
+<span><span class="co">#&gt;   1   2  hp  wt</span></span>
+<span><span class="co">#&gt;   1   3  hp  wt</span></span>
+<span><span class="co">#&gt;   2   1  hp  wt</span></span>
+<span><span class="co">#&gt;   2   2  hp  wt</span></span>
+<span><span class="co">#&gt;   2   3  hp  wt</span></span>
+<span><span class="co">#&gt;   3   1  hp  wt</span></span>
+<span><span class="co">#&gt;   3   2  hp  wt</span></span>
+<span><span class="co">#&gt;   3   3  hp  wt</span></span>
+<span><span class="co">#&gt;   4   1  hp  wt</span></span>
+<span><span class="co">#&gt;   4   2  hp  wt</span></span>
+<span><span class="co">#&gt;   4   3  hp  wt</span></span>
+<span><span class="co">#&gt;   5   1  hp  wt</span></span>
+<span><span class="co">#&gt;   5   2  hp  wt</span></span>
+<span><span class="co">#&gt;   5   3  hp  wt</span></span>
+<span></span>
+<span><span class="co"># Extract the third completed dataset</span></span>
+<span><span class="va">completed_data_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html">complete</a></span><span class="op">(</span><span class="va">imputed_data_subset</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the first 6 rows of the completed data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">completed_data_subset</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                    mpg  hp    wt</span></span>
+<span><span class="co">#&gt; Mazda RX4         18.7 175 3.440</span></span>
+<span><span class="co">#&gt; Mazda RX4 Wag     18.7 109 3.440</span></span>
+<span><span class="co">#&gt; Datsun 710        18.7  93 2.320</span></span>
+<span><span class="co">#&gt; Hornet 4 Drive    21.4 110 3.215</span></span>
+<span><span class="co">#&gt; Hornet Sportabout 18.7 175 3.440</span></span>
+<span><span class="co">#&gt; Valiant           18.1 105 3.460</span></span></code></pre></div>
+
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Sample data for the lengths of bolts</span></span>
+<span><span class="va">bolt_lengths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">7.5</span>, <span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">5.2</span>, <span class="fl">6.1</span>, <span class="fl">6.5</span>, <span class="fl">6.8</span>, <span class="fl">7</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Perform the Wilcoxon Signed-Rank Test</span></span>
+<span><span class="co"># H0: median bolt length = 5 cm</span></span>
+<span><span class="co"># Ha: median bolt length != 5 cm</span></span>
+<span><span class="va">test_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">bolt_lengths</span>, mu <span class="op">=</span> <span class="fl">5</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in wilcox.test.default(bolt_lengths, mu = 5,</span></span>
+<span><span class="co">#&gt; alternative = "two.sided", : cannot compute exact p-value</span></span>
+<span><span class="co">#&gt; with ties</span></span>
+<span><span class="co">#&gt; Warning in wilcox.test.default(bolt_lengths, mu = 5,</span></span>
+<span><span class="co">#&gt; alternative = "two.sided", : cannot compute exact</span></span>
+<span><span class="co">#&gt; confidence interval with ties</span></span>
+<span></span>
+<span><span class="co"># Output the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">test_result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Wilcoxon signed rank test with continuity correction</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  bolt_lengths</span></span>
+<span><span class="co">#&gt; V = 53.5, p-value = 0.009252</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true location is not equal to 5</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  5.500024 6.999965</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; (pseudo)median </span></span>
+<span><span class="co">#&gt;            6.2</span></span>
+<span></span>
+<span><span class="co"># Extract and print the p-value explicitly</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P-value:"</span>, <span class="va">test_result</span><span class="op">$</span><span class="va">p.value</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; P-value: 0.009252446</span></span></code></pre></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="workshop-1-suplementary-exercises-solved.html">Workshop 1: Suplementary Exercises Solved</a></div>
+<div class="next"><a href="references.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#workshop-2">Workshop 2</a></li>
+<li><a class="nav-link" href="#exercise-solutions-1">Exercise solutions</a></li>
+<li>
+<a class="nav-link" href="#part-i">Part I</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-11">Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-9">Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-3">Exercise 3</a></li>
+<li><a class="nav-link" href="#exercise-4-4">Exercise 4</a></li>
+<li><a class="nav-link" href="#exercise-5-4">Exercise 5</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-ii">Part II</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-12">Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-10">Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-3-4">Exercise 3</a></li>
+<li><a class="nav-link" href="#exercise-4-5">Exercise 4</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#exercise-5-5">Exercise 5</a></li>
+<li><a class="nav-link" href="#handling-missing-data-1">Handling Missing Data</a></li>
+<li><a class="nav-link" href="#exercise-1-explore-missingness-1">Exercise 1: Explore Missingness</a></li>
+<li><a class="nav-link" href="#exercise-2-calculate-summary-statistics-before-handling-na-1">Exercise 2: Calculate Summary Statistics Before Handling NA</a></li>
+<li><a class="nav-link" href="#exercise-3-impute-missing-values-with-column-median-1">Exercise 3: Impute Missing Values with Column Median</a></li>
+<li><a class="nav-link" href="#exercise-4-identifying-complete-rows-1">Exercise 4: Identifying Complete Rows</a></li>
+<li><a class="nav-link" href="#exercise-5-advanced-imputation-on-a-subset-1">Exercise 5: Advanced Imputation on a Subset</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/DilanCaro/R-workshop-John-Jay/blob/master/151_SOLVED_Workshop2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/DilanCaro/R-workshop-John-Jay/edit/master/151_SOLVED_Workshop2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Non-parametric Test of Bolts</strong>" was written by Dilan Caro. It was last built on 2024-05-03.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

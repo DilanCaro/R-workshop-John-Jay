@@ -1,6 +1,7 @@
 fig:unnamed-chunk-3
 seq-function
 rep-function
+create-and-format-dates
 difference-between-na-and-nan-in-r
 na-not-available
 nan-not-a-number

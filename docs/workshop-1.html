@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Workshop 1 | Non-parametric Test of Bolts</title>
-<meta name="author" content="Dilan Caro">
+<title>Workshop 1 | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
 <meta name="description" content='Exercise solutions  Exercise 1 Run the following code, then use typeof(), class() functions to find out the data type and/or class object. my_numeric &lt;- 42.5 John_jay &lt;- "university" my_logical &lt;-...'>
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
-<meta property="og:title" content="Workshop 1 | Non-parametric Test of Bolts">
+<meta property="og:title" content="Workshop 1 | R Workshop">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/workshop-1.html">
 <meta property="og:description" content='Exercise solutions  Exercise 1 Run the following code, then use typeof(), class() functions to find out the data type and/or class object. my_numeric &lt;- 42.5 John_jay &lt;- "university" my_logical &lt;-...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Workshop 1 | Non-parametric Test of Bolts">
+<meta name="twitter:title" content="Workshop 1 | R Workshop">
 <meta name="twitter:description" content='Exercise solutions  Exercise 1 Run the following code, then use typeof(), class() functions to find out the data type and/or class object. my_numeric &lt;- 42.5 John_jay &lt;- "university" my_logical &lt;-...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Non-parametric Test of Bolts</a>
+        <a href="index.html" title="">R Workshop</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -59,7 +59,6 @@
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
-<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -82,11 +81,11 @@
 <h2>Exercise solutions<a class="anchor" aria-label="anchor" href="#exercise-solutions"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="exercise-1-7" class="section level2 unnumbered">
-<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-7"><i class="fas fa-link"></i></a>
+<div id="exercise-1-9" class="section level2 unnumbered">
+<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>Run the following code, then use typeof(), class() functions to find out the data type and/or class object.</p>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_numeric</span> <span class="op">&lt;-</span> <span class="fl">42.5</span></span>
 <span><span class="va">John_jay</span> <span class="op">&lt;-</span> <span class="st">"university"</span></span>
 <span><span class="va">my_logical</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
@@ -111,12 +110,12 @@
 <span><span class="co">#&gt; [1] "logical"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_logical</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "logical"</span></span></code></pre></div>
-<div id="exercise-2-6" class="section level3 unnumbered">
-<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-6"><i class="fas fa-link"></i></a>
+<div id="exercise-2-8" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Create 1 datatype of each: Character, numeric, integer, complex, Boolean</p>
 <p>The answers may vary . Below an example of a solution,</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">Best_university_in_nyc</span> <span class="op">&lt;-</span> <span class="st">"John Jay"</span></span>
 <span><span class="va">Best_university_in_nyc</span></span>
@@ -151,11 +150,11 @@
 <h2>Part III<a class="anchor" aria-label="anchor" href="#part-iii"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="exercise-1-8" class="section level2 unnumbered">
-<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-8"><i class="fas fa-link"></i></a>
+<div id="exercise-1-10" class="section level2 unnumbered">
+<h2>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-10"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-1-9" class="section level3 unnumbered">
-<h3>Exercise 1:<a class="anchor" aria-label="anchor" href="#exercise-1-9"><i class="fas fa-link"></i></a>
+<div id="exercise-1-11" class="section level3 unnumbered">
+<h3>Exercise 1:<a class="anchor" aria-label="anchor" href="#exercise-1-11"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Create a vector of your favorite numbers.</li>
@@ -163,19 +162,19 @@
 <li>Create a new vector that is the square of each element in the original vector.</li>
 </ol>
 <p>Create a vector of your favorite numbers.</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_favorite_numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>,<span class="fl">22</span>,<span class="fl">17</span>,<span class="fl">19</span><span class="op">)</span></span></code></pre></div>
 <p>Access the third element in your vector.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_favorite_numbers</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] 17</span></span></code></pre></div>
 <p>Note that R starts indexing from 1. This is somewhat more natural since we start counting at 1 . However, most programming languages start indexing at 0, that is, to access the third element it would be <code>my_favorite_numbers[2]</code> in a language like python .</p>
 <p>Create a new vector that is the square of each element in the original vector.</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">square_favorite_numbers</span><span class="op">&lt;-</span> <span class="va">my_favorite_numbers</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="va">square_favorite_numbers</span></span>
 <span><span class="co">#&gt; [1]  49 484 289 361</span></span></code></pre></div>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dilan Caro"</span>, <span class="st">"Instructor"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Profession"</span><span class="op">)</span></span>
 <span><span class="va">my_vector</span></span>
@@ -183,20 +182,20 @@
 <span><span class="co">#&gt; "Dilan Caro" "Instructor"</span></span></code></pre></div>
 <p>Inspect my_vector using:
 the attributes(), the length() and the str() function</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $names</span></span>
 <span><span class="co">#&gt; [1] "Name"       "Profession"</span></span></code></pre></div>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_vector</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Name"       "Profession"</span></span></code></pre></div>
 </div>
 </div>
-<div id="exercise-2-7" class="section level2 unnumbered">
-<h2>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-7"><i class="fas fa-link"></i></a>
+<div id="exercise-2-9" class="section level2 unnumbered">
+<h2>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-9"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Create a data frame with at least three columns and four rows.</li>
@@ -206,7 +205,7 @@ the attributes(), the length() and the str() function</p>
 <div id="create-a-data-frame-with-at-least-three-columns-and-four-rows." class="section level3 unnumbered">
 <h3>Create a data frame with at least three columns and four rows.<a class="anchor" aria-label="anchor" href="#create-a-data-frame-with-at-least-three-columns-and-four-rows."><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Subject <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Art"</span>, <span class="st">"Bayesian"</span>, <span class="st">"Machine learning"</span>, <span class="st">"Stochastic"</span><span class="op">)</span>,</span>
 <span>  Grade <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">87</span>,<span class="fl">90</span>,<span class="fl">75</span><span class="op">)</span>,</span>
@@ -222,7 +221,7 @@ the attributes(), the length() and the str() function</p>
 <div id="print-the-number-of-rows-and-columns-of-your-data-frame." class="section level3 unnumbered">
 <h3>Print the number of rows and columns of your data frame.<a class="anchor" aria-label="anchor" href="#print-the-number-of-rows-and-columns-of-your-data-frame."><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="co">#&gt; [1] 4 3</span></span></code></pre></div>
 <p>That shows 4 rows, and 3 columns</p>
@@ -230,7 +229,7 @@ the attributes(), the length() and the str() function</p>
 <div id="display-summary-statistics-of-your-data-frame." class="section level3 unnumbered">
 <h3>Display summary statistics of your data frame.<a class="anchor" aria-label="anchor" href="#display-summary-statistics-of-your-data-frame."><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    Subject              Grade         Difficulty   </span></span>
 <span><span class="co">#&gt;  Length:4           Min.   : 75.0   Min.   : 6.00  </span></span>
@@ -241,11 +240,11 @@ the attributes(), the length() and the str() function</p>
 <span><span class="co">#&gt;                     Max.   :100.0   Max.   :10.00</span></span></code></pre></div>
 </div>
 </div>
-<div id="exercise-3-2" class="section level2 unnumbered">
-<h2>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-2"><i class="fas fa-link"></i></a>
+<div id="exercise-3-3" class="section level2 unnumbered">
+<h2>Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>Inspect a built-in data frame</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span></span>
 <span><span class="co">#&gt;                      mpg cyl  disp  hp drat    wt  qsec vs</span></span>
 <span><span class="co">#&gt; Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0</span></span>
@@ -342,12 +341,12 @@ the attributes(), the length() and the str() function</p>
 <span><span class="co">#&gt; Hornet Sportabout    3    2</span></span>
 <span><span class="co">#&gt; Valiant              3    1</span></span></code></pre></div>
 <p>Get summary from a variable in a dataframe</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span> <span class="co"># use $ to extract variable from a data frame</span></span>
 <span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
 <span><span class="co">#&gt;   4.000   4.000   6.000   6.188   8.000   8.000</span></span></code></pre></div>
 <p>Now inspect a tibble</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">diamonds</span></span>
 <span><span class="co">#&gt; # A tibble: 53,940 × 10</span></span>
@@ -392,8 +391,8 @@ the attributes(), the length() and the str() function</p>
 <span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
 <span><span class="co">#&gt;   43.00   61.00   61.80   61.75   62.50   79.00</span></span></code></pre></div>
 </div>
-<div id="exercise-4-3" class="section level2 unnumbered">
-<h2>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-3"><i class="fas fa-link"></i></a>
+<div id="exercise-4-4" class="section level2 unnumbered">
+<h2>Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4-4"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Create a vector <code>fav_music</code> with the names of your favorite artists.</li>
@@ -409,7 +408,7 @@ set of artists).</li>
 <li>Check the structure of the data frame, ask for a <code>summary.</code>
 </li>
 </ol>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fav_music</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Prince"</span>, <span class="st">"REM"</span>, <span class="st">"Ryan Adams"</span>, <span class="st">"BLOF"</span><span class="op">)</span></span>
 <span><span class="va">num_concerts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="va">num_records</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -438,13 +437,13 @@ set of artists).</li>
 <li>Stata: <code><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta()</a></code> reads .dta files. <code><a href="https://haven.tidyverse.org/reference/read_dta.html">write_dta()</a></code> writes .dta files.</li>
 </ul>
 </div>
-<div id="exercise-5-3" class="section level3 unnumbered">
-<h3>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-3"><i class="fas fa-link"></i></a>
+<div id="exercise-5-4" class="section level3 unnumbered">
+<h3>Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Load the following data sets, available in the course material:
 - the Danish fire insurance losses, stored in <code>danish.txt</code>
 - the severity data set, stored in <code>severity.sas7bdat</code>.</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">'/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/'</span><span class="op">)</span></span>
 <span><span class="va">path.danish</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"danish.txt"</span><span class="op">)</span></span>
 <span><span class="va">danish</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="va">path.danish</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -453,7 +452,7 @@ set of artists).</li>
 <span><span class="co">#&gt; 'data.frame':    2167 obs. of  2 variables:</span></span>
 <span><span class="co">#&gt;  $ Date       : Date, format: "1980-01-03" ...</span></span>
 <span><span class="co">#&gt;  $ Loss.in.DKM: num  1.68 2.09 1.73 1.78 4.61 ...</span></span></code></pre></div>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
 <span><span class="va">severity</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">'/Users/dilancaro/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/severity.sas7bdat'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">severity</span><span class="op">)</span></span>
@@ -525,7 +524,7 @@ set of artists).</li>
 <ul>
 <li>Calculate the average age of students grouped by their major using group_by() and summarize() in dplyr.</li>
 </ul>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exercise 1: Subsetting Data Frames</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  student_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,</span>
@@ -534,12 +533,12 @@ set of artists).</li>
 <span>  student_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>, <span class="st">'C'</span>, <span class="st">'B'</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">older_students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">student_info</span>, <span class="va">student_age</span> <span class="op">&gt;</span> <span class="fl">24</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Exercise 2: Using Conditional Filters</span></span>
 <span></span>
 <span><span class="va">grade_a_students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">student_info</span>, <span class="va">student_grade</span> <span class="op">==</span> <span class="st">'A'</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">student_name</span>, <span class="va">student_age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exercise 3: Manipulating Data with dplyr</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -552,11 +551,11 @@ set of artists).</li>
 <span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">student_info</span><span class="op">)</span></span>
 <span><span class="va">good_students</span> <span class="op">&lt;-</span> <span class="va">student_info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">student_grade</span> <span class="op">&gt;</span> <span class="st">'B'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">student_name</span>, <span class="va">student_age</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exercise 4: Adding and Removing Columns</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">student_info</span>, student_major <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Math'</span>, <span class="st">'Science'</span>, <span class="st">'Arts'</span>, <span class="st">'Math'</span>, <span class="st">'Science'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">student_info</span>, <span class="op">-</span><span class="va">student_grade</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exercise 5: Renaming Columns</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  student_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,</span>
@@ -574,7 +573,7 @@ set of artists).</li>
 <span>  student_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>, <span class="st">'C'</span>, <span class="st">'B'</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">student_info</span>, name <span class="op">=</span> <span class="va">student_name</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">student_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  student_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,</span>
 <span>  student_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"David"</span>, <span class="st">"Eva"</span><span class="op">)</span>,</span>
@@ -590,7 +589,7 @@ set of artists).</li>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">student_major</span> <span class="op">!=</span> <span class="st">"Arts"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>id <span class="op">=</span> <span class="va">student_id</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">student_age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exercise 7: Exploratory Data Analysis with dplyr</span></span>
 <span><span class="va">average_age_by_major</span> <span class="op">&lt;-</span> <span class="va">student_info</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">student_major</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -603,15 +602,15 @@ set of artists).</li>
 <h3>Basic Data Visualization<a class="anchor" aria-label="anchor" href="#basic-data-visualization"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="exercise-1-10" class="section level3 unnumbered">
-<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-10"><i class="fas fa-link"></i></a>
+<div id="exercise-1-12" class="section level3 unnumbered">
+<h3>Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-12"><i class="fas fa-link"></i></a>
 </h3>
 <p>Making a Scatter plot:</p>
 <ul>
 <li>load the journals.txt data set and save as Journals data frame</li>
 <li>Work through the following instructions</li>
 </ul>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Journals</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"~/Library/Mobile Documents/com~apple~CloudDocs/Workshops/John Jay/R Workshop/R-workshop-John-Jay/John Jay Workshop Data/journals.txt"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">)</span></span>
@@ -626,12 +625,12 @@ set of artists).</li>
 <span><span class="co">#&gt;  $ foundingyear: int  1986 1986 1987 1991 1972 1994 1995 1968 1987 1949 ...</span></span>
 <span><span class="co">#&gt;  $ subs        : int  14 59 17 2 96 15 14 202 46 46 ...</span></span>
 <span><span class="co">#&gt;  $ field       : chr  "General" "Economic History" "Specialized" "Area Studies" ...</span></span></code></pre></div>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span>, side <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="149-Workshop1_Exercises_solutions_files/figure-html/unnamed-chunk-27-1.png" width="672"></div>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">subs</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">19</span>,</span>
 <span>     col <span class="op">=</span> <span class="st">"blue"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">7</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span>,</span>
 <span>     main <span class="op">=</span> <span class="st">"Library subscriptions"</span><span class="op">)</span></span>
@@ -639,8 +638,8 @@ set of artists).</li>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/rug.html">rug</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Journals</span><span class="op">$</span><span class="va">price</span><span class="op">)</span>, side<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="149-Workshop1_Exercises_solutions_files/figure-html/unnamed-chunk-28-1.png" width="672"></div>
 </div>
-<div id="exercise-2-8" class="section level3 unnumbered">
-<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-8"><i class="fas fa-link"></i></a>
+<div id="exercise-2-10" class="section level3 unnumbered">
+<h3>Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now, try creating your own visualization using the iris dataset. Here’s what you can do:</p>
 <ol style="list-style-type: decimal">
@@ -649,7 +648,7 @@ set of artists).</li>
 <li>Add a title, x-axis label, and y-axis label to your plot.
 Include a legend that indicates which color corresponds to which iris species.</li>
 </ol>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
 <span></span>
@@ -685,24 +684,24 @@ Include a legend that indicates which color corresponds to which iris species.</
 <li><a class="nav-link" href="#workshop-1">Workshop 1</a></li>
 <li><a class="nav-link" href="#exercise-solutions">Exercise solutions</a></li>
 <li>
-<a class="nav-link" href="#exercise-1-7">Exercise 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-2-6">Exercise 2</a></li></ul>
+<a class="nav-link" href="#exercise-1-9">Exercise 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-2-8">Exercise 2</a></li></ul>
 </li>
 <li><a class="nav-link" href="#part-iii">Part III</a></li>
 <li>
-<a class="nav-link" href="#exercise-1-8">Exercise 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-9">Exercise 1:</a></li></ul>
+<a class="nav-link" href="#exercise-1-10">Exercise 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-11">Exercise 1:</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#exercise-2-7">Exercise 2</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercise-2-9">Exercise 2</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#create-a-data-frame-with-at-least-three-columns-and-four-rows.">Create a data frame with at least three columns and four rows.</a></li>
 <li><a class="nav-link" href="#print-the-number-of-rows-and-columns-of-your-data-frame.">Print the number of rows and columns of your data frame.</a></li>
 <li><a class="nav-link" href="#display-summary-statistics-of-your-data-frame.">Display summary statistics of your data frame.</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#exercise-3-2">Exercise 3</a></li>
+<li><a class="nav-link" href="#exercise-3-3">Exercise 3</a></li>
 <li>
-<a class="nav-link" href="#exercise-4-3">Exercise 4</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#exercise-4-4">Exercise 4</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#import-other-data-formats-1">Import other data formats</a></li>
-<li><a class="nav-link" href="#exercise-5-3">Exercise 5</a></li>
+<li><a class="nav-link" href="#exercise-5-4">Exercise 5</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#part-iv">Part IV</a></li>
@@ -710,8 +709,8 @@ Include a legend that indicates which color corresponds to which iris species.</
 <li>
 <a class="nav-link" href="#part-v">Part V</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#basic-data-visualization">Basic Data Visualization</a></li>
-<li><a class="nav-link" href="#exercise-1-10">Exercise 1</a></li>
-<li><a class="nav-link" href="#exercise-2-8">Exercise 2</a></li>
+<li><a class="nav-link" href="#exercise-1-12">Exercise 1</a></li>
+<li><a class="nav-link" href="#exercise-2-10">Exercise 2</a></li>
 </ul>
 </li>
 </ul>
@@ -731,7 +730,7 @@ Include a legend that indicates which color corresponds to which iris species.</
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Non-parametric Test of Bolts</strong>" was written by Dilan Caro. It was last built on 2024-05-03.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-05-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

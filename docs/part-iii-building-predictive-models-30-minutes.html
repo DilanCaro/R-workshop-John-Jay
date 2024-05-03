@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Part III: Building Predictive Models (30 minutes) | Non-parametric Test of Bolts</title>
-<meta name="author" content="Dilan Caro">
+<title>Part III: Building Predictive Models (30 minutes) | R Workshop</title>
+<meta name="author" content="Dilan Morales Caro">
 <meta name="description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
-<meta property="og:title" content="Part III: Building Predictive Models (30 minutes) | Non-parametric Test of Bolts">
+<meta property="og:title" content="Part III: Building Predictive Models (30 minutes) | R Workshop">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dilancaro.github.io/R-workshop-John-Jay/part-iii-building-predictive-models-30-minutes.html">
 <meta property="og:description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Part III: Building Predictive Models (30 minutes) | Non-parametric Test of Bolts">
+<meta name="twitter:title" content="Part III: Building Predictive Models (30 minutes) | R Workshop">
 <meta name="twitter:description" content="Introduction to machine learning in R Brief overview of machine learning: Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Non-parametric Test of Bolts</a>
+        <a href="index.html" title="">R Workshop</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -59,7 +59,6 @@
 <li><a class="" href="part-ii-statistical-analysis.html">Part II: Statistical Analysis</a></li>
 <li><a class="" href="optional-part-v-working-with-dates-and-times-20-minutes.html">(Optional) Part V: Working with Dates and Times (20 minutes)</a></li>
 <li><a class="" href="workshop-1-suplementary-exercises.html">Workshop 1: Suplementary Exercises</a></li>
-<li><a class="" href="workshop-1-suplementary-exercises-1.html">Workshop 1: Suplementary Exercises</a></li>
 <li><a class="" href="part-i-advanced-data-manipulation-with-dplyr-30-minutes.html">Part I: Advanced Data Manipulation with dplyr (30 minutes)</a></li>
 <li><a class="" href="part-ii-text-data-processing-30-minutes.html">Part II: Text Data Processing (30 minutes)</a></li>
 <li><a class="active" href="part-iii-building-predictive-models-30-minutes.html">Part III: Building Predictive Models (30 minutes)</a></li>
@@ -82,7 +81,7 @@
 <h2>Introduction to machine learning in R<a class="anchor" aria-label="anchor" href="#introduction-to-machine-learning-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>Brief overview of machine learning:</em> Machine learning in R involves using statistical techniques to enable computers to improve at tasks with experience. It encompasses a variety of techniques for classification, regression, clustering, and more.</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
 <span><span class="co">#install.packages("caret")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
@@ -104,7 +103,7 @@
 <div id="creating-predictive-models-with-caret" class="section level2 unnumbered">
 <h2>Creating predictive models with caret<a class="anchor" aria-label="anchor" href="#creating-predictive-models-with-caret"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Example: Building a predictive model for the iris dataset</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">Species</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">trainingData</span>, method <span class="op">=</span> <span class="st">"rpart"</span><span class="op">)</span></span>
@@ -199,7 +198,7 @@ library(shiny)</code></pre>
 <p><em>UI Component:</em> The UI has a sliderInput for selecting the mpg range and a tableOutput to display the filtered data.</p>
 <p><em>Server Logic:</em> The reactive function creates a reactive subset of mtcars based on the selected mpg range. The renderTable function then renders this filtered data as a table in the main panel.</p>
 <p><em>Running the App:</em> As with any Shiny app, shinyApp(ui = ui, server = server) runs the app.</p>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Example: A simple Shiny app for displaying a plot</span></span>
 <span></span>
@@ -229,7 +228,7 @@ library(shiny)</code></pre>
 <span><span class="co"># Run the application </span></span>
 <span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 <div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Define UI</span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
@@ -295,7 +294,7 @@ library(shiny)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Non-parametric Test of Bolts</strong>" was written by Dilan Caro. It was last built on 2024-05-03.</p>
+    <p>"<strong>R Workshop</strong>" was written by Dilan Morales Caro. It was last built on 2024-05-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

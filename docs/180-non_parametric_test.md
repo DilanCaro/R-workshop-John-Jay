@@ -1,12 +1,4 @@
----
-title: "Non-parametric Test of Bolts"
-author: "Dilan Caro"
-date: "2024-05-03"
-output: 
-  pdf_document:
-    latex_engine: xelatex
-    extra_dependencies: ["amsmath", "amsthm","amsfonts","geometry"]
----
+
 
 
 

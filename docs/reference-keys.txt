@@ -5,3 +5,16 @@ create-and-format-dates
 difference-between-na-and-nan-in-r
 na-not-available
 nan-not-a-number
+comparing-variances
+paired-t-test
+tests-for-comparing-medians
+mann-whitney-u-test-insectsprays-dataset
+tests-for-proportions
+chi-square-test-of-independence-haireyecolor-dataset
+pearson-correlation-coefficient-using-usjudgeratings-dataset
+spearmans-rank-correlation-using-usjudgeratings-dataset
+working-with-dates-and-times
+create-and-format-dates-1
+as.date
+access-date-components
+advanced-math

@@ -92,3 +92,153 @@ print(paste("Days between first and last measurement:", date_diff))
 #> [1] "Days between first and last measurement: 152"
 ```
 
+
+## Working with dates and times
+
+## Create and format dates
+
+To create a Date object from a simple character string in R, you can use the as.Date() function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):
+
+`%Y`: 4-digit year (1982)
+`%y`: 2-digit year (82)
+`%m`: 2-digit month (01)
+`%d`: 2-digit day of the month (13)
+`%A`: weekday (Wednesday)
+`%a`: abbreviated weekday (Wed)
+`%B`: month (January)
+`%b`: abbreviated month (Jan)
+
+For more information and a full list use `?strptime`
+
+## as.Date()
+
+
+```r
+as.Date('2019-06-05',format = '%Y-%m-%d')
+#> [1] "2019-06-05"
+```
+
+Dates are often stored as integers.
+
+Convert integers to dates by speciying the origin (Day 0).
+
+For example: SAS stores dates at the number of days elapsed since 1 Jan 1960.
+
+
+```r
+as.Date(21705, origin = '1960-01-01')
+#> [1] "2019-06-05"
+```
+## Exercise 1 {-}
+
+Work with the policy_data data set.
+1. Convert the start date (debut_pol) and end date (fin_pol) into R Date objects.
+
+
+```r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+policy_data <- read.csv(file = 'John Jay Workshop Data/PolicyData.csv', sep = ';')
+policy_data$start <- as.Date(policy_data$debut_pol, '%d/%m/%Y')
+policy_data$end <- as.Date(policy_data$fin_pol, '%d/%m/%Y')
+head(policy_data %>% select(c('debut_pol', 'start')))
+#>    debut_pol      start
+#> 1 14/09/1995 1995-09-14
+#> 2 25/04/1996 1996-04-25
+#> 3  1/03/1995 1995-03-01
+#> 4  1/03/1996 1996-03-01
+#> 5 15/01/1997 1997-01-15
+#> 6  1/02/1997 1997-02-01
+```
+
+## format() {-}
+
+
+```r
+today <- as.Date('2019-06-05',
+                format = '%Y-%m-%d')
+format(today, '%A %d %B %Y')
+#> [1] "Wednesday 05 June 2019"
+```
+
+Calculate the duration of a contract.
+
+
+```r
+policy_duration =
+  policy_data$end - policy_data$start
+```
+
+You can add and subtract integers from dates.
+
+```r
+tomorrow = today + 1
+print(tomorrow)
+#> [1] "2019-06-06"
+```
+
+## Lubridate {-}
+
+## Access date components
+
+```r
+# install.packages("lubridate")
+library(lubridate)
+#> 
+#> Attaching package: 'lubridate'
+#> The following objects are masked from 'package:base':
+#> 
+#>     date, intersect, setdiff, union
+```
+
+
+```r
+year(today)
+#> [1] 2019
+```
+Other components are: month(), day(), quarter(), ...
+
+## Advanced math
+
+```r
+today + months(3)
+#> [1] "2019-09-05"
+```
+Other periods are: years() and days().
+
+
+
+```r
+floor_date(today, unit = "month")
+#> [1] "2019-06-01"
+```
+floor_date rounds down to the nearest unit. 
+
+In the example convert daily into monthly data.
+
+## seq() {-}
+
+
+```r
+seq(from = as.Date('2019-01-01'),
+    to = as.Date('2019-12-31'),
+    by = '1 month')
+#>  [1] "2019-01-01" "2019-02-01" "2019-03-01" "2019-04-01"
+#>  [5] "2019-05-01" "2019-06-01" "2019-07-01" "2019-08-01"
+#>  [9] "2019-09-01" "2019-10-01" "2019-11-01" "2019-12-01"
+```
+
+## Exercise 2 {-}
+
+Visualize the exposure contribution by start month of the contract in the policy_data data set.
+1. Add a covariate start_month to the data set. 2. Group the data by start_month.
+3. Calculate the exposure within each group.
+4. Plot the data.
+
